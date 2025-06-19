@@ -2,6 +2,8 @@ import { CTASection } from "@/components/cta-section"
 import { FAQSection, type FAQItem } from "@/components/faq-section"
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
+import SupportSection from "@/components/support-section"
+
 
 const faqs: FAQItem[] = [
   {
@@ -26,7 +28,8 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      <main>
+      <main className="pb-20">
+        <SupportSection />
         <FAQSection faqs={faqs} imageSrc="/images/faq/contact_faq.png" imageAlt="Shopbook Customer Support Team" />
         <CTASection />
       </main>

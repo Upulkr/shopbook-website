@@ -77,7 +77,7 @@ export function HowItWorks() {
             ))}
 
             {/* App download buttons */}
-            <div className="flex space-x-4 pt-4">
+            <div className="flex space-x-4 pt-4 justify-center md:justify-start">
               <a
                 href="https://play.google.com/store/apps/details?id=com.mithushancj.shopbook&hl=en&gl=US"
                 target="_blank"
