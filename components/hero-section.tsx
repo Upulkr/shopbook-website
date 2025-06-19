@@ -2,7 +2,7 @@ import Image from "next/image"
 
 export function HeroSection() {
   return (
-    <section className="bg-white py-20">
+    <section className="bg-white py-10 md:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left content */}
@@ -30,7 +30,7 @@ export function HeroSection() {
                   rel="noopener noreferrer"
                 >
                   <Image
-                    src="/images/google-play-black.png"
+                    src="/images/cta/google-play.png"
                     alt="Get it on Google Play"
                     width={150}
                     height={45}
@@ -39,7 +39,7 @@ export function HeroSection() {
                 </a>
                 <a href="https://apps.apple.com/lk/app/shopbook/id1602633267" target="_blank" rel="noopener noreferrer">
                   <Image
-                    src="/images/app-store-black.png"
+                    src="/images/cta/app-store.png"
                     alt="Download from App Store"
                     width={150}
                     height={45}

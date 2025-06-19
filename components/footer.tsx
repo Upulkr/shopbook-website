@@ -93,7 +93,7 @@ export function Footer() {
                 className="block"
               >
                 <Image
-                  src="/images/google-play-black.png"
+                  src="/images/cta/google-play.png"
                   alt="Get it on Google Play"
                   width={160}
                   height={57}
@@ -111,7 +111,7 @@ export function Footer() {
                 className="block"
               >
                 <Image
-                  src="/images/app-store-black.png"
+                  src="/images/cta/app-store.png"
                   alt="Download from App Store"
                   width={161}
                   height={57}

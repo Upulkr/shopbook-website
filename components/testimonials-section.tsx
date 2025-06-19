@@ -87,29 +87,31 @@ export function TestimonialsSection() {
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 text-center sm:mr-4">
             What Our Users Say
           </h2>
-          <div className="flex space-x-2 relative justify-center sm:justify-end lg:left-[340px]">
-            <button
-              onClick={goToPrevious}
-              className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-colors ${
-                isAtStart
-                  ? "bg-orange-300 text-gray-400 cursor-not-allowed"
-                  : "bg-orange-500 text-orange-600 hover:bg-orange-600"
-              }`}
-              disabled={isAtStart}
-            >
-              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-            </button>
-            <button
-              onClick={goToNext}
-              className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-colors ${
-                isAtEnd
-                  ? "bg-orange-300 text-gray-400 cursor-not-allowed"
-                  : "bg-orange-500 text-white hover:bg-orange-600"
-              }`}
-              disabled={isAtEnd}
-            >
-              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-            </button>
+          <div className="overflow-x-auto -mx-4 md:mx-0">
+            <div className="flex space-x-4 pt-4 px-4 md:px-0 flex-nowrap">
+              <button
+                onClick={goToPrevious}
+                className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-colors ${
+                  isAtStart
+                    ? "bg-orange-300 text-gray-400 cursor-not-allowed"
+                    : "bg-orange-500 text-orange-600 hover:bg-orange-600"
+                }`}
+                disabled={isAtStart}
+              >
+                <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+              </button>
+              <button
+                onClick={goToNext}
+                className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-colors ${
+                  isAtEnd
+                    ? "bg-orange-300 text-gray-400 cursor-not-allowed"
+                    : "bg-orange-500 text-white hover:bg-orange-600"
+                }`}
+                disabled={isAtEnd}
+              >
+                <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+              </button>
+            </div>
           </div>
         </div>
 

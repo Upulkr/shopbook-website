@@ -7,21 +7,25 @@ const steps = [
     number: 1,
     title: "Create Invoices",
     description: "Generate invoices for cash or credit sales with clear due dates.",
+    image: "/images/how-shopbook-works/create-invoices.png",
   },
   {
     number: 2,
     title: "Send via WhatsApp or SMS",
     description: "Instantly deliver invoices to your customers via WhatsApp or SMS.",
+    image: "/images/how-shopbook-works/send-invoices.png",
   },
   {
     number: 3,
     title: "Set Automatic Reminders",
     description: "Ensure timely payments with automated, polite reminders.",
+    image: "/images/how-shopbook-works/automatic-reminder.png",
   },
   {
     number: 4,
     title: "Generate Reports",
     description: "Access comprehensive reports and payment summaries anytime.",
+    image: "/images/how-shopbook-works/generate-reports.png",
   },
 ]
 
@@ -105,18 +109,20 @@ export function HowItWorks() {
 
           {/* Mobile mockup */}
           <div className="flex flex-col items-center space-y-6">
-            <div className="relative">
-              <div className="w-64 h-[500px] bg-gray-900 rounded-[3rem] p-2">
-                <div className="w-full h-full bg-white rounded-[2.5rem] overflow-hidden">
+            <div className="relative ">
+             
+                <div className=" h-[500px] w-[250px]  overflow-hidden">
                   <Image
-                    src={`/images/step${activeStep + 1}-create-invoice.png`}
+                    src={steps[activeStep].image}
                     alt={`Step ${activeStep + 1}: ${steps[activeStep].title}`}
                     width={250}
                     height={500}
-                    className="w-full h-full object-cover rounded-[2.5rem]"
+                    className="w-full h-full object-cover  "
+                    unoptimized
+                    priority
                   />
                 </div>
-              </div>
+             
             </div>
 
             {/* Step indicators */}
