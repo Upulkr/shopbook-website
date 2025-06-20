@@ -130,7 +130,7 @@ export function Footer() {
         {/* Bottom section */}
         <div className="border-t border-gray-200 mt-8 sm:mt-10 md:mt-12 pt-6 sm:pt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0">
           <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-6">
-            <p className="text-sm text-gray-600">© 2024 Shopbook. All rights reserved.</p>
+          <p className="text-sm text-gray-600">© {new Date().getFullYear()} Shopbook. All rights reserved.</p>
             <Link href="/privacy" className="text-sm text-gray-600 hover:text-blue-600">
               Privacy Policy
             </Link>

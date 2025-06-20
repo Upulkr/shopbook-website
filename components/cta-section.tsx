@@ -23,10 +23,24 @@ export function CTASection() {
             {/* App download buttons */}
             <div className="flex gap-4 items-center">
               <div>
-                <Image src="/images/cta/google-play.png" alt="Google Play" width={150} height={45} priority />
+              <a
+                href="https://play.google.com/store/apps/details?id=com.mithushancj.shopbook&hl=en&gl=US"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              > <Image src="/images/cta/google-play.png" alt="Google Play" width={150} height={45} priority /></a>
+               
+                
               </div>
+
               <div>
-                <Image src="/images/cta/app-store.png" alt="App Store" width={150} height={45} priority />
+              <a
+                href="https://apps.apple.com/lk/app/shopbook/id1602633267"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >   <Image src="/images/cta/app-store.png" alt="App Store" width={150} height={45} priority /></a>
+            
               </div>
             </div>
           </div>

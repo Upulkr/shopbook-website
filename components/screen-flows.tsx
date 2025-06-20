@@ -40,13 +40,13 @@ export function ScreenFlows({ topics, selectedTopic, setSelectedTopic }: ScreenF
                       className="w-[30px] h-[30px]"
                     />
                   </div>
-                  <div>
+                  <div className="w-full">
                     <h3
-                      className="text-gray-900 text-base leading-none  "
+                      className="text-gray-900 text-base leading-none text-[12px] min-w-[100px] text-wrap sm:text-[16px] "
                       style={{
                         fontFamily: "Sora",
                         fontWeight: 600,
-                        fontSize: "12px",
+        
                         lineHeight: "100%",
                         letterSpacing: "0%",
                       }}
@@ -55,7 +55,7 @@ export function ScreenFlows({ topics, selectedTopic, setSelectedTopic }: ScreenF
                     </h3>
                   </div>
                 </div>
-                <div className="bg-blue-100 text-blue-600 px-2 md:px-3 py-1 rounded-full text-xs md:text-sm font-medium max-w-20 text-center">
+                <div className="bg-blue-100 text-blue-600 px-2 md:px-3 py-1 rounded-full text-xs md:text-sm font-medium  text-center text-nowrap">
                   {topic.steps} steps
                 </div>
               </div>
