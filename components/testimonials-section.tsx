@@ -1,8 +1,10 @@
 "use client"
-import { useState, useEffect } from "react"
 import { Card, CardContent } from "@/components/ui/card"
-import { ChevronLeft, ChevronRight, Play, X } from "lucide-react"
+import { getYouTubeVideoId, handleVideoClick } from "@/lib/youtube-utils"
+import { ChevronLeft, ChevronRight, Play } from "lucide-react"
 import Image from "next/image"
+import { useEffect, useState } from "react"
+import VideoModel from "./video-model"
 
 type Video = {
   name: string
@@ -82,25 +84,6 @@ export function TestimonialsSection() {
 
   // const visibleTestimonials = testimonials.slice(currentIndex, currentIndex + cardsPerView)
 
-  const getYouTubeEmbedUrl = (youtubeUrl: string) => {
-    if(!youtubeUrl)return
-    // Extract video ID from YouTube URL
-    const videoIdMatch = youtubeUrl.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\n?#]+)/)
-    const videoId = videoIdMatch ? videoIdMatch[1] : 'bF2rcPYpPMs' // fallback to the provided video
-    return `https://www.youtube.com/embed/${videoId}?autoplay=1`
-  }
-
-  const getYouTubeVideoId = (youtubeUrl: string) => {
-    if(!youtubeUrl)return
-    // Extract video ID from YouTube URL
-    const videoIdMatch = youtubeUrl.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\n?#]+)/)
-    return videoIdMatch ? videoIdMatch[1] : 'bF2rcPYpPMs' // fallback to the provided video
-  }
-  const handleVideoClick = (videoIndex: number, video: Video) => {
-    if (video.youtubeUrl) {
-      setPlayingVideo({ videoIndex, video })
-    }
-  }
   const closeVideo = () => {
     setPlayingVideo(null)
   }
@@ -176,7 +159,7 @@ export function TestimonialsSection() {
               <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center rounded-lg">
                 <div 
                   className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors cursor-pointer"
-                  onClick={() => handleVideoClick(index, testimonial)}
+                  onClick={() => handleVideoClick(index, testimonial, setPlayingVideo)}
                 >
                   <Play className="w-6 h-6 text-white ml-1" />
                 </div>
@@ -221,38 +204,9 @@ export function TestimonialsSection() {
             ))}
           </div>
         )}
-           {playingVideo && (
-        <div 
-          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 px-1"
-          onClick={closeVideo}
-        >
-          <div 
-            className="relative rounded-lg max-w-4xl w-full max-h-[90vh] overflow-hidden"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              onClick={closeVideo}
-              className="absolute -top-0 right-4 w-8 h-8 bg-black bg-opacity-75 text-white rounded-full flex items-center justify-center hover:bg-opacity-90 z-10"
-            >
-              <X className="w-5 h-5" />
-            </button>
-            <div className="px-2">
-              <h3 className="text-xl font-bold text-gray-900 mb-1">{playingVideo.video.name}</h3>
-              <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-                <iframe
-                  src={getYouTubeEmbedUrl(playingVideo.video.youtubeUrl ||"video not available")}
-                  title={playingVideo.video.name}
-                  className="absolute top-0 left-0 w-full h-full"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  loading="lazy"
-                />
-              </div>
-              <p className="text-gray-600 mt-1 text-center">{playingVideo.video.role} at {playingVideo.video.company}</p>
-            </div>
-          </div>
-        </div>
+           {/* Video Modal Popup */}
+      {playingVideo && (
+        <VideoModel closeVideo={closeVideo} playingVideo={playingVideo} />
       )}
       </div>
     </section>
