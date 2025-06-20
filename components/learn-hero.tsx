@@ -287,7 +287,7 @@ export function LearnHero() {
               onClick={() => setActiveTab("video-tutorials")}
               className={`items-center px-4 md:px-6 rounded-md font-medium transition-colors flex-1 h-[35px] ${
                 activeTab === "video-tutorials"
-                  ? "bg-white  shadow-xl"
+                  ? "bg-white  shadow-lg"
                   : "text-gray-[#697386] hover:text-gray-900"
               }`}
             >
@@ -297,7 +297,7 @@ export function LearnHero() {
               onClick={() => setActiveTab("screen-flows")}
               className={`items-center px-4 md:px-6  rounded-md font-medium transition-colors flex-1 h-[35px] ${
                 activeTab === "screen-flows"
-                  ? "bg-white shadow-xl"
+                  ? "bg-white shadow-lg"
                   : "text-gray-[#697386] hover:text-gray-900"
               }`}
             >

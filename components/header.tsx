@@ -68,8 +68,8 @@ export function Header() {
             <nav className="flex items-center space-x-8">
               <Link
                 href="/"
-                className={`font-medium hover:text-blue-700 ${
-                  pathname === "/" ? "text-blue-600" : "text-gray-600"
+                className={` hover:text-blue-700 ${
+                  pathname === "/" ? "text-blue-600 font-semibold" : "text-normal"
                 }`}
               >
                 Home
@@ -78,8 +78,8 @@ export function Header() {
                 href="/learn"
                 className={`hover:text-blue-600 ${
                   pathname === "/learn"
-                    ? "text-blue-600 font-medium"
-                    : "text-gray-600"
+                    ? "text-blue-600 font-semibold"
+                    : "text-normal"
                 }`}
               >
                 Learn
@@ -88,22 +88,22 @@ export function Header() {
                 href="/contact"
                 className={`hover:text-blue-600 ${
                   pathname === "/contact"
-                    ? "text-blue-600 font-medium"
-                    : "text-gray-600"
+                    ? "text-blue-600 font-semibold"
+                    : "text-normal"
                 }`}
               >
                 Contact Us
               </Link>
             </nav>
-            <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium" onClick={handleDownloadApp}>
+            <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg " onClick={handleDownloadApp}>
               Download Now
             </Button>
             <div className="relative" >
               <button
                 className={`
                   flex items-center space-x-2 px-3 py-2 
-                  text-gray-700 hover:text-blue-600 transition
-                  font-medium 
+                   hover:text-blue-600 transition
+            
                   
                 `}
                 onClick={() => setIsLanguageMenuOpen((open) => !open)}
@@ -140,8 +140,8 @@ export function Header() {
                         className={`
                           w-full text-left px-4 py-2
                           hover:bg-blue-50 hover:text-blue-700
-                          text-gray-700 transition
-                          ${currentLanguage === language ? "bg-blue-50 text-blue-700 font-semibold" : ""}
+                           transition
+                        
                           rounded-md
                         `}
                         role="option"
@@ -194,7 +194,7 @@ export function Header() {
                     className={`hover:text-blue-700 py-2 ${
                       pathname === "/"
                         ? "text-blue-600 font-medium"
-                        : "text-gray-600"
+                        : "text-normal"
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
@@ -205,7 +205,7 @@ export function Header() {
                     className={`hover:text-blue-600 py-2 ${
                       pathname === "/learn"
                         ? "text-blue-600 font-medium"
-                        : "text-gray-600"
+                        : "text-normal"
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
@@ -216,7 +216,7 @@ export function Header() {
                     className={`hover:text-blue-600 py-2 ${
                       pathname === "/contact"
                         ? "text-blue-600 font-medium"
-                        : "text-gray-600"
+                        : "text-normal"
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >

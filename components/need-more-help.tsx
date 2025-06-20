@@ -9,11 +9,11 @@ const NeedMoreHelp = () => {
     <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 flex flex-col items-start gap-6 md:gap-10 lg:gap-12">
         <div className="w-full border border-[#FFEEE1] rounded-3xl bg-[#FFFBF7] shadow-sm p-4">
-          <div className="max-w-5xl mx-auto px-4 text-center mb-8 sm:mb-12 md:mb-14">
+          <div className="max-w-5xl mx-auto px-4 text-center mb-8 sm:mb-12 md:mb-10 relative top-2">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-2 text-[#23272E]">
               Need More Help?
             </h2>
-            <p className="text-xs sm:text-sm md:text-base text-[#8B8B8B] max-w-xl mx-auto">
+            <p className="text-xs sm:text-sm md:text-base text-[#8B8B8B] max-w-xl mx-auto relative top-2">
               We're here to support your success
             </p>
           </div>

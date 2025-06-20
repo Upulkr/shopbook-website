@@ -36,10 +36,17 @@ const testimonials = [
   },
   {
     name: "Charith Aravinda",
-    role: "New Mahara",
+    role: "Business Partner",
     company: "Enterprises",
     image: "/placeholder.svg?height=200&width=200",
     youtubeUrl: "https://www.youtube.com/watch?v=BaPV6YNhrQ0&list=PLmLMrF3cFazQM6PvExbrd-ZVZNTXXZ-46&index=1"
+  },
+  {
+    name: "A.G. Nilupul Viraj Gamage",
+    role: "Milkbar",
+    company: "Enterprises",
+    image: "/placeholder.svg?height=200&width=200",
+    youtubeUrl: "https://www.youtube.com/watch?v=R1IMB-QIx3k"
   },
 
 ]

@@ -66,7 +66,7 @@ export function ScreenFlows({ topics, selectedTopic, setSelectedTopic }: ScreenF
 
       {/* Right side - Phone mockup */}
       <div className="bg-[#F6F6F6] flex justify-center lg:justify-end mt-8 lg:mt-0 border border-gray-200 rounded-[14px] p-2 sm:p-4 md:p-6 w-full lg:w-[633px] lg:h-[502px]">
-        <div className="bg-[#F6F6F6] relative flex items-center justify-center h-[210px] sm:h-[220px] md:h-[400px] lg:h-[470px] w-full">
+        <div className="bg-[#F6F6F6] relative flex items-center justify-center h-[300px] sm:h-[220px] md:h-[400px] lg:h-[470px] w-full">
           <Image
             src={
               selectedTopic === "getting-started"
