@@ -216,11 +216,11 @@ export function VideoTutorials({
       {/* Video Modal Popup */}
       {playingVideo && (
         <div 
-          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 px-1"
+          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-100 px-1"
           onClick={closeVideo}
         >
           <div 
-            className="relative rounded-lg max-w-4xl w-full max-h-[90vh] overflow-hidden"
+            className="relative rounded-lg max-w-4xl w-full max-h-[100vh] overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             <button
