@@ -88,7 +88,7 @@ export function HowItWorks() {
                 rel="noopener noreferrer"
               >
                 <Image
-                  src="/images/google-play-black.png"
+                  src="/images/cta/google-play-black.png"
                   alt="Get it on Google Play"
                   width={150}
                   height={45}
@@ -97,7 +97,7 @@ export function HowItWorks() {
               </a>
               <a href="https://apps.apple.com/lk/app/shopbook/id1602633267" target="_blank" rel="noopener noreferrer">
                 <Image
-                  src="/images/app-store-black.png"
+                  src="/images/cta/app-store-black.png"
                   alt="Download from App Store"
                   width={150}
                   height={45}

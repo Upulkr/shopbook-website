@@ -70,7 +70,7 @@ export function ScreenFlows({ topics, selectedTopic, setSelectedTopic }: ScreenF
           <Image
             src={
               selectedTopic === "getting-started"
-                ? "/images/getting-started-tutorial.png"
+                ? "/images/ui/getting-started-tutorial.png"
                 : `/images/learn-${selectedTopic}.png`
             }
             width={160}

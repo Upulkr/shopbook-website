@@ -51,7 +51,7 @@ export function HeroSection() {
               {/* Free label */}
               <div className="inline-block">
                 <Image
-                  src="/images/free-label.png"
+                  src="/images/ui/free-label.png"
                   alt="100% Free • No Credit Card Required"
                   width={300}
                   height={40}
@@ -64,7 +64,7 @@ export function HeroSection() {
           {/* Right content - Hero image */}
           <div className="relative flex justify-center">
             <Image
-              src="/images/hero-main.png"
+              src="/images/hero/hero-main.png"
               alt="Happy business owner using Shopbook app with money"
               width={600}
               height={500}

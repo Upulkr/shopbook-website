@@ -58,7 +58,7 @@ export function SocialProof() {
                 <div className="h-6 flex items-center justify-center relative top-3 sm:top-6">
                   {item.hasAvatars && (
                     <Image
-                      src="/images/user-avatars.png"
+                      src="/images/ui/user-avatars.png"
                       alt="User avatars"
                       width={100}
                       height={35}

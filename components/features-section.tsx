@@ -86,7 +86,7 @@ export function FeaturesSection() {
     {/* Mobile phone image - Only visible on mobile, positioned above content */}
     <div className="md:hidden flex justify-center mb-4">
       <img 
-        src="/images/phone-secure.png" 
+        src="/images/features/phone-secure.png" 
         alt="Shopbook mobile app" 
         className="w-[120px] h-[120px] sm:w-[150px] sm:h-[150px]" 
       />
@@ -119,7 +119,7 @@ export function FeaturesSection() {
     {/* Mobile hand with cash image - Only visible on mobile, positioned below button */}
     <div className="md:hidden flex justify-center mt-4">
       <img 
-        src="/images/money-hand.png" 
+        src="/images/features/money-hand.png" 
         alt="Money in hand" 
         className="w-[120px] h-[120px] sm:w-[150px] sm:h-[150px]" 
       />
@@ -131,7 +131,7 @@ export function FeaturesSection() {
     <div className="absolute inset-y-0 left-0 flex items-center z-10">
       <div className="flex-shrink-0">
         <img 
-          src="/images/phone-secure.png" 
+          src="/images/features/phone-secure.png" 
           alt="Shopbook mobile app" 
           className="lg:w-[236px] lg:h-[236px] md:w-[180px] md:h-[180px]" 
         />
@@ -140,7 +140,7 @@ export function FeaturesSection() {
     <div className="absolute inset-y-0 right-0 flex items-center z-10">
       <div className="flex-shrink-0">
         <img 
-          src="/images/money-hand.png" 
+          src="/images/features/money-hand.png" 
           alt="Money in hand" 
           className="lg:w-[236px] lg:h-[236px] md:w-[180px] md:h-[180px]" 
         />
