@@ -79,6 +79,44 @@ const videoSections = [
         youtubeUrl:
           "https://www.youtube.com/watch?v=bF2rcPYpPMs&list=PLmLMrF3cFazRqVfjFXkD8hOY3RfiGfm20&index=1",
       },
+      {
+        id: "a",
+        title: "Create a invoice with Shopbook app",
+        description: "Getting statr to create invoice",
+        thumbnail: "",
+        duration: "4:20",
+        youtubeUrl:
+          "https://www.youtube.com/watch?v=G_oyr4NuSfQ&list=PLmLMrF3cFazRqVfjFXkD8hOY3RfiGfm20&index=2",
+      },
+      {
+        id: "b",
+        title: "How to Create a invoice with few seconds?",
+        description:
+          "Learn how to create a invoice with in few seconds",
+        thumbnail: "",
+        duration: "3:45",
+        youtubeUrl:
+          "https://www.youtube.com/watch?v=bF2rcPYpPMs&list=PLmLMrF3cFazRqVfjFXkD8hOY3RfiGfm20&index=1",
+      },
+      {
+        id: "c",
+        title: "Create a invoice with Shopbook app",
+        description: "Getting statr to create invoice",
+        thumbnail: "",
+        duration: "4:20",
+        youtubeUrl:
+          "https://www.youtube.com/watch?v=G_oyr4NuSfQ&list=PLmLMrF3cFazRqVfjFXkD8hOY3RfiGfm20&index=2",
+      },
+      {
+        id: "d",
+        title: "How to Create a invoice with few seconds?",
+        description:
+          "Learn how to create a invoice with in few seconds",
+        thumbnail: "",
+        duration: "3:45",
+        youtubeUrl:
+          "https://www.youtube.com/watch?v=bF2rcPYpPMs&list=PLmLMrF3cFazRqVfjFXkD8hOY3RfiGfm20&index=1",
+      },
       
     
     ],
@@ -92,6 +130,7 @@ const videoSections = [
         description: "How to login into Shopbook App",
         thumbnail: "",
         duration: "0:58",
+        youtubeUrl: "https://www.youtube.com/watch?v=oFC2Xf1WsPQ&list=PLmLMrF3cFazR9GivtbsPqsqyZNzXJJtxW&index=4"
       },
       {
         id: "how-to-login-existing-user",
@@ -106,53 +145,53 @@ const videoSections = [
    
     ],
   },
-  // {
-  //   title: "Items Adding",
-  //   videos: [
-  //     {
-  //       id: "payment-tracking-3",
-  //       title: "Payment Tracking & Reports",
-  //       description: "Monitor payments and generate detailed business reports",
-  //       thumbnail: "/images/video-tutorial-4.png",
-  //       duration: "5:30",
-  //     },
-  //     {
-  //       id: "add-items-invoice-3",
-  //       title: "Add items when creating an invoice",
-  //       description: "Send WhatsApp and SMS reminders to get paid faster",
-  //       thumbnail: "/images/video-tutorial-2.png",
-  //       duration: "3:10",
-  //     },
-  //     {
-  //       id: "payment-tracking-4",
-  //       title: "Payment Tracking & Reports",
-  //       description: "Monitor payments and generate detailed business reports",
-  //       thumbnail: "/images/video-tutorial-4.png",
-  //       duration: "5:30",
-  //     },
-  //     {
-  //       id: "add-items-invoice-4",
-  //       title: "Add items when creating an invoice",
-  //       description: "Send WhatsApp and SMS reminders to get paid faster",
-  //       thumbnail: "/images/video-tutorial-2.png",
-  //       duration: "3:10",
-  //     },
-  //     {
-  //       id: "payment-tracking-5",
-  //       title: "Payment Tracking & Reports",
-  //       description: "Monitor payments and generate detailed business reports",
-  //       thumbnail: "/images/video-tutorial-4.png",
-  //       duration: "5:30",
-  //     },
-  //     {
-  //       id: "add-items-invoice-5",
-  //       title: "Add items when creating an invoice",
-  //       description: "Send WhatsApp and SMS reminders to get paid faster",
-  //       thumbnail: "/images/video-tutorial-2.png",
-  //       duration: "3:10",
-  //     },
-  //   ],
-  // },
+  {
+    title: "Items Adding",
+    videos: [
+      // {
+      //   id: "payment-tracking-3",
+      //   title: "Payment Tracking & Reports",
+      //   description: "Monitor payments and generate detailed business reports",
+      //   thumbnail: "/images/video-tutorial-4.png",
+      //   duration: "5:30",
+      // },
+      // {
+      //   id: "add-items-invoice-3",
+      //   title: "Add items when creating an invoice",
+      //   description: "Send WhatsApp and SMS reminders to get paid faster",
+      //   thumbnail: "/images/video-tutorial-2.png",
+      //   duration: "3:10",
+      // },
+      // {
+      //   id: "payment-tracking-4",
+      //   title: "Payment Tracking & Reports",
+      //   description: "Monitor payments and generate detailed business reports",
+      //   thumbnail: "/images/video-tutorial-4.png",
+      //   duration: "5:30",
+      // },
+      // {
+      //   id: "add-items-invoice-4",
+      //   title: "Add items when creating an invoice",
+      //   description: "Send WhatsApp and SMS reminders to get paid faster",
+      //   thumbnail: "/images/video-tutorial-2.png",
+      //   duration: "3:10",
+      // },
+      // {
+      //   id: "payment-tracking-5",
+      //   title: "Payment Tracking & Reports",
+      //   description: "Monitor payments and generate detailed business reports",
+      //   thumbnail: "/images/video-tutorial-4.png",
+      //   duration: "5:30",
+      // },
+      // {
+      //   id: "add-items-invoice-5",
+      //   title: "Add items when creating an invoice",
+      //   description: "Send WhatsApp and SMS reminders to get paid faster",
+      //   thumbnail: "/images/video-tutorial-2.png",
+      //   duration: "3:10",
+      // },
+    ],
+  },
 ];
 
 export function LearnHero() {
@@ -239,16 +278,16 @@ export function LearnHero() {
         {/* Tabs */}
         <div className="flex justify-center mb-8 md:mb-12 mx-auto">
           <div
-            className="bg-blue-50 rounded-lg p-1 shadow-sm border border-gray-200 mx-auto flex items-center justify-center w-full max-w-[484px]"
+            className="bg-blue-50 rounded-lg p-2 shadow-sm border border-gray-200 mx-auto flex items-center justify-center w-full max-w-[484px]"
             style={{
-              height: "65px",
+              height: "50px",
             }}
           >
             <button
               onClick={() => setActiveTab("video-tutorials")}
-              className={`px-4 md:px-6 py-3 rounded-md font-medium transition-colors flex-1 h-[49px] ${
+              className={`items-center px-4 md:px-6 rounded-md font-medium transition-colors flex-1 h-[35px] ${
                 activeTab === "video-tutorials"
-                  ? "bg-white "
+                  ? "bg-white  shadow-xl"
                   : "text-gray-[#697386] hover:text-gray-900"
               }`}
             >
@@ -256,9 +295,9 @@ export function LearnHero() {
             </button>
             <button
               onClick={() => setActiveTab("screen-flows")}
-              className={`px-4 md:px-6 py-3 rounded-md font-medium transition-colors flex-1 h-[49px] ${
+              className={`items-center px-4 md:px-6  rounded-md font-medium transition-colors flex-1 h-[35px] ${
                 activeTab === "screen-flows"
-                  ? "bg-white"
+                  ? "bg-white shadow-xl"
                   : "text-gray-[#697386] hover:text-gray-900"
               }`}
             >

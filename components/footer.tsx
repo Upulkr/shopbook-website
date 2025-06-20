@@ -51,13 +51,14 @@ export function Footer() {
                   href={icon.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:opacity-80 cursor-pointer border border-gray-100 flex items-center justify-center"
+                  className="hover:opacity-80 cursor-pointer border border-gray-100 flex items-center justify-center bg-blue-600 bg-opacity-10
+"
                   style={{
                     width: "46px",
                     height: "46px",
                     borderWidth: "1px",
                     borderRadius: "5px",
-                    backgroundColor: "#2563EB3D",
+                   
                   }}
                 >
                   <Image
@@ -75,8 +76,8 @@ export function Footer() {
           {/* Get in Touch */}
           <div className="space-y-4 relative lg:left-20">
             <h3 className="font-semibold text-gray-900">Get in Touch</h3>
-            <div className="space-y-2 text-sm text-gray-600">
-              <p>📧 info@shopbook.lk</p>
+            <div className="space-y-2 text-sm text-gray-600 ">
+             
               <p>📞 +94 77 123 4567</p>
               <p>📍 Millennium Tower (Kelly Felder Building), 2nd Floor, 345 Galle Rd, Colombo 00300, Sri Lanka.</p>
             </div>

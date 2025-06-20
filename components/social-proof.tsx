@@ -6,7 +6,7 @@ export function SocialProof() {
     {
       id: "downloads",
       icon: "avatars",
-      mainText: "15K+",
+      subtitle: "15K+",
       mainTextColor: "text-pink-600",
       title: "Downloads",
       hasAvatars: true,
@@ -42,7 +42,7 @@ export function SocialProof() {
     <section className="py-0 bg-white">
       {/* Full width background */}
       <div className="w-full bg-[#F2F6FE] py-8 md:py-10 lg:h-[137px] lg:absolute lg:top-[605px] lg:left-[1px] relative flex items-center justify-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-5">
           <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-6 sm:gap-8 md:gap-12 lg:gap-16 text-center">
             {socialProofData.map((item) => (
               <div
@@ -55,23 +55,23 @@ export function SocialProof() {
                 "
               >
                 {/* Fixed height container for icons - ALL ITEMS SAME HEIGHT */}
-                <div className="h-6 flex items-center justify-center relative top-3 sm:top-5">
+                <div className="h-6 flex items-center justify-center relative top-3 sm:top-6">
                   {item.hasAvatars && (
                     <Image
                       src="/images/user-avatars.png"
                       alt="User avatars"
                       width={100}
-                      height={32}
-                      className="h-6 w-auto align-baseline"
+                      height={35}
+                      className="h-7 w-auto align-baseline"
                       style={{ verticalAlign: "baseline" }}
                     />
                   )}
                   {item.hasStars && (
                     <div className="flex justify-center space-x-1">
                       {[...Array(4)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                        <Star key={i} className="w-4 h-7 fill-yellow-400 text-yellow-400 relative sm:top-1" />
                       ))}
-                      <Star className="w-4 h-4 fill-yellow-400 text-yellow-400 opacity-50" />
+                      <Star className="w-4 h-7 fill-yellow-400 text-yellow-400 opacity-50  relative sm:top-1" />
                     </div>
                   )}
                 </div>
@@ -81,7 +81,7 @@ export function SocialProof() {
                   <div
                     className={`
                       text-lg sm:xl:text-2xl
-                      ${item.id === "downloads" ? "relative top-3 sm:top-5 lg:top-8" : ""}
+                      ${item.id === "downloads" ? "relative top-3 sm:top-5 lg:top-5" : ""}
                       ${item.mainTextColor} font-bold leading-none
                     `}
                   >
@@ -93,8 +93,8 @@ export function SocialProof() {
                 <div className="h-5 sm:h-6 flex items-center justify-center">
                   {item.subtitle && (
                     <div className={`
-                      text-base sm:xl:text-lg font-bold text-gray-900 leading-none
-                      ${item.id === "rating" ? "relative sm:xl:text-2xl" : ""}
+                      text-base sm:xl:text-[24px] font-bold  leading-none 
+                      ${item.id === "rating" ? "relative sm:xl:text-2xl" : item.id === "downloads" ?"text-[#D6336C]":""}
                     `}>
                       {item.subtitle}
                     </div>
@@ -103,7 +103,7 @@ export function SocialProof() {
 
                 {/* Fixed height container for titles - ALL ITEMS SAME HEIGHT */}
                 <div className="h-7 sm:h-8 flex items-center justify-center">
-                  <div className="text-gray-600 font-medium text-center text-xs sm:text-sm leading-tight">
+                  <div className="text-gray-600 font-medium text-center text-xs sm:text-sm xl:text-lg leading-tight">
                     {item.title}
                   </div>
                 </div>

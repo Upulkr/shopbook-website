@@ -83,12 +83,12 @@ export function TestimonialsSection() {
   return (
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-8">
-        <div className="flex flex-col sm:flex-row justify-center items-center mx-auto mb-6 sm:mb-8 md:mb-12 space-y-3 sm:space-y-0">
+        <div className="flex  sm:flex-row justify-center  mx-auto mb-6 sm:mb-8 md:mb-12 space-y-3 sm:space-y-0 items-baseline space-x-1">
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 text-center sm:mr-4">
             What Our Users Say
           </h2>
-          <div className="overflow-x-auto -mx-4 md:mx-0">
-            <div className="flex space-x-4 pt-4 px-4 md:px-0 flex-nowrap">
+          <div className="overflow-x-auto -mx-4 md:mx-0 relative left-[20px] md:left-[110px] lg:left-[200px] xl:left-[320px] ">
+            <div className="flex space-x-3 sm:space-x-4 pt-4 px-4 md:px-0 flex-nowrap">
               <button
                 onClick={goToPrevious}
                 className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-colors ${
@@ -116,39 +116,42 @@ export function TestimonialsSection() {
         </div>
 
         {/* Swiper Container */}
-        <div className="overflow-hidden">
-          <div
-            className="flex transition-transform duration-300 ease-in-out"
-            style={{
-              transform: `translateX(-${(currentIndex * 100) / cardsPerView}%)`,
-            }}
-          >
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 px-3"
-                style={{ width: isMobile ? "100%" : `${100 / cardsPerView}%` }}
-              >
-                <Card className="bg-white border-0 shadow-sm h-full">
-                  <CardContent className="p-6 text-left space-y-4">
-                    <Image
-                      src={testimonial.image || "/placeholder.svg"}
-                      alt={testimonial.name}
-                      width={200}
-                      height={200}
-                      className="w-full h-48 rounded-lg object-cover"
-                    />
-                    <div className="space-y-1 text-center">
-                      <h3 className="font-semibold text-gray-900 text-lg">{testimonial.name}</h3>
-                      <p className="text-sm text-gray-600">{testimonial.role}</p>
-                      <p className="text-sm text-gray-600">{testimonial.company}</p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            ))}
-          </div>
-        </div>
+        <div className="overflow-x-auto hide-scrollbar"style={{
+    scrollbarWidth: "none",       // Firefox
+    msOverflowStyle: "none",      // IE/Edge
+  }}>
+  <div
+    className="flex transition-transform duration-300 ease-in-out"
+    style={{
+      transform: `translateX(-${(currentIndex * 100) / cardsPerView}%)`,
+    }}
+  >
+    {testimonials.map((testimonial, index) => (
+      <div
+        key={index}
+        className="flex-shrink-0 px-3"
+        style={{ width: isMobile ? "100%" : `${100 / cardsPerView}%` }}
+      >
+        <Card className="bg-white border-0 shadow-sm h-full">
+          <CardContent className="p-6 text-left space-y-4">
+            <Image
+              src={testimonial.image || "/placeholder.svg"}
+              alt={testimonial.name}
+              width={200}
+              height={200}
+              className="w-full h-48 rounded-lg object-cover"
+            />
+            <div className="space-y-1 text-center">
+              <h3 className="font-semibold text-gray-900 text-lg">{testimonial.name}</h3>
+              <p className="text-sm text-gray-600">{testimonial.role}</p>
+              <p className="text-sm text-gray-600">{testimonial.company}</p>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    ))}
+  </div>
+</div>
 
         {/* Pagination Dots */}
         <div className="hidden md:flex justify-center mt-8 space-x-2">

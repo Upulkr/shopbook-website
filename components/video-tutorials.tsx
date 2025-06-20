@@ -1,5 +1,4 @@
-import Image from "next/image"
-import { Play, ChevronLeft, ChevronRight, X } from "lucide-react"
+import { ChevronLeft, ChevronRight, Play, X } from "lucide-react"
 import React, { useState } from "react"
 
 type Video = {
@@ -29,8 +28,8 @@ export function VideoTutorials({
   setCurrentVideoIndex,
   isMobile,
 }: VideoTutorialsProps) {
-  const videosPerView = isMobile ? 1 : 3
-  const [playingVideo, setPlayingVideo] = useState<{ sectionIndex: number; videoIndex: number } | null>(null)
+  const videosPerView = isMobile ? 1 : 4
+  const [playingVideo, setPlayingVideo] = useState<{ sectionIndex: number; videoIndex: number; video: Video } | null>(null)
 
   const goToPreviousVideo = (sectionIndex: number) => {
     setCurrentVideoIndex((prev) => {
@@ -57,7 +56,7 @@ export function VideoTutorials({
 
   const handleVideoClick = (sectionIndex: number, videoIndex: number, video: Video) => {
     if (video.youtubeUrl) {
-      setPlayingVideo({ sectionIndex, videoIndex })
+      setPlayingVideo({ sectionIndex, videoIndex, video })
     }
   }
 
@@ -66,6 +65,7 @@ export function VideoTutorials({
   }
 
   const getYouTubeEmbedUrl = (youtubeUrl: string) => {
+    if(!youtubeUrl)return
     // Extract video ID from YouTube URL
     const videoIdMatch = youtubeUrl.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\n?#]+)/)
     const videoId = videoIdMatch ? videoIdMatch[1] : 'bF2rcPYpPMs' // fallback to the provided video
@@ -73,6 +73,7 @@ export function VideoTutorials({
   }
 
   const getYouTubeVideoId = (youtubeUrl: string) => {
+    if(!youtubeUrl)return
     // Extract video ID from YouTube URL
     const videoIdMatch = youtubeUrl.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\n?#]+)/)
     return videoIdMatch ? videoIdMatch[1] : 'bF2rcPYpPMs' // fallback to the provided video
@@ -86,7 +87,7 @@ export function VideoTutorials({
             <h2 className="text-xl md:text-2xl font-bold text-gray-900 relative lg:left-5">{section.title}</h2>
             <div className={`flex space-x-2 lg:right-4 relative ${
               // Show buttons on mobile if more than 1 video, on sm+ if more than 3 videos
-              (isMobile && section.videos.length > 1) || (!isMobile && section.videos.length > 3) 
+              (isMobile && section.videos.length > 1) || (!isMobile && section.videos.length > 4) 
                 ? 'block' 
                 : 'hidden'
             }`}>
@@ -151,57 +152,39 @@ export function VideoTutorials({
                     width: isMobile ? "100%" : `${100 / videosPerView}%`,
                   }}
                 >
-                  <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow cursor-pointer">
-                    <div className="relative">
-                      {playingVideo?.sectionIndex === sectionIndex && playingVideo?.videoIndex === videoIndex ? (
-                        <div className="relative">
-                          <iframe
-                            src={getYouTubeEmbedUrl(video.youtubeUrl || 'https://www.youtube.com/watch?v=bF2rcPYpPMs')}
-                            title={video.title}
-                            className="w-full h-40 md:h-48"
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                            loading="lazy"
-                          />
-                          <button
-                            onClick={closeVideo}
-                            className="absolute top-2 right-2 w-6 h-6 bg-black bg-opacity-75 text-white rounded-full flex items-center justify-center hover:bg-opacity-90 z-10"
+                  {video.youtubeUrl && (
+                    <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow cursor-pointer  ">
+                      <div className="relative">
+                        <img
+                          src={`https://img.youtube.com/vi/${getYouTubeVideoId(video.youtubeUrl)}/maxresdefault.jpg`}
+                          alt={video.title}
+                          className="w-full h-40 md:h-40 object-cover"
+                          onError={(e) => {
+                            // Fallback to medium quality if maxresdefault fails
+                            const target = e.target as HTMLImageElement;
+                            if (video.youtubeUrl) {
+                              target.src = `https://img.youtube.com/vi/${getYouTubeVideoId(video.youtubeUrl)}/hqdefault.jpg`;
+                            }
+                          }}
+                        />
+                        <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
+                          <div 
+                            className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors cursor-pointer"
+                            onClick={() => handleVideoClick(sectionIndex, videoIndex, video)}
                           >
-                            <X className="w-4 h-4" />
-                          </button>
-                        </div>
-                      ) : (
-                        <div className="relative">
-                          <img
-                            src={`https://img.youtube.com/vi/${getYouTubeVideoId(video.youtubeUrl || 'https://www.youtube.com/watch?v=bF2rcPYpPMs')}/maxresdefault.jpg`}
-                            alt={video.title}
-                            className="w-full h-40 md:h-48 object-cover"
-                            onError={(e) => {
-                              // Fallback to medium quality if maxresdefault fails
-                              const target = e.target as HTMLImageElement;
-                              target.src = `https://img.youtube.com/vi/${getYouTubeVideoId(video.youtubeUrl || 'https://www.youtube.com/watch?v=bF2rcPYpPMs')}/hqdefault.jpg`;
-                            }}
-                          />
-                          <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
-                            <div 
-                              className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors cursor-pointer"
-                              onClick={() => handleVideoClick(sectionIndex, videoIndex, video)}
-                            >
-                              <Play className="w-6 h-6 text-white ml-1" />
-                            </div>
-                          </div>
-                          <div className="absolute bottom-2 right-2 bg-black bg-opacity-75 text-white text-xs px-2 py-1 rounded">
-                            {video.duration}
+                            <Play className="w-6 h-6 text-white ml-1" />
                           </div>
                         </div>
-                      )}
+                        <div className="absolute bottom-2 right-2 bg-black bg-opacity-75 text-white text-xs px-2 py-1 rounded">
+                          {video.duration}
+                        </div>
+                      </div>
+                      <div className="p-3 md:p-4 space-y-2 h-24">
+                        <h3 className="font-semibold text-gray-900 lg:text-sm leading-tight text-[13px]">{video.title}</h3>
+                        {/* <p className="text-gray-600 text-xs leading-relaxed">{video.description}</p> */}
+                      </div>
                     </div>
-                    <div className="p-3 md:p-4 space-y-2 h-24">
-                      <h3 className="font-semibold text-gray-900 text-sm leading-tight">{video.title}</h3>
-                      <p className="text-gray-600 text-xs leading-relaxed">{video.description}</p>
-                    </div>
-                  </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -229,6 +212,41 @@ export function VideoTutorials({
           )}
         </div>
       ))}
+
+      {/* Video Modal Popup */}
+      {playingVideo && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 px-1"
+          onClick={closeVideo}
+        >
+          <div 
+            className="relative rounded-lg max-w-4xl w-full max-h-[90vh] overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={closeVideo}
+              className="absolute -top-0 right-4 w-8 h-8 bg-black bg-opacity-75 text-white rounded-full flex items-center justify-center hover:bg-opacity-90 z-10"
+            >
+              <X className="w-5 h-5" />
+            </button>
+            <div className="px-2">
+              {/* <h3 className="text-xl font-bold text-gray-900 mb-1">{playingVideo.video.title}</h3> */}
+              <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                <iframe
+                  src={getYouTubeEmbedUrl(playingVideo.video.youtubeUrl ||"video not available")}
+                  title={playingVideo.video.title}
+                  className="absolute top-0 left-0 w-full h-full"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  loading="lazy"
+                />
+              </div>
+              {/* <p className="text-gray-600 mt-1 justify-center">{playingVideo.video.description}</p> */}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 } 

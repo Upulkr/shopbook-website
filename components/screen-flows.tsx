@@ -22,12 +22,12 @@ export function ScreenFlows({ topics, selectedTopic, setSelectedTopic }: ScreenF
       {/* Left side - Topics */}
       <div className="space-y-4 md:space-y-6 border border-gray-200 rounded-[14px] p-4 md:p-6 w-full lg:w-[537px] lg:h-[502px]">
         <h2 className="text-xl md:text-2xl font-bold text-gray-900">Choose a topic</h2>
-        <div className="space-y-3">
+        <div className={`space-y-3 `}>
           {topics.map((topic) => (
             <button
               key={topic.id}
               onClick={() => setSelectedTopic(topic.id)}
-              className={`p-3 md:p-4 rounded-xl border transition-all duration-200 text-left w-full lg:w-[448px] h-auto lg:h-[58px]`}
+              className={`${selectedTopic===topic.id?"bg-[#d3def3]":""} p-3 md:p-4 rounded-xl border transition-all duration-200 text-left w-full lg:w-[448px] h-auto lg:h-[58px] `}
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-3">
