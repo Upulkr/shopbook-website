@@ -1,6 +1,6 @@
 import Image from "next/image"
-import { Play, ChevronLeft, ChevronRight } from "lucide-react"
-import React from "react"
+import { Play, ChevronLeft, ChevronRight, X } from "lucide-react"
+import React, { useState } from "react"
 
 type Video = {
   id: string
@@ -8,6 +8,7 @@ type Video = {
   description: string
   thumbnail: string
   duration: string
+  youtubeUrl?: string
 }
 
 type VideoSection = {
@@ -29,6 +30,7 @@ export function VideoTutorials({
   isMobile,
 }: VideoTutorialsProps) {
   const videosPerView = isMobile ? 1 : 3
+  const [playingVideo, setPlayingVideo] = useState<{ sectionIndex: number; videoIndex: number } | null>(null)
 
   const goToPreviousVideo = (sectionIndex: number) => {
     setCurrentVideoIndex((prev) => {
@@ -53,13 +55,41 @@ export function VideoTutorials({
     return currentVideoIndex[sectionIndex] >= maxIndex
   }
 
+  const handleVideoClick = (sectionIndex: number, videoIndex: number, video: Video) => {
+    if (video.youtubeUrl) {
+      setPlayingVideo({ sectionIndex, videoIndex })
+    }
+  }
+
+  const closeVideo = () => {
+    setPlayingVideo(null)
+  }
+
+  const getYouTubeEmbedUrl = (youtubeUrl: string) => {
+    // Extract video ID from YouTube URL
+    const videoIdMatch = youtubeUrl.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\n?#]+)/)
+    const videoId = videoIdMatch ? videoIdMatch[1] : 'bF2rcPYpPMs' // fallback to the provided video
+    return `https://www.youtube.com/embed/${videoId}?autoplay=1`
+  }
+
+  const getYouTubeVideoId = (youtubeUrl: string) => {
+    // Extract video ID from YouTube URL
+    const videoIdMatch = youtubeUrl.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\n?#]+)/)
+    return videoIdMatch ? videoIdMatch[1] : 'bF2rcPYpPMs' // fallback to the provided video
+  }
+
   return (
     <div className="space-y-8 md:space-y-12">
       {videoSections.map((section, sectionIndex) => (
         <div key={section.title} className="space-y-4 md:space-y-6">
           <div className="flex items-center justify-between">
             <h2 className="text-xl md:text-2xl font-bold text-gray-900 relative lg:left-5">{section.title}</h2>
-            <div className="flex space-x-2 lg:right-4 relative">
+            <div className={`flex space-x-2 lg:right-4 relative ${
+              // Show buttons on mobile if more than 1 video, on sm+ if more than 3 videos
+              (isMobile && section.videos.length > 1) || (!isMobile && section.videos.length > 3) 
+                ? 'block' 
+                : 'hidden'
+            }`}>
               <button
                 onClick={() => goToPreviousVideo(sectionIndex)}
                 className={`w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center transition-colors ${
@@ -113,7 +143,7 @@ export function VideoTutorials({
                 }
               }}
             >
-              {section.videos.map((video) => (
+              {section.videos.map((video, videoIndex) => (
                 <div
                   key={video.id}
                   className="flex-shrink-0 px-2 md:px-3"
@@ -123,21 +153,49 @@ export function VideoTutorials({
                 >
                   <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow cursor-pointer">
                     <div className="relative">
-                      <Image
-                        src={video.thumbnail || "/placeholder.svg"}
-                        alt={video.title}
-                        width={300}
-                        height={200}
-                        className="w-full h-40 md:h-48 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
-                        <div className="w-10 h-10 md:w-12 md:h-12 bg-red-600 rounded-full flex items-center justify-center">
-                          <Play className="w-5 h-5 md:w-6 md:h-6 text-white ml-1" fill="white" />
+                      {playingVideo?.sectionIndex === sectionIndex && playingVideo?.videoIndex === videoIndex ? (
+                        <div className="relative">
+                          <iframe
+                            src={getYouTubeEmbedUrl(video.youtubeUrl || 'https://www.youtube.com/watch?v=bF2rcPYpPMs')}
+                            title={video.title}
+                            className="w-full h-40 md:h-48"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            loading="lazy"
+                          />
+                          <button
+                            onClick={closeVideo}
+                            className="absolute top-2 right-2 w-6 h-6 bg-black bg-opacity-75 text-white rounded-full flex items-center justify-center hover:bg-opacity-90 z-10"
+                          >
+                            <X className="w-4 h-4" />
+                          </button>
                         </div>
-                      </div>
-                      <div className="absolute bottom-2 right-2 bg-black bg-opacity-75 text-white text-xs px-2 py-1 rounded">
-                        {video.duration}
-                      </div>
+                      ) : (
+                        <div className="relative">
+                          <img
+                            src={`https://img.youtube.com/vi/${getYouTubeVideoId(video.youtubeUrl || 'https://www.youtube.com/watch?v=bF2rcPYpPMs')}/maxresdefault.jpg`}
+                            alt={video.title}
+                            className="w-full h-40 md:h-48 object-cover"
+                            onError={(e) => {
+                              // Fallback to medium quality if maxresdefault fails
+                              const target = e.target as HTMLImageElement;
+                              target.src = `https://img.youtube.com/vi/${getYouTubeVideoId(video.youtubeUrl || 'https://www.youtube.com/watch?v=bF2rcPYpPMs')}/hqdefault.jpg`;
+                            }}
+                          />
+                          <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
+                            <div 
+                              className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors cursor-pointer"
+                              onClick={() => handleVideoClick(sectionIndex, videoIndex, video)}
+                            >
+                              <Play className="w-6 h-6 text-white ml-1" />
+                            </div>
+                          </div>
+                          <div className="absolute bottom-2 right-2 bg-black bg-opacity-75 text-white text-xs px-2 py-1 rounded">
+                            {video.duration}
+                          </div>
+                        </div>
+                      )}
                     </div>
                     <div className="p-3 md:p-4 space-y-2 h-24">
                       <h3 className="font-semibold text-gray-900 text-sm leading-tight">{video.title}</h3>
