@@ -42,11 +42,11 @@ export function ScreenFlows({ topics, selectedTopic, setSelectedTopic }: ScreenF
                   </div>
                   <div>
                     <h3
-                      className="text-gray-900 text-base leading-none"
+                      className="text-gray-900 text-base leading-none  "
                       style={{
                         fontFamily: "Sora",
                         fontWeight: 600,
-                        fontSize: "16px",
+                        fontSize: "12px",
                         lineHeight: "100%",
                         letterSpacing: "0%",
                       }}
@@ -55,7 +55,7 @@ export function ScreenFlows({ topics, selectedTopic, setSelectedTopic }: ScreenF
                     </h3>
                   </div>
                 </div>
-                <div className="bg-blue-100 text-blue-600 px-2 md:px-3 py-1 rounded-full text-xs md:text-sm font-medium">
+                <div className="bg-blue-100 text-blue-600 px-2 md:px-3 py-1 rounded-full text-xs md:text-sm font-medium max-w-20 text-center">
                   {topic.steps} steps
                 </div>
               </div>
@@ -66,7 +66,7 @@ export function ScreenFlows({ topics, selectedTopic, setSelectedTopic }: ScreenF
 
       {/* Right side - Phone mockup */}
       <div className="bg-[#F6F6F6] flex justify-center lg:justify-end mt-8 lg:mt-0 border border-gray-200 rounded-[14px] p-2 sm:p-4 md:p-6 w-full lg:w-[633px] lg:h-[502px]">
-        <div className="bg-[#F6F6F6] relative flex items-center justify-center h-[180px] sm:h-[220px] md:h-[400px] lg:h-[470px] w-full">
+        <div className="bg-[#F6F6F6] relative flex items-center justify-center h-[210px] sm:h-[220px] md:h-[400px] lg:h-[470px] w-full">
           <Image
             src={
               selectedTopic === "getting-started"
@@ -76,7 +76,7 @@ export function ScreenFlows({ topics, selectedTopic, setSelectedTopic }: ScreenF
             width={160}
             height={200}
             alt={`Shopbook ${topics.find((t) => t.id === selectedTopic)?.title} tutorial interface`}
-            className="object-contain transition-all duration-300 sm:w-[150px] md:w-[200px] lg:w-[240px] sm:h-[160px] md:h-[220px] lg:h-[440px] h-[120px]"
+            className="object-contain transition-all duration-300 w-[200px] md:w-[200px] lg:w-[240px] h-[200px] md:h-[190px] lg:h-[440px] h-[120px]"
             priority
           />
         </div>

@@ -5,22 +5,22 @@ const socialMediaIcons = [
   {
     src: "/images/social/facebook-icon.png",
     alt: "Facebook",
-    href: "https://facebook.com/shopbook",
+    href: "https://web.facebook.com/profile.php?id=100078686576791",
   },
   {
     src: "/images/social/instagram-icon.png",
     alt: "Instagram",
-    href: "https://instagram.com/shopbook",
+    href: "https://www.instagram.com/shopbook.lk/",
   },
   {
     src: "/images/social/whatsapp-icon.png",
     alt: "WhatsApp",
-    href: "https://wa.me/94771234567",
+    href: "https://wa.me782470168",
   },
   {
     src: "/images/social/youtube-icon.png",
     alt: "YouTube",
-    href: "https://youtube.com/@shopbook",
+    href: "https://www.youtube.com/@shopbooklk",
   },
 ]
 
