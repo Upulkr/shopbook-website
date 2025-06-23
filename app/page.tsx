@@ -1,13 +1,14 @@
-import { Header } from "@/components/header"
-import { HeroSection } from "@/components/hero-section"
-import { SocialProof } from "@/components/social-proof"
-import { FeaturesSection } from "@/components/features-section"
-import { HowItWorks } from "@/components/how-it-works"
-import { ComparisonSection } from "@/components/comparison-section"
-import { TestimonialsSection } from "@/components/testimonials-section"
-import { CTASection } from "@/components/cta-section"
-import { type FAQItem, FAQSection } from "@/components/faq-section"
-import { Footer } from "@/components/footer"
+import { Header } from "@/components/header";
+import { HeroSection } from "@/components/hero-section";
+import { SocialProof } from "@/components/social-proof";
+import { FeaturesSection } from "@/components/features-section";
+import { HowItWorks } from "@/components/how-it-works";
+import { ComparisonSection } from "@/components/comparison-section";
+import { TestimonialsSection } from "@/components/testimonials-section";
+import { CTASection } from "@/components/cta-section";
+import { type FAQItem, FAQSection } from "@/components/faq-section";
+import { Footer } from "@/components/footer";
+import I18nProvider from "@/providers/I18nProvider";
 
 const faqs: FAQItem[] = [
   {
@@ -30,7 +31,7 @@ const faqs: FAQItem[] = [
     answer:
       "Yes, you can access your data again if your cellphone is lost/damaged. You can login to your account with your email and password and your data will be available to you.",
   },
-]
+];
 
 export default function HomePage() {
   return (
@@ -48,5 +49,5 @@ export default function HomePage() {
       </main>
       <Footer />
     </div>
-  )
+  );
 }

@@ -1,20 +1,41 @@
-"use client";
+'use client';
 
 import { Button } from "@/components/ui/button";
-import { ChevronDown, ChevronRight, ChevronUp, Menu, X } from "lucide-react";
+import { ChevronDown, ChevronUp, Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
-  const [currentLanguage, setCurrentLanguage] = useState("English");
+  const { i18n } = useTranslation();
+  const [selectedLang, setSelectedLang] = useState(i18n.language);
   const [os, setOS] = useState("");
-
+  // Load saved language from localStorage on mount
   useEffect(() => {
+    const savedLang = localStorage.getItem('i18nextLng');
+    if (savedLang && ['en', 'si', 'ta'].includes(savedLang)) {
+      i18n.changeLanguage(savedLang);
+      setSelectedLang(savedLang);
+    }
+    console.log(i18n.language)
+  }, [i18n]);
+
+  // Save language to localStorage when changed
+  const changeLanguage = (lang: string) => {
+    if (['en', 'si', 'ta'].includes(lang)) {
+      i18n.changeLanguage(lang);
+      setSelectedLang(lang);
+      localStorage.setItem('i18nextLng', lang);
+    }
+  };
+
+  // Determine OS for download link (simplified, no state needed)
+useEffect(() => {
     const userAgent = window.navigator.userAgent;
 
     if (/Windows NT/.test(userAgent)) {
@@ -48,6 +69,14 @@ export function Header() {
         break;
     }
   }
+
+  // Map language codes to display names
+  const languageMap: { [key: string]: string } = {
+    en: "English",
+    si: "සිංහල",
+    ta: "தமிழ்",
+  };
+
   return (
     <header className="w-full bg-white border-b border-gray-100 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -68,8 +97,10 @@ export function Header() {
             <nav className="flex items-center space-x-8">
               <Link
                 href="/"
-                className={` hover:text-blue-700 ${
-                  pathname === "/" ? "text-blue-600 font-semibold" : "text-normal"
+                className={`hover:text-blue-700 ${
+                  pathname === "/"
+                    ? "text-blue-600 font-semibold"
+                    : "text-gray-600"
                 }`}
               >
                 Home
@@ -79,7 +110,7 @@ export function Header() {
                 className={`hover:text-blue-600 ${
                   pathname === "/learn"
                     ? "text-blue-600 font-semibold"
-                    : "text-normal"
+                    : "text-gray-600"
                 }`}
               >
                 Learn
@@ -89,28 +120,26 @@ export function Header() {
                 className={`hover:text-blue-600 ${
                   pathname === "/contact"
                     ? "text-blue-600 font-semibold"
-                    : "text-normal"
+                    : "text-gray-600"
                 }`}
               >
                 Contact Us
               </Link>
             </nav>
-            <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg " onClick={handleDownloadApp}>
+            <Button
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg"
+              onClick={handleDownloadApp}
+            >
               Download Now
             </Button>
-            <div className="relative" >
+            <div className="relative">
               <button
-                className={`
-                  flex items-center space-x-2 px-3 py-2 
-                   hover:text-blue-600 transition
-            
-                  
-                `}
+                className="flex items-center space-x-2 px-3 py-2 text-gray-600 hover:text-blue-600 transition"
                 onClick={() => setIsLanguageMenuOpen((open) => !open)}
                 aria-haspopup="listbox"
                 aria-expanded={isLanguageMenuOpen}
               >
-                <span className="mr-1 w-16">{currentLanguage}</span>
+                <span className="mr-1 w-16">{languageMap[selectedLang]}</span>
                 {isLanguageMenuOpen ? (
                   <ChevronUp className="w-4 h-4 transition-transform" />
                 ) : (
@@ -119,7 +148,6 @@ export function Header() {
               </button>
               {isLanguageMenuOpen && (
                 <>
-                  {/* Overlay to catch outside clicks */}
                   <div
                     className="fixed inset-0 z-40"
                     onClick={() => setIsLanguageMenuOpen(false)}
@@ -130,24 +158,23 @@ export function Header() {
                     tabIndex={-1}
                     role="listbox"
                   >
-                    {["English", "සිංහල", "தமிழ்"].map((language) => (
+                    {Object.entries(languageMap).map(([code, name]) => (
                       <button
-                        key={language}
+                        key={code}
                         onClick={() => {
-                          setCurrentLanguage(language);
+                          changeLanguage(code);
                           setIsLanguageMenuOpen(false);
                         }}
                         className={`
                           w-full text-left px-4 py-2
                           hover:bg-blue-50 hover:text-blue-700
-                           transition
-                        
-                          rounded-md
+                          transition rounded-md
+                          ${selectedLang === code ? "bg-blue-100" : ""}
                         `}
                         role="option"
-                        aria-selected={currentLanguage === language}
+                        aria-selected={selectedLang === code}
                       >
-                        {language}
+                        {name}
                       </button>
                     ))}
                   </div>
@@ -175,17 +202,14 @@ export function Header() {
         {isMobileMenuOpen && (
           <div
             className="fixed inset-0 z-50"
-            style={{}}
             aria-modal="true"
             role="dialog"
           >
-            {/* Overlay to catch outside clicks */}
             <div
-              className="absolute inset-0 bg-black bg-opacity-0"
+              className="absolute inset-0 bg-black bg-opacity-50"
               onClick={() => setIsMobileMenuOpen(false)}
               tabIndex={-1}
             />
-            {/* Mobile menu content */}
             <div className="absolute top-0 left-0 w-full lg:hidden border-t border-gray-100 bg-white z-50">
               <div className="px-4 py-4 space-y-4">
                 <nav className="flex flex-col space-y-4">
@@ -194,7 +218,7 @@ export function Header() {
                     className={`hover:text-blue-700 py-2 ${
                       pathname === "/"
                         ? "text-blue-600 font-medium"
-                        : "text-normal"
+                        : "text-gray-600"
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
@@ -205,7 +229,7 @@ export function Header() {
                     className={`hover:text-blue-600 py-2 ${
                       pathname === "/learn"
                         ? "text-blue-600 font-medium"
-                        : "text-normal"
+                        : "text-gray-600"
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
@@ -216,7 +240,7 @@ export function Header() {
                     className={`hover:text-blue-600 py-2 ${
                       pathname === "/contact"
                         ? "text-blue-600 font-medium"
-                        : "text-normal"
+                        : "text-gray-600"
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
@@ -224,24 +248,22 @@ export function Header() {
                   </Link>
                 </nav>
                 <div className="flex flex-col space-y-4 pt-4 border-t border-gray-100">
-                  <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium w-32">
+                  <Button
+                    className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium w-32"
+                    onClick={handleDownloadApp}
+                  >
                     Download Now
                   </Button>
-                  <div className="flex items-center justify-between w-32">
-                    <label htmlFor="mobile-language-select" className="sr-only">
-                      Language
-                    </label>
-                    <select
-                      id="mobile-language-select"
-                      className="block w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      defaultValue="en"
-                      aria-label="Select language"
-                    >
-                      <option value="en">English</option>
-                      <option value="si">සිංහල</option>
-                      <option value="ta">தமிழ்</option>
-                    </select>
-                  </div>
+                  <select
+                    value={selectedLang}
+                    onChange={(e) => changeLanguage(e.target.value)}
+                    className="block w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    aria-label="Select language"
+                  >
+                    <option value="en">English</option>
+                    <option value="si">සිංහල</option>
+                    <option value="ta">தமிழ்</option>
+                  </select>
                 </div>
               </div>
             </div>

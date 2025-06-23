@@ -11,7 +11,11 @@ body {
     text-wrap: balance;
   }
 }
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala&display=swap');
 
+html {
+  font-family: 'Noto Sans Sinhala', sans-serif;
+}
 @layer base {
   :root {
     --background: 0 0% 100%;
