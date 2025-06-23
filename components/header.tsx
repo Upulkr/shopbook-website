@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { Button } from "@/components/ui/button";
 import { ChevronDown, ChevronUp, Menu, X } from "lucide-react";
@@ -9,33 +9,35 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 export function Header() {
+  const { t, i18n } = useTranslation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
-  const { i18n } = useTranslation();
+
   const [selectedLang, setSelectedLang] = useState(i18n.language);
   const [os, setOS] = useState("");
+
   // Load saved language from localStorage on mount
   useEffect(() => {
-    const savedLang = localStorage.getItem('i18nextLng');
-    if (savedLang && ['en', 'si', 'ta'].includes(savedLang)) {
+    const savedLang = localStorage.getItem("i18nextLng");
+    if (savedLang && ["en", "si", "ta"].includes(savedLang)) {
       i18n.changeLanguage(savedLang);
       setSelectedLang(savedLang);
     }
-    console.log(i18n.language)
+    console.log(i18n.language);
   }, [i18n]);
 
   // Save language to localStorage when changed
   const changeLanguage = (lang: string) => {
-    if (['en', 'si', 'ta'].includes(lang)) {
+    if (["en", "si", "ta"].includes(lang)) {
       i18n.changeLanguage(lang);
       setSelectedLang(lang);
-      localStorage.setItem('i18nextLng', lang);
+      localStorage.setItem("i18nextLng", lang);
     }
   };
 
   // Determine OS for download link (simplified, no state needed)
-useEffect(() => {
+  useEffect(() => {
     const userAgent = window.navigator.userAgent;
 
     if (/Windows NT/.test(userAgent)) {
@@ -52,23 +54,38 @@ useEffect(() => {
   }, []);
 
   const handleDownloadApp = () => {
-    switch(os){
+    switch (os) {
       case "Windows":
-        window.open("https://play.google.com/store/apps/details?id=com.mithushancj.shopbook&hl=en&gl=US", "_blank");
+        window.open(
+          "https://play.google.com/store/apps/details?id=com.mithushancj.shopbook&hl=en&gl=US",
+          "_blank"
+        );
         break;
       case "macOS":
-        window.open("https://apps.apple.com/lk/app/shopbook/id1602633267", "_blank");
+        window.open(
+          "https://apps.apple.com/lk/app/shopbook/id1602633267",
+          "_blank"
+        );
       case "Android":
-        window.open("https://play.google.com/store/apps/details?id=com.mithushancj.shopbook&hl=en&gl=US", "_blank");
+        window.open(
+          "https://play.google.com/store/apps/details?id=com.mithushancj.shopbook&hl=en&gl=US",
+          "_blank"
+        );
         break;
       case "iOS":
-        window.open("https://apps.apple.com/lk/app/shopbook/id1602633267", "_blank");
+        window.open(
+          "https://apps.apple.com/lk/app/shopbook/id1602633267",
+          "_blank"
+        );
         break;
       default:
-        window.open("https://play.google.com/store/apps/details?id=com.mithushancj.shopbook&hl=en&gl=US", "_blank");
+        window.open(
+          "https://play.google.com/store/apps/details?id=com.mithushancj.shopbook&hl=en&gl=US",
+          "_blank"
+        );
         break;
     }
-  }
+  };
 
   // Map language codes to display names
   const languageMap: { [key: string]: string } = {
@@ -85,7 +102,7 @@ useEffect(() => {
           <Link href="/" className="flex items-center">
             <Image
               src="/images/shopbook-logo.png"
-              alt="Shopbook Logo"
+              alt={t("headerSection.logo_alt")} // Translated
               width={120}
               height={32}
               className="h-8 w-auto"
@@ -103,7 +120,7 @@ useEffect(() => {
                     : "text-gray-600"
                 }`}
               >
-                Home
+                {t("headerSection.nav_home")} {/* Translated */}
               </Link>
               <Link
                 href="/learn"
@@ -113,7 +130,7 @@ useEffect(() => {
                     : "text-gray-600"
                 }`}
               >
-                Learn
+                {t("headerSection.nav_learn")} {/* Translated */}
               </Link>
               <Link
                 href="/contact"
@@ -123,14 +140,14 @@ useEffect(() => {
                     : "text-gray-600"
                 }`}
               >
-                Contact Us
+                {t("headerSection.nav_contact_us")} {/* Translated */}
               </Link>
             </nav>
             <Button
               className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg"
               onClick={handleDownloadApp}
             >
-              Download Now
+              {t("headerSection.download_button")} {/* Translated */}
             </Button>
             <div className="relative">
               <button
@@ -200,11 +217,7 @@ useEffect(() => {
 
         {/* Mobile/Tablet Menu */}
         {isMobileMenuOpen && (
-          <div
-            className="fixed inset-0 z-50"
-            aria-modal="true"
-            role="dialog"
-          >
+          <div className="fixed inset-0 z-50" aria-modal="true" role="dialog">
             <div
               className="absolute inset-0 bg-black bg-opacity-50"
               onClick={() => setIsMobileMenuOpen(false)}
@@ -222,7 +235,7 @@ useEffect(() => {
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    Home
+                    {t("headerSection.nav_home")} {/* Translated */}
                   </Link>
                   <Link
                     href="/learn"
@@ -233,7 +246,7 @@ useEffect(() => {
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    Learn
+                    {t("headerSection.nav_learn")} {/* Translated */}
                   </Link>
                   <Link
                     href="/contact"
@@ -244,7 +257,7 @@ useEffect(() => {
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    Contact Us
+                    {t("headerSection.nav_contact_us")} {/* Translated */}
                   </Link>
                 </nav>
                 <div className="flex flex-col space-y-4 pt-4 border-t border-gray-100">
@@ -252,17 +265,23 @@ useEffect(() => {
                     className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium w-32"
                     onClick={handleDownloadApp}
                   >
-                    Download Now
+                    {t("headerSection.download_button")} {/* Translated */}
                   </Button>
                   <select
                     value={selectedLang}
                     onChange={(e) => changeLanguage(e.target.value)}
                     className="block w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    aria-label="Select language"
+                    aria-label={
+                      t("headerSection.lang_select_aria_label") ||
+                      "Select language"
+                    } // Added a new translation key for aria-label
                   >
-                    <option value="en">English</option>
-                    <option value="si">සිංහල</option>
-                    <option value="ta">தமிழ்</option>
+                    {/* Render options from languageMap using translated names */}
+                    {Object.entries(languageMap).map(([code, name]) => (
+                      <option key={code} value={code}>
+                        {name}
+                      </option>
+                    ))}
                   </select>
                 </div>
               </div>

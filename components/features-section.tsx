@@ -1,58 +1,66 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { FileText, TrendingUp, CreditCard, BarChart3, RefreshCw, Globe } from "lucide-react"
+"use client"; // Ensure this is at the top of the file
+import { Card, CardContent } from "@/components/ui/card";
+import { FileText, TrendingUp, CreditCard, BarChart3, RefreshCw, Globe } from "lucide-react";
+import { useTranslation } from "react-i18next"; // Import useTranslation
 
 const features = [
   {
     icon: FileText,
-    title: "Credit & Cash Invoices Made Easy",
-    description: "Manage all your credit and cash sales invoices in one place.",
+    titleKey: "featuresSection.feature1_title",
+    descriptionKey: "featuresSection.feature1_description",
     color: "text-blue-600",
     bgColor: "bg-blue-50",
   },
   {
     icon: TrendingUp,
-    title: "Access Your Full Invoice History",
-    description: "View and search all past invoices anytime.",
+    titleKey: "featuresSection.feature2_title",
+    descriptionKey: "featuresSection.feature2_description",
     color: "text-purple-600",
     bgColor: "bg-purple-50",
   },
   {
     icon: CreditCard,
-    title: "Faster Payments with Automated Reminders",
-    description: "Automatically remind customers via SMS/WhatsApp for quicker payment collection.",
+    titleKey: "featuresSection.feature3_title",
+    descriptionKey: "featuresSection.feature3_description",
     color: "text-blue-600",
     bgColor: "bg-blue-50",
   },
   {
     icon: BarChart3,
-    title: "Effortless Payment Tracking",
-    description: "Quickly record received payments and update your accounts instantly.",
+    titleKey: "featuresSection.feature4_title",
+    descriptionKey: "featuresSection.feature4_description",
     color: "text-green-600",
     bgColor: "bg-green-50",
   },
   {
     icon: RefreshCw,
-    title: "Generate & Share Reports",
-    description: "Create professional sales and payment reports with ease.",
+    titleKey: "featuresSection.feature5_title",
+    descriptionKey: "featuresSection.feature5_description",
     color: "text-orange-600",
     bgColor: "bg-orange-50",
   },
   {
     icon: Globe,
-    title: "Available in 3 Languages",
-    description: "Use Shopbook in Sinhala, Tamil, or English.",
+    titleKey: "featuresSection.feature6_title",
+    descriptionKey: "featuresSection.feature6_description",
     color: "text-blue-600",
     bgColor: "bg-blue-50",
   },
-]
+];
 
 export function FeaturesSection() {
+  const { t , i18n} = useTranslation(); // Initialize useTranslation
+
   return (
-    <section className="py-24 bg-white ">
+    <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-7 lg:px-8">
         <div className="text-center space-y-4 mb-16 mt-12 pt-8">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">Achieve Your Business Goals With Shopbook</h2>
-          <p className="text-lg text-gray-600">From Invoices to Payment - Simplified for You</p>
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">
+            {t('featuresSection.main_heading_title')}
+          </h2>
+          <p className="text-lg text-gray-600">
+            {t('featuresSection.main_heading_subtitle')}
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -69,86 +77,90 @@ export function FeaturesSection() {
                     <feature.icon className="w-6 h-6" />
                   </div>
                   <div className="space-y-3">
-                    <h3 className="text-xl font-semibold text-gray-900 leading-tight">{feature.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                    <h3 className="text-xl font-semibold text-gray-900 leading-tight">
+                      {t(feature.titleKey)}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      {t(feature.descriptionKey)}
+                    </p>
                   </div>
                 </div>
               </CardContent>
             </Card>
           ))}
         </div>
-    <div className="relative mt-12 top-10">
-  {/* Background container with centered content */}
-  <div
-    className="relative border border-gray-200 rounded-2xl overflow-hidden max-w-7xl mx-auto p-6 lg:h-[194px] top-5"
-    style={{ backgroundColor: "#FB923C0A" }}
-  >
-    {/* Mobile phone image - Only visible on mobile, positioned above content */}
-    <div className="md:hidden flex justify-center mb-4">
-      <img 
-        src="/images/features/phone-secure.png" 
-        alt="Shopbook mobile app" 
-        className="w-[120px] h-[120px] sm:w-[150px] sm:h-[150px]" 
-      />
-    </div>
 
-    <div className="text-center space-y-4 max-w-md mx-auto">
-      <h3 
-        className="text-lg font-semibold text-gray-900 leading-none md:text-xl sm:text-base" 
-        style={{ fontFamily: "Sora" }}
-      >
-        See Automated Reminders in Action
-      </h3>
-      <p
-        className="text-base font-normal text-gray-600 leading-none text-center md:text-md sm:text-sm"
-        style={{ fontFamily: "Sora" }}
-      >
-        Watch how ShopBook effortlessly sends professional payment reminders to help you collect faster and
-        reduce unpaid credit.
-      </p>
-      <button
-        className="bg-orange-500 hover:bg-orange-600 text-white font-medium transition-colors w-full max-w-[188px] lg-h-[40px] px-4 py-2 mx-auto block sm:w-auto text-nowrap"
-        style={{
-          borderRadius: "8px",
-        }}
-      >
-        Watch Demo Video
-      </button>
-    </div>
+        <div className="relative mt-12 top-10">
+          {/* Background container with centered content */}
+          <div
+            className={`relative border border-gray-200 rounded-2xl overflow-hidden max-w-7xl mx-auto p-6  top-5 ${i18n.language==="ta" ? "lg:h-[250px]" :i18n.language==="si"? "lg:h-[220px]" : "lg:h-[194px]"}`}
+            style={{ backgroundColor: "#FB923C0A" }}
+          >
+            {/* Mobile phone image - Only visible on mobile, positioned above content */}
+            <div className="md:hidden flex justify-center mb-4">
+              <img
+                src="/images/features/phone-secure.png"
+                alt={t('featuresSection.phone_secure_alt')} 
+                className="w-[120px] h-[120px] sm:w-[150px] sm:h-[150px]"
+              />
+            </div>
 
-    {/* Mobile hand with cash image - Only visible on mobile, positioned below button */}
-    <div className="md:hidden flex justify-center mt-4">
-      <img 
-        src="/images/features/money-hand.png" 
-        alt="Money in hand" 
-        className="w-[120px] h-[120px] sm:w-[150px] sm:h-[150px]" 
-      />
-    </div>
-  </div>
-  
-  {/* Desktop/Tablet layout - Absolutely positioned images */}
-  <div className="hidden md:block">
-    <div className="absolute inset-y-0 left-0 flex items-center z-10">
-      <div className="flex-shrink-0">
-        <img 
-          src="/images/features/phone-secure.png" 
-          alt="Shopbook mobile app" 
-          className="lg:w-[236px] lg:h-[236px] md:w-[180px] md:h-[180px]" 
-        />
-      </div>
-    </div>
-    <div className="absolute inset-y-0 right-0 flex items-center z-10">
-      <div className="flex-shrink-0">
-        <img 
-          src="/images/features/money-hand.png" 
-          alt="Money in hand" 
-          className="lg:w-[236px] lg:h-[236px] md:w-[180px] md:h-[180px]" 
-        />
-      </div>
-    </div>
-  </div>
-</div>
+            <div className="text-center space-y-4 max-w-md mx-auto">
+              <h3
+                className="text-lg font-semibold text-gray-900 leading-none md:text-xl sm:text-base"
+                style={{ fontFamily: "Sora" }}
+              >
+                {t('featuresSection.nested_cta_title')} 
+              </h3>
+              <p
+                className="text-base font-normal text-gray-600 leading-none text-center md:text-md sm:text-sm"
+                style={{ fontFamily: "Sora" }}
+              >
+                {t('featuresSection.nested_cta_description')}
+              </p>
+              <button
+                className={`bg-orange-500 hover:bg-orange-600 text-white font-medium transition-colors  lg-h-[40px] px-4 py-2 mx-auto block sm:w-auto text-nowrap ${i18n.language==="ta"||i18n.language==="si" ? "w-full max-w-[315px]" :"w-full max-w-[188px]"}`}
+                style={{
+                  borderRadius: "8px",
+                }}
+              >
+                {t('featuresSection.nested_cta_button')}
+              </button>
+            </div>
+
+            {/* Mobile hand with cash image - Only visible on mobile, positioned below button */}
+            <div className="md:hidden flex justify-center mt-4">
+              <img
+                src="/images/features/money-hand.png"
+                alt={t('featuresSection.money_hand_alt')}
+                className="w-[120px] h-[120px] sm:w-[150px] sm:h-[150px]"
+              />
+            </div>
+          </div>
+
+          {/* Desktop/Tablet layout - Absolutely positioned images */}
+          <div className="hidden md:block">
+            <div className="absolute inset-y-0 left-0 flex items-center z-10">
+              <div className="flex-shrink-0">
+                <img
+                  src="/images/features/phone-secure.png"
+                  alt={t('featuresSection.phone_secure_alt')}
+                  className="lg:w-[236px] lg:h-[236px] md:w-[180px] md:h-[180px]"
+                />
+              </div>
+            </div>
+            <div className="absolute inset-y-0 right-0 flex items-center z-10">
+              <div className="flex-shrink-0">
+                <img
+                  src="/images/features/money-hand.png"
+                  alt={t('featuresSection.money_hand_alt')}
+                  className="lg:w-[236px] lg:h-[236px] md:w-[180px] md:h-[180px]"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
-  )
+  );
 }

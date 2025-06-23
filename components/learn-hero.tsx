@@ -4,12 +4,14 @@ import Image from "next/image";
 import { Play, ChevronLeft, ChevronRight } from "lucide-react";
 import { VideoTutorials } from "./video-tutorials";
 import { ScreenFlows } from "./screen-flows";
+import { useTranslation } from "react-i18next";
+
 
 const topics = [
   {
     id: "getting-started",
     icon: "🚀",
-    title: "Getting Started",
+    titleKey: "howItWorksSection.getting_started",
     steps: 4,
     color: "text-green-600",
     bgColor: "bg-green-50",
@@ -17,7 +19,7 @@ const topics = [
   {
     id: "create-share",
     icon: "📄",
-    title: "Create & Share Invoices",
+    titleKey: "howItWorksSection.create_share_invoices",
     steps: 4,
     color: "text-blue-600",
     bgColor: "bg-blue-50",
@@ -25,7 +27,7 @@ const topics = [
   {
     id: "collect-credits",
     icon: "💳",
-    title: "Collect Outstanding Credits",
+    titleKey: "howItWorksSection.collect_outstanding_credits",
     steps: 2,
     color: "text-purple-600",
     bgColor: "bg-purple-50",
@@ -33,7 +35,7 @@ const topics = [
   {
     id: "auto-reminders",
     icon: "⏰",
-    title: "Set Auto Reminders",
+    titleKey: "howItWorksSection.set_auto_reminders",
     steps: 2,
     color: "text-orange-600",
     bgColor: "bg-orange-50",
@@ -41,7 +43,7 @@ const topics = [
   {
     id: "view-customers",
     icon: "👥",
-    title: "View Due Customers & Amount",
+    titleKey: "howItWorksSection.view_due_customers",
     steps: 2,
     color: "text-teal-600",
     bgColor: "bg-teal-50",
@@ -49,7 +51,7 @@ const topics = [
   {
     id: "customer-reports",
     icon: "📊",
-    title: "Share Customer Reports",
+    titleKey: "howItWorksSection.share_customer_reports",
     steps: 4,
     color: "text-yellow-600",
     bgColor: "bg-yellow-50",
@@ -58,148 +60,137 @@ const topics = [
 
 const videoSections = [
   {
-    title: "Invoice Book",
+    titleKey: "howItWorksSection.invoice_book",
     videos: [
       {
         id: "create-invoice-with-shopbook-app",
-        title: "Create a invoice with Shopbook app",
-        description: "Getting statr to create invoice",
+        titleKey: "howItWorksSection.create_invoice_title",
+        descriptionKey: "howItWorksSection.create_invoice_description",
         thumbnail: "",
         duration: "4:20",
-        youtubeUrl:
-          "https://www.youtube.com/watch?v=G_oyr4NuSfQ&list=PLmLMrF3cFazRqVfjFXkD8hOY3RfiGfm20&index=2",
+        youtubeUrl: "http://www.youtube.com/watch?v=G_oyr4NuSfQ",
       },
       {
         id: "create-invoice",
-        title: "How to Create a invoice with few seconds?",
-        description:
-          "Learn how to create a invoice with in few seconds",
+        titleKey: "howItWorksSection.how_to_create_invoice_title",
+        descriptionKey: "howItWorksSection.how_to_create_invoice_description",
         thumbnail: "",
         duration: "3:45",
-        youtubeUrl:
-          "https://www.youtube.com/watch?v=bF2rcPYpPMs&list=PLmLMrF3cFazRqVfjFXkD8hOY3RfiGfm20&index=1",
+        youtubeUrl: "http://www.youtube.com/watch?v=bF2rcPYpPMs",
       },
       {
         id: "a",
-        title: "Create a invoice with Shopbook app",
-        description: "Getting statr to create invoice",
+        titleKey: "howItWorksSection.create_invoice_title",
+        descriptionKey: "howItWorksSection.create_invoice_description",
         thumbnail: "",
         duration: "4:20",
-        youtubeUrl:
-          "https://www.youtube.com/watch?v=G_oyr4NuSfQ&list=PLmLMrF3cFazRqVfjFXkD8hOY3RfiGfm20&index=2",
+        youtubeUrl: "http://www.youtube.com/watch?v=G_oyr4NuSfQ",
       },
       {
         id: "b",
-        title: "How to Create a invoice with few seconds?",
-        description:
-          "Learn how to create a invoice with in few seconds",
+        titleKey: "howItWorksSection.how_to_create_invoice_title",
+        descriptionKey: "howItWorksSection.how_to_create_invoice_description",
         thumbnail: "",
         duration: "3:45",
-        youtubeUrl:
-          "https://www.youtube.com/watch?v=bF2rcPYpPMs&list=PLmLMrF3cFazRqVfjFXkD8hOY3RfiGfm20&index=1",
+        youtubeUrl: "http://www.youtube.com/watch?v=bF2rcPYpPMs",
       },
       {
         id: "c",
-        title: "Create a invoice with Shopbook app",
-        description: "Getting statr to create invoice",
+        titleKey: "howItWorksSection.create_invoice_title",
+        descriptionKey: "howItWorksSection.create_invoice_description",
         thumbnail: "",
         duration: "4:20",
-        youtubeUrl:
-          "https://www.youtube.com/watch?v=G_oyr4NuSfQ&list=PLmLMrF3cFazRqVfjFXkD8hOY3RfiGfm20&index=2",
+        youtubeUrl: "http://www.youtube.com/watch?v=G_oyr4NuSfQ",
       },
       {
         id: "d",
-        title: "How to Create a invoice with few seconds?",
-        description:
-          "Learn how to create a invoice with in few seconds",
+        titleKey: "howItWorksSection.how_to_create_invoice_title",
+        descriptionKey: "howItWorksSection.how_to_create_invoice_description",
         thumbnail: "",
         duration: "3:45",
-        youtubeUrl:
-          "https://www.youtube.com/watch?v=bF2rcPYpPMs&list=PLmLMrF3cFazRqVfjFXkD8hOY3RfiGfm20&index=1",
+        youtubeUrl: "http://www.youtube.com/watch?v=bF2rcPYpPMs",
       },
-      
-    
     ],
   },
   {
-    title: "Login Process",
+    titleKey: "howItWorksSection.login_process",
     videos: [
       {
         id: "log-in-to-shopbook",
-        title: "How to login into Shopbook App",
-        description: "How to login into Shopbook App",
+        titleKey: "howItWorksSection.how_to_login_title",
+        descriptionKey: "howItWorksSection.how_to_login_description",
         thumbnail: "",
         duration: "0:58",
-        youtubeUrl: "https://www.youtube.com/watch?v=oFC2Xf1WsPQ&list=PLmLMrF3cFazR9GivtbsPqsqyZNzXJJtxW&index=4"
+        youtubeUrl: "http://www.youtube.com/watch?v=oFC2Xf1WsPQ",
       },
       {
         id: "how-to-login-existing-user",
-        title: "How to login into Shopbook App, if your app got deleted or you're an existing user ",
-        description: "How to login into Shopbook App, if your app got deleted or you're an existing user ",
+        titleKey: "howItWorksSection.how_to_login_existing_user_title",
+        descriptionKey:
+          "howItWorksSection.how_to_login_existing_user_description",
         thumbnail: "",
         duration: "0.54",
-        youtubeUrl:
-        "https://www.youtube.com/watch?v=a3JMY1QAsWU&list=PLmLMrF3cFazR9GivtbsPqsqyZNzXJJtxW&index=1",
+        youtubeUrl: "http://www.youtube.com/watch?v=a3JMY1QAsWU",
       },
-    
-   
     ],
   },
   {
-    title: "Items Adding",
+    titleKey: "howItWorksSection.items_adding",
     videos: [
-      // {
-      //   id: "payment-tracking-3",
-      //   title: "Payment Tracking & Reports",
-      //   description: "Monitor payments and generate detailed business reports",
-      //   thumbnail: "/images/video-tutorial-4.png",
-      //   duration: "5:30",
-      // },
-      // {
-      //   id: "add-items-invoice-3",
-      //   title: "Add items when creating an invoice",
-      //   description: "Send WhatsApp and SMS reminders to get paid faster",
-      //   thumbnail: "/images/video-tutorial-2.png",
-      //   duration: "3:10",
-      // },
-      // {
-      //   id: "payment-tracking-4",
-      //   title: "Payment Tracking & Reports",
-      //   description: "Monitor payments and generate detailed business reports",
-      //   thumbnail: "/images/video-tutorial-4.png",
-      //   duration: "5:30",
-      // },
-      // {
-      //   id: "add-items-invoice-4",
-      //   title: "Add items when creating an invoice",
-      //   description: "Send WhatsApp and SMS reminders to get paid faster",
-      //   thumbnail: "/images/video-tutorial-2.png",
-      //   duration: "3:10",
-      // },
-      // {
-      //   id: "payment-tracking-5",
-      //   title: "Payment Tracking & Reports",
-      //   description: "Monitor payments and generate detailed business reports",
-      //   thumbnail: "/images/video-tutorial-4.png",
-      //   duration: "5:30",
-      // },
-      // {
-      //   id: "add-items-invoice-5",
-      //   title: "Add items when creating an invoice",
-      //   description: "Send WhatsApp and SMS reminders to get paid faster",
-      //   thumbnail: "/images/video-tutorial-2.png",
-      //   duration: "3:10",
-      // },
+      {
+        id: "payment-tracking-3",
+        titleKey: "howItWorksSection.payment_tracking_reports_title",
+        descriptionKey:
+          "howItWorksSection.payment_tracking_reports_description",
+        thumbnail: "/images/video-tutorial-4.png",
+        duration: "5:30",
+      },
+      {
+        id: "add-items-invoice-3",
+        titleKey: "howItWorksSection.add_items_invoice_title",
+        descriptionKey: "howItWorksSection.add_items_invoice_description",
+        thumbnail: "/images/video-tutorial-2.png",
+        duration: "3:10",
+      },
+      {
+        id: "payment-tracking-4",
+        titleKey: "howItWorksSection.payment_tracking_reports_title",
+        descriptionKey:
+          "howItWorksSection.payment_tracking_reports_description",
+        thumbnail: "/images/video-tutorial-4.png",
+        duration: "5:30",
+      },
+      {
+        id: "add-items-invoice-4",
+        titleKey: "howItWorksSection.add_items_invoice_title",
+        descriptionKey: "howItWorksSection.add_items_invoice_description",
+        thumbnail: "/images/video-tutorial-2.png",
+        duration: "3:10",
+      },
+      {
+        id: "payment-tracking-5",
+        titleKey: "howItWorksSection.payment_tracking_reports_title",
+        descriptionKey:
+          "howItWorksSection.payment_tracking_reports_description",
+        thumbnail: "/images/video-tutorial-4.png",
+        duration: "5:30",
+      },
+      {
+        id: "add-items-invoice-5",
+        titleKey: "howItWorksSection.add_items_invoice_title",
+        descriptionKey: "howItWorksSection.add_items_invoice_description",
+        thumbnail: "/images/video-tutorial-2.png",
+        duration: "3:10",
+      },
     ],
   },
 ];
-
 export function LearnHero() {
   const [activeTab, setActiveTab] = useState("video-tutorials");
   const [selectedTopic, setSelectedTopic] = useState("getting-started");
   const [currentVideoIndex, setCurrentVideoIndex] = useState([0, 0, 0]); // For each section
   const [isMobile, setIsMobile] = useState(false);
-
+const{ t , i18n} = useTranslation();
   // Check if screen is mobile
   useEffect(() => {
     const checkScreenSize = () => {
@@ -250,7 +241,7 @@ export function LearnHero() {
         {/* Header */}
         <div className="text-center space-y-4 mb-8 md:mb-12">
           <h1
-            className="text-gray-900 text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
+            className={`text-gray-900  ${i18n.language === "si" || i18n.language === "ta" ? "sm:text-2xl md:text-3xl lg:text-4xl" : "sm:text-3xl md:text-4xl lg:text-5xl"} font-bold`}
             style={{
               fontFamily: "Sora",
               fontWeight: 600,
@@ -258,7 +249,7 @@ export function LearnHero() {
               letterSpacing: "0%",
             }}
           >
-            Master Shopbook in Minutes
+            {t("learnsection.main_title")}
           </h1>
           <p
             className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg md:text-xl"
@@ -270,8 +261,7 @@ export function LearnHero() {
               textAlign: "center",
             }}
           >
-            Complete tutorials and screen flows to help you get the most out of
-            Shopbook and get paid faster.
+            {t("learnsection.main_subtitle")}
           </p>
         </div>
 
@@ -291,7 +281,7 @@ export function LearnHero() {
                   : "text-gray-[#697386] hover:text-gray-900"
               }`}
             >
-              Video Tutorials
+              {t("learnsection.video_tutorials_tab")}
             </button>
             <button
               onClick={() => setActiveTab("screen-flows")}
@@ -301,7 +291,7 @@ export function LearnHero() {
                   : "text-gray-[#697386] hover:text-gray-900"
               }`}
             >
-              Screen Flows
+              {t("learnsection.screen_flows_tab")}
             </button>
           </div>
         </div>

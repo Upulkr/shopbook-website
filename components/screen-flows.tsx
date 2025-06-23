@@ -1,10 +1,12 @@
+import { use } from "i18next"
 import Image from "next/image"
 import React from "react"
+import { useTranslation } from "react-i18next"
 
 type Topic = {
   id: string
   icon: string
-  title: string
+  titleKey: string
   steps: number
   color: string
   bgColor: string
@@ -17,6 +19,7 @@ type ScreenFlowsProps = {
 }
 
 export function ScreenFlows({ topics, selectedTopic, setSelectedTopic }: ScreenFlowsProps) {
+  const{t}=useTranslation()
   return (
     <div className="grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-start">
       {/* Left side - Topics */}
@@ -34,7 +37,7 @@ export function ScreenFlows({ topics, selectedTopic, setSelectedTopic }: ScreenF
                   <div className="flex items-center justify-center">
                     <Image
                       src={`/images/icons/${topic.id}-icon.png`}
-                      alt={`${topic.title} icon`}
+                      alt={`${topic.titleKey} icon`}
                       width={30}
                       height={30}
                       className="w-[30px] h-[30px]"
@@ -51,7 +54,7 @@ export function ScreenFlows({ topics, selectedTopic, setSelectedTopic }: ScreenF
                         letterSpacing: "0%",
                       }}
                     >
-                      {topic.title}
+                      {t(topic.titleKey)}
                     </h3>
                   </div>
                 </div>
@@ -75,7 +78,7 @@ export function ScreenFlows({ topics, selectedTopic, setSelectedTopic }: ScreenF
             }
             width={160}
             height={200}
-            alt={`Shopbook ${topics.find((t) => t.id === selectedTopic)?.title} tutorial interface`}
+            alt={`Shopbook ${topics.find((t) => t.id === selectedTopic)?.titleKey} tutorial interface`}
             className="object-contain transition-all duration-300 w-[200px] md:w-[200px] lg:w-[240px] h-[200px] md:h-[190px] lg:h-[440px] h-[120px]"
             priority
           />
