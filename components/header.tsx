@@ -120,7 +120,7 @@ export function Header() {
                     : "text-gray-600"
                 }`}
               >
-                {t("headerSection.nav_home")} {/* Translated */}
+                {t("headerSection.nav_home")} 
               </Link>
               <Link
                 href="/learn"
@@ -130,7 +130,7 @@ export function Header() {
                     : "text-gray-600"
                 }`}
               >
-                {t("headerSection.nav_learn")} {/* Translated */}
+                {t("headerSection.nav_learn")} 
               </Link>
               <Link
                 href="/contact"
@@ -140,14 +140,14 @@ export function Header() {
                     : "text-gray-600"
                 }`}
               >
-                {t("headerSection.nav_contact_us")} {/* Translated */}
+                {t("headerSection.nav_contact_us")} 
               </Link>
             </nav>
             <Button
               className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg"
               onClick={handleDownloadApp}
             >
-              {t("headerSection.download_button")} {/* Translated */}
+              {t("headerSection.download_button")} 
             </Button>
             <div className="relative">
               <button
@@ -235,7 +235,7 @@ export function Header() {
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    {t("headerSection.nav_home")} {/* Translated */}
+                    {t("headerSection.nav_home")} 
                   </Link>
                   <Link
                     href="/learn"
@@ -246,7 +246,7 @@ export function Header() {
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    {t("headerSection.nav_learn")} {/* Translated */}
+                    {t("headerSection.nav_learn")} 
                   </Link>
                   <Link
                     href="/contact"
@@ -257,15 +257,15 @@ export function Header() {
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    {t("headerSection.nav_contact_us")} {/* Translated */}
+                    {t("headerSection.nav_contact_us")} 
                   </Link>
                 </nav>
                 <div className="flex flex-col space-y-4 pt-4 border-t border-gray-100">
                   <Button
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium w-32"
+                    className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium w-48 "
                     onClick={handleDownloadApp}
                   >
-                    {t("headerSection.download_button")} {/* Translated */}
+                    {t("headerSection.download_button")} 
                   </Button>
                   <select
                     value={selectedLang}

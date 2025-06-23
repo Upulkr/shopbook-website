@@ -81,7 +81,7 @@ const{t}=useTranslation()
       {videoSections.map((section, sectionIndex) => (
         <div key={section.titleKey} className="space-y-4 md:space-y-6">
           <div className="flex items-center justify-between">
-            <h2 className="text-xl md:text-2xl font-bold text-gray-900 relative lg:left-5">
+            <h2 className="text-md md:text-2xl font-bold text-gray-900 relative lg:left-5">
          
               {t(section.titleKey)}
             </h2>
@@ -198,7 +198,7 @@ const{t}=useTranslation()
                         </div>
                       </div>
                       <div className="p-3 md:p-4 space-y-2 h-24">
-                        <h3 className="font-semibold text-gray-900 lg:text-sm leading-tight text-[13px]">
+                        <h3 className="font-semibold text-gray-900  lg:text-sm leading-tight text-[13px]">
                           {t(video.titleKey)}
                         </h3>
                         {/* <p className="text-gray-600 text-xs leading-relaxed">{video.description}</p> */}
