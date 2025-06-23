@@ -6,7 +6,7 @@ const TRANSLATIONS = {
   hero_simplify: 'Simplify Your',
   hero_business_invoicing: 'Business Invoicing',
   hero_get_paid_on_time: 'Get Paid On Time',
-  '&': '&',
+  '& ': '&',
 } as const;
 
 export default TRANSLATIONS;

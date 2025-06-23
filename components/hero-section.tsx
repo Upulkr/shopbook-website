@@ -16,7 +16,7 @@ export function HeroSection() {
                 <br />
                 <span className="text-blue-600">{t('hero_business_invoicing')}</span>
                 <br />
-                {"& "}
+              {t('&')}
                 <span className="text-blue-600">{t('hero_get_paid_on_time')}</span>
               </h1>
               <p className="text-lg text-gray-600 max-w-lg leading-relaxed">

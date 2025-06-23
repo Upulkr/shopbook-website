@@ -6,7 +6,7 @@ const TRANSLATIONS = {
   hero_simplify: 'உங்கள்',
   hero_business_invoicing: 'வணிக கணக்கை எளிமையாக்கவும்',
   hero_get_paid_on_time: 'சரியான நேரத்தில் பணம் பெறவும்',
-  '&': 'மற்றும்',
+  '&': 'மற்றும் ',
 } as const;
 
 export default TRANSLATIONS;

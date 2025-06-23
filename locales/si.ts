@@ -6,7 +6,7 @@ const TRANSLATIONS = {
   hero_simplify: 'ඔබගේ',
   hero_business_invoicing: 'ව්‍යාපාර ඉන්වොයිසින් සරල කරන්න',
   hero_get_paid_on_time: 'දින වේලාවට ගෙවීම් ලබා ගන්න',
-   '&': 'සහ',
+   '&': 'සහ ',
 } as const;
 
 export default TRANSLATIONS;
