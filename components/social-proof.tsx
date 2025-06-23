@@ -1,14 +1,15 @@
 import { Star } from "lucide-react"
 import Image from "next/image"
-
+import { useTranslation } from "react-i18next";
 export function SocialProof() {
+  const { t } = useTranslation();
   const socialProofData = [
     {
       id: "downloads",
       icon: "avatars",
       subtitle: "15K+",
       mainTextColor: "text-pink-600",
-      title: "Downloads",
+      title: t('socialProofSection.downloads_title'),
       hasAvatars: true,
     },
     {
@@ -16,8 +17,8 @@ export function SocialProof() {
       icon: "stars",
     
       mainTextColor: "text-gray-900",
-       subtitle: "4.5 Rating",
-      title: "App Store & Google Play",
+       subtitle: t('socialProofSection.rating_subtitle'),
+      title: t('socialProofSection.rating_title'),
       hasStars: true,
     },
     {
@@ -25,16 +26,16 @@ export function SocialProof() {
       icon: "none",
       mainText: "100%",
       mainTextColor: "text-green-600",
-      subtitle: "Safe & Secure",
-      title: "Your data is protected",
+      subtitle:  t('socialProofSection.security_subtitle'),
+      title: t('socialProofSection.security_title'),
     },
     {
       id: "languages",
       icon: "none",
       mainText: "3",
       mainTextColor: "text-orange-600",
-      subtitle: "Languages",
-      title: "English, Sinhala, Tamil",
+      subtitle: t('socialProofSection.languages_subtitle'),
+      title: t('socialProofSection.languages_title'),
     },
   ]
 

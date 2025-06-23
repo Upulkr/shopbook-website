@@ -5,18 +5,20 @@ import {
 import { ChevronLeft, ChevronRight, Play } from "lucide-react";
 import React, { useState } from "react";
 import VideoModel from "./video-model";
+import { use } from "i18next";
+import { useTranslation } from "react-i18next";
 
 type Video = {
   id: string;
-  title: string;
-  description: string;
+  titleKey: string;
+  descriptionKey: string;
   thumbnail: string;
   duration: string;
   youtubeUrl?: string;
 };
 
 type VideoSection = {
-  title: string;
+  titleKey: string;
   videos: Video[];
 };
 
@@ -39,7 +41,7 @@ export function VideoTutorials({
     videoIndex: number;
     video: Video;
   } | null>(null);
-
+const{t}=useTranslation()
   const goToPreviousVideo = (sectionIndex: number) => {
     setCurrentVideoIndex((prev) => {
       const newIndex = [...prev];
@@ -77,10 +79,11 @@ export function VideoTutorials({
   return (
     <div className="space-y-8 md:space-y-12">
       {videoSections.map((section, sectionIndex) => (
-        <div key={section.title} className="space-y-4 md:space-y-6">
+        <div key={section.titleKey} className="space-y-4 md:space-y-6">
           <div className="flex items-center justify-between">
             <h2 className="text-xl md:text-2xl font-bold text-gray-900 relative lg:left-5">
-              {section.title}
+         
+              {t(section.titleKey)}
             </h2>
             <div
               className={`flex space-x-2 lg:right-4 relative ${
@@ -163,7 +166,7 @@ export function VideoTutorials({
                           src={`https://img.youtube.com/vi/${getYouTubeVideoId(
                             video.youtubeUrl
                           )}/maxresdefault.jpg`}
-                          alt={video.title}
+                          alt={video.titleKey}
                           className="w-full h-40 md:h-40 object-cover"
                           onError={(e) => {
                             // Fallback to medium quality if maxresdefault fails
@@ -196,7 +199,7 @@ export function VideoTutorials({
                       </div>
                       <div className="p-3 md:p-4 space-y-2 h-24">
                         <h3 className="font-semibold text-gray-900 lg:text-sm leading-tight text-[13px]">
-                          {video.title}
+                          {t(video.titleKey)}
                         </h3>
                         {/* <p className="text-gray-600 text-xs leading-relaxed">{video.description}</p> */}
                       </div>

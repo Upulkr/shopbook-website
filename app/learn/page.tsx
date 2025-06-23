@@ -1,3 +1,4 @@
+"use client"
 import { Header } from "@/components/header"
 import { LearnHero } from "@/components/learn-hero"
 import { Footer } from "@/components/footer"

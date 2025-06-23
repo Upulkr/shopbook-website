@@ -1,39 +1,49 @@
+"use client"
+
 import { CTASection } from "@/components/cta-section"
 import { FAQSection, type FAQItem } from "@/components/faq-section"
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
 import SupportSection from "@/components/support-section"
+import { useTranslation } from "react-i18next"
 
-
-const faqs: FAQItem[] = [
-  {
-    question: "Is support really free?",
-    answer: "Yes! All support is completely free for Shopbook users. We believe in helping our users succeed.",
-  },
-  {
-    question: "What languages do you support?",
-    answer: "We support multiple languages to help users from different regions.",
-  },
-  {
-    question: "Do you provide phone support?",
-    answer: "Yes, our support team is available by phone to assist you with any queries.",
-  },
-  {
-    question: "Can you help me set up my account?",
-    answer: "Absolutely! Our team can guide you step-by-step to set up your Shopbook account.",
-  },
-]
 
 export default function ContactPage() {
+  const { t } = useTranslation(); // Initialize useTranslation
+
+  // Construct the faqs array using translated strings
+  const faqs: FAQItem[] = [
+    {
+      question: t('contactus.question1'),
+      answer: t('contactus.answer1'),
+    },
+    {
+      question: t('contactus.question2'),
+      answer: t('contactus.answer2'),
+    },
+    {
+      question: t('contactus.question3'),
+      answer: t('contactus.answer3'),
+    },
+    {
+      question: t('contactus.question4'),
+      answer: t('contactus.answer4'),
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
       <main className="pb-20">
         <SupportSection />
-        <FAQSection faqs={faqs} imageSrc="/images/faq/contact_faq.png" imageAlt="Shopbook Customer Support Team" />
+        <FAQSection
+          faqs={faqs}
+          imageSrc="/images/faq/contact_faq.png"
+          imageAlt={t('faqSection.image_alt')} // Translated image alt text
+        />
         <CTASection />
       </main>
       <Footer />
     </div>
-  )
+  );
 }

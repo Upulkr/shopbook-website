@@ -1,6 +1,9 @@
+'"use client"'
 import Image from "next/image"
+import { useTranslation } from "react-i18next";
 
 export function CTASection() {
+  const { t } = useTranslation();
   return (
     <section
       className="py-12 lg:py-0"
@@ -14,9 +17,9 @@ export function CTASection() {
           {/* Left content */}
           <div className="space-y-6">
             <div className="space-y-3 mb-8">
-              <h2 className="text-3xl lg:text-3xl font-bold">Ready to Get Started?</h2>
+              <h2 className="text-3xl lg:text-3xl font-bold">{t('cta.title')}</h2>
               <p className="text-lg text-[#94A7CF]">
-                Download Shopbook now and start implementing what you've learned to get paid faster.
+                {t('cta.description')}
               </p>
             </div>
 

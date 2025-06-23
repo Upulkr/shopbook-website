@@ -1,6 +1,9 @@
-import Image from "next/image"
+"use client";
+import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
 export function HeroSection() {
+  const { t, i18n } = useTranslation();
   return (
     <section className="bg-white py-10 md:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -8,17 +11,16 @@ export function HeroSection() {
           {/* Left content */}
           <div className="space-y-8">
             <div className="space-y-6">
-              <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-relaxed">
-                Simplify Your
+              <h1 className={` font-bold text-gray-900 leading-relaxed ${i18n.language === 'si'|| i18n.language === 'ta' ? 'text-2xl sm:text-3xl' : 'text-4xl lg:text-5xl'} tracking-tight`}>
+                {t('hero_simplify')}
                 <br />
-                <span className="text-blue-600">Business Invoicing</span>
+                <span className="text-blue-600">{t('hero_business_invoicing')}</span>
                 <br />
-                {"& "}
-                <span className="text-blue-600">Get Paid On Time</span>
+              {t('&')}
+                <span className="text-blue-600">{t('hero_get_paid_on_time')}</span>
               </h1>
               <p className="text-lg text-gray-600 max-w-lg leading-relaxed">
-                Create professional invoices, track payments and send professional automated reminders to collect credit
-                3x faster.
+                {t('invoice_feature')}
               </p>
             </div>
             {/* App download buttons */}
@@ -37,7 +39,11 @@ export function HeroSection() {
                     className="h-auto"
                   />
                 </a>
-                <a href="https://apps.apple.com/lk/app/shopbook/id1602633267" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://apps.apple.com/lk/app/shopbook/id1602633267"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Image
                     src="/images/cta/app-store.png"
                     alt="Download from App Store"
@@ -74,5 +80,5 @@ export function HeroSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

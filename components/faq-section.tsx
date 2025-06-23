@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
+
 
 export type FAQItem = {
   question: string;
@@ -19,7 +21,7 @@ export function FAQSection({
   imageAlt = "FAQ Image",
 }: FAQSectionProps) {
   const [expandedIndex, setExpandedIndex] = useState(0);
-
+    const { t } = useTranslation();
   const toggleExpanded = (index: number) => {
     setExpandedIndex(expandedIndex === index ? -1 : index);
   };
@@ -28,7 +30,7 @@ export function FAQSection({
     <section className="py-20 bg-white">
       <div className="max-w-5xl mx-auto px-4">
         <h2 className="text-4xl font-bold text-gray-900 mb-10 text-center">
-          Frequently Asked Questions
+          {t("faqSection.main_title") }
         </h2>
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-start gap-12">

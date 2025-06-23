@@ -1,36 +1,38 @@
 "use client"
 import { useState, useEffect } from "react"
 import Image from "next/image"
-
-const steps = [
-  {
-    number: 1,
-    title: "Create Invoices",
-    description: "Generate invoices for cash or credit sales with clear due dates.",
-    image: "/images/how-shopbook-works/create-invoices.png",
-  },
-  {
-    number: 2,
-    title: "Send via WhatsApp or SMS",
-    description: "Instantly deliver invoices to your customers via WhatsApp or SMS.",
-    image: "/images/how-shopbook-works/send-invoices.png",
-  },
-  {
-    number: 3,
-    title: "Set Automatic Reminders",
-    description: "Ensure timely payments with automated, polite reminders.",
-    image: "/images/how-shopbook-works/automatic-reminder.png",
-  },
-  {
-    number: 4,
-    title: "Generate Reports",
-    description: "Access comprehensive reports and payment summaries anytime.",
-    image: "/images/how-shopbook-works/generate-reports.png",
-  },
-]
+import { useTranslation } from "react-i18next" // Import useTranslation
 
 export function HowItWorks() {
+  const { t } = useTranslation(); // Initialize useTranslation
   const [activeStep, setActiveStep] = useState(0)
+
+  const steps = [
+    {
+      number: 1,
+      titleKey: "howItWorks.step1_title", // Use a key for translation
+      descriptionKey: "howItWorks.step1_description", // Use a key for translation
+      image: "/images/how-shopbook-works/create-invoices.png",
+    },
+    {
+      number: 2,
+      titleKey: "howItWorks.step2_title",
+      descriptionKey: "howItWorks.step2_description",
+      image: "/images/how-shopbook-works/send-invoices.png",
+    },
+    {
+      number: 3,
+      titleKey: "howItWorks.step3_title",
+      descriptionKey: "howItWorks.step3_description",
+      image: "/images/how-shopbook-works/automatic-reminder.png",
+    },
+    {
+      number: 4,
+      titleKey: "howItWorks.step4_title",
+      descriptionKey: "howItWorks.step4_description",
+      image: "/images/how-shopbook-works/generate-reports.png",
+    },
+  ]
 
   // Auto-rotate steps every 4 seconds
   useEffect(() => {
@@ -39,14 +41,18 @@ export function HowItWorks() {
     }, 4000)
 
     return () => clearInterval(interval)
-  }, [])
+  }, [steps.length]) // Added steps.length to dependency array
 
   return (
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-4 mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">How Shopbook Works</h2>
-          <p className="text-lg text-gray-600">Start managing your invoices in just 4 simple steps</p>
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">
+            {t('howItWorks.title')} 
+          </h2>
+          <p className="text-lg text-gray-600">
+            {t('howItWorks.subtitle')}
+          </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -72,15 +78,17 @@ export function HowItWorks() {
                     <h3
                       className={`text-lg font-semibold ${activeStep === index ? "text-[#2563EB]" : "text-gray-900"}`}
                     >
-                      {step.title}
+                      {t(step.titleKey)}
                     </h3>
-                    <p className="text-gray-600 text-sm">{step.description}</p>
+                    <p className="text-gray-600 text-sm">
+                      {t(step.descriptionKey)} 
+                    </p>
                   </div>
                 </div>
               </div>
             ))}
 
-            {/* App download buttons */}
+            {/* App download buttons - text on images handled by image assets */}
             <div className="flex space-x-4 pt-4 justify-center md:justify-start">
               <a
                 href="https://play.google.com/store/apps/details?id=com.mithushancj.shopbook&hl=en&gl=US"
@@ -110,11 +118,10 @@ export function HowItWorks() {
           {/* Mobile mockup */}
           <div className="flex flex-col items-center space-y-6">
             <div className="relative ">
-             
                 <div className=" h-[500px] w-[250px]  overflow-hidden">
                   <Image
                     src={steps[activeStep].image}
-                    alt={`Step ${activeStep + 1}: ${steps[activeStep].title}`}
+                    alt={`Step ${activeStep + 1}: ${t(steps[activeStep].titleKey)}`} 
                     width={250}
                     height={500}
                     className="w-full h-full object-cover  "
@@ -122,7 +129,6 @@ export function HowItWorks() {
                     priority
                   />
                 </div>
-             
             </div>
 
             {/* Step indicators */}
