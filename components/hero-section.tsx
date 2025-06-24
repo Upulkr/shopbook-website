@@ -11,16 +11,29 @@ export function HeroSection() {
           {/* Left content */}
           <div className="space-y-8">
             <div className="space-y-6">
-              <h1 className={` font-bold text-gray-900 leading-relaxed ${i18n.language === 'si'|| i18n.language === 'ta' ? 'text-2xl sm:text-3xl' : 'text-4xl lg:text-5xl'} tracking-tight`}>
-                {t('hero_simplify')}
+              <h1
+                className={` font-bold text-gray-900 leading-relaxed ${
+                  i18n.language === "si" || i18n.language === "ta"
+                    ? "text-2xl sm:text-3xl"
+                    : "text-4xl lg:text-5xl"
+                } tracking-tight`}
+                style={{
+                  lineHeight: "1.3",
+                }}
+              >
+                {t("hero_simplify")}
                 <br />
-                <span className="text-blue-600">{t('hero_business_invoicing')}</span>
+                <span className="text-blue-600">
+                  {t("hero_business_invoicing")}
+                </span>
                 <br />
-              {t('&')}
-                <span className="text-blue-600">{t('hero_get_paid_on_time')}</span>
+                {t("&")}
+                <span className="text-blue-600">
+                  {t("hero_get_paid_on_time")}
+                </span>
               </h1>
               <p className="text-lg text-gray-600 max-w-lg leading-relaxed">
-                {t('invoice_feature')}
+                {t("invoice_feature")}
               </p>
             </div>
             {/* App download buttons */}
