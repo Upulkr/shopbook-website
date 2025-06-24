@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 export function HeroSection() {
   const { t, i18n } = useTranslation();
   return (
-    <section className="bg-white py-10 md:py-20">
+    <section className="bg-white py-10 md:py-20 relative top-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left content */}

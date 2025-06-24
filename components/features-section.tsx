@@ -52,13 +52,13 @@ export function FeaturesSection() {
   const { t , i18n} = useTranslation(); // Initialize useTranslation
 
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-7 lg:px-8">
+    <section className={`py-24 bg-white  `}>
+      <div className={`max-w-7xl mx-auto px-4 sm:px-6 md:px-7 lg:px-8 ${i18n.language==="si" ?"lg:top-32 relative":i18n.language==="ta" ? "lg:top-16 relative" : "lg:top-12 relative"}`}>
         <div className="text-center space-y-4 mb-16 mt-12 pt-8">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">
+          <h2 className="sm:text-3xl md:text-4xl lg:text-[38px] font-bold text-gray-900">
             {t('featuresSection.main_heading_title')}
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="sm:text-lg md:text-xl text-gray-600">
             {t('featuresSection.main_heading_subtitle')}
           </p>
         </div>
@@ -90,10 +90,10 @@ export function FeaturesSection() {
           ))}
         </div>
 
-        <div className="relative mt-12 top-10">
+        <div className={`relative mt-12 top-10 ${i18n.language==="si" ? "lg:mb-32":""}`}>
           {/* Background container with centered content */}
           <div
-            className={`relative border border-gray-200 rounded-2xl overflow-hidden max-w-7xl mx-auto p-6  top-5 ${i18n.language==="ta" ? "lg:h-[250px]" :i18n.language==="si"? "lg:h-[220px]" : "lg:h-[194px]"}`}
+            className={`relative border border-gray-200 rounded-2xl overflow-hidden max-w-7xl mx-auto p-6  top-5 ${i18n.language==="ta" ? "lg:h-[250px]" :i18n.language==="si"? "lg:h-[252px]" : "lg:h-[194px]"}`}
             style={{ backgroundColor: "#FB923C0A" }}
           >
             {/* Mobile phone image - Only visible on mobile, positioned above content */}

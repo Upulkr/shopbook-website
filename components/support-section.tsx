@@ -6,12 +6,18 @@ import { useTranslation } from "react-i18next";
 export default function SupportSection() {
      const { t } = useTranslation();
   return (
-<section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white">
+<section className="py-8 sm:py-12 md:py-16 lg:py-20 ">
       <div className="max-w-5xl mx-auto px-4 text-center mb-8 sm:mb-12 md:mb-14">
-        <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-2 text-[#23272E]">
-          {t('supportSection.main_title')} {/* Translated */}
+        <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-[38px]  font-semibold mb-2 text-[#23272E]">
+          {t('supportSection.main_title')} 
         </h2>
-        <p className="text-xs sm:text-sm md:text-base text-[#8B8B8B] max-w-xl mx-auto">
+        <p className="text-xs sm:text-lg md:text-xl text-[#8B8B8B] max-w-xl mx-auto" style={{
+              fontFamily: "Sora",
+              fontWeight: 400,
+              lineHeight: "1.6", // increased line height
+              letterSpacing: "0.5px", // optional refinement
+              textAlign: "center",
+            }}>
           {t('supportSection.main_subtitle')} {/* Translated */}
         </p>
       </div>

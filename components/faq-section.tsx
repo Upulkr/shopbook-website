@@ -29,7 +29,7 @@ export function FAQSection({
   return (
     <section className="py-20 bg-white">
       <div className="max-w-5xl mx-auto px-4">
-        <h2 className="text-4xl font-bold text-gray-900 mb-10 text-center">
+        <h2 className="sm:text-3xl md:text-4xl lg:text-[38px] font-bold text-gray-900 mb-10 text-center">
           {t("faqSection.main_title") }
         </h2>
       </div>

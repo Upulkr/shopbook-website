@@ -3,11 +3,11 @@ const TRANSLATIONS = {
   create_business_first: "මුල්ම ව්‍යාපාර ගිණුමක් තනමු",
   business_name: "ව්‍යාපාර නම",
   invoice_feature:
-    "වෘත්තීය ඉන්වොයිසි සාදන්න, ගෙවීම් නිරීක්ෂණය කරන්න සහ ණය එකතු කිරීමට වෘත්තීය ස්වයංක්‍රීය මතක් කිරීම් 3x වේගයෙන් යවන්න.",
-  hero_simplify: "ඔබගේ",
-  hero_business_invoicing: "ව්‍යාපාර ඉන්වොයිසින් සරල කරන්න",
-  hero_get_paid_on_time: "දින වේලාවට ගෙවීම් ලබා ගන්න",
-  "&": "සහ ",
+    "Professional ඉන්වොයිසි පහසුවෙන් හදන්න. ගෙවීම් manage කරලා ණය මතක් කිරීම් යවා 3 ගුණයක් වේගයෙන් ණය එකතු කරගන්න.",
+  hero_simplify: "ඔබේ ව්‍යාපාර invoice ",
+  hero_business_invoicing: "පහසුවෙන් සාදා නියමිත වේලාවට ",
+  hero_get_paid_on_time: "මුදල් ලබා ගන්න. ",
+  "&": "",
   features: {
     credit_cash_invoices_title: "ණය සහ මුදල් ඉන්වොයිසි පහසුයි",
     credit_cash_invoices_description:
@@ -21,15 +21,15 @@ const TRANSLATIONS = {
     payment_tracking_title: "පහසු ගෙවීම් ලුහුබැඳීම",
     payment_tracking_description:
       "ලැබුණු ගෙවීම් ඉක්මනින් සටහන් කර ඔබගේ ගිණුම් ක්ෂණිකව යාවත්කාලීන කරන්න.",
-    generate_reports_title: "වාර්තා ජනනය කර බෙදාගන්න",
+    generate_reports_title: "වාර්තා සාදා සහ බෙදාගන්න",
     generate_reports_description:
       "වෘත්තීය විකුණුම් සහ ගෙවීම් වාර්තා පහසුවෙන් සාදන්න.",
     available_languages_title: "භාෂා 3කින් ලබා ගත හැක",
     available_languages_description:
       "Shopbook සිංහල, දෙමළ හෝ ඉංග්‍රීසි භාෂාවෙන් භාවිතා කරන්න.",
-    achieve_goals_title: "Shopbook සමඟින් ඔබේ ව්‍යාපාර ඉලක්ක සපුරා ගන්න",
+    achieve_goals_title: "ඔබේ ව්‍යාපාර ඉලක්ක Shopbook සමඟ ළඟා කරගන්න.",
     simplified_tagline: "ඉන්වොයිසි සිට ගෙවීම් දක්වා - ඔබ වෙනුවෙන් සරල කර ඇත",
-    see_reminders_title: "ස්වයංක්‍රීය මතක් කිරීම් ක්‍රියාවට නංවන්න",
+    see_reminders_title: "ShopBook Auto ගෙවීම් මතක් කිරීම් යවා නොගෙවු ණය ඉක්මනින් එකතු කරගන්නේ  කෙසේදැයි බලන්න.",
     see_reminders_description:
       "ShopBook විසින් වෘත්තීය ගෙවීම් මතක් කිරීම් පහසුවෙන් යවන්නේ කෙසේදැයි බලන්න, එමඟින් ඔබට වේගයෙන් එකතු කිරීමට සහ නොගෙවූ ණය අඩු කිරීමට උපකාරී වේ.",
     watch_demo_video: "ආදර්ශන වීඩියෝව බලන්න",
@@ -40,32 +40,32 @@ const TRANSLATIONS = {
     subtitle: "සරල පියවර 4කින් ඔබේ ඉන්වොයිසි කළමනාකරණය ආරම්භ කරන්න",
     step1_title: "ඉන්වොයිසි සාදන්න",
     step1_description:
-      "මුදල් හෝ ණය විකුණුම් සඳහා පැහැදිලි නියමිත දින සමඟ ඉන්වොයිසි සාදන්න.",
+      "මුදල් හෝ ණය විකුණුම් සඳහා ගෙවීම්  නියමිත දින (due date) සමඟ ඉන්වොයිසි සාදන්න.",
     step2_title: "WhatsApp හෝ SMS හරහා යවන්න",
     step2_description:
       "WhatsApp හෝ SMS හරහා ඔබේ පාරිභෝගිකයින්ට ක්ෂණිකව ඉන්වොයිසි ලබා දෙන්න.",
     step3_title: "ස්වයංක්‍රීය මතක් කිරීම් සකසන්න",
     step3_description:
-      "ස්වයංක්‍රීය, ආචාරශීලී මතක් කිරීම් සමඟින් නියමිත වේලාවට ගෙවීම් සහතික කරන්න.",
-    step4_title: "වාර්තා ජනනය කරන්න",
+      "ස්වයංක්‍රීය, ආචාරශීලී මතක් කිරීම් සමඟින් නියමිත වේලාවට ගෙවීම් ලැබීම සහතික කරන්න.",
+    step4_title: "වාර්තා generate කරන්න",
     step4_description:
-      "ඕනෑම වේලාවක සවිස්තරාත්මක වාර්තා සහ ගෙවීම් සාරාංශ වෙත ප්‍රවේශ වන්න.",
+      "ඕනෑම වේලාවක සවිස්තරාත්මක වාර්තා සහ ගෙවීම් සාරාංශ බලාගන්න",
   },
   comparison: {
     title: "ව්‍යාපාර දහස් ගණනක් Shopbook වෙත මාරු වී ඇත්තේ මන්දැයි බලන්න",
     manual_process_heading: "අතින් කරන ක්‍රියාවලිය",
-    manual_process_item1: "කාලය ගතවන ඉන්වොයිසි සෑදීම",
-    manual_process_item2: "අද කාටද ගෙවීමට ඇත්තේ යන්න අමතක වීම",
-    manual_process_item3: "නැතිවූ ඉන්වොයිසි සහ දුර්වල වාර්තා තබා ගැනීම",
+    manual_process_item1: "වැඩි කාලයක් ගත කරමින් invoice සෑදීම",
+    manual_process_item2: "අද ගෙවීම් නියමිත අය අමතක වීම",
+    manual_process_item3: "ඉන්වොයිසි නැති වීම් සහ අක්‍රමික වාර්තා තබා ගැනීම්",
     manual_process_item4: "ගෙවීම් ප්‍රමාද වීමෙන් මුදල් ප්‍රවාහ ගැටලු ඇතිවීම",
     shopbook_heading: "Shopbook සමඟ",
     shopbook_item1: "තත්පර කිහිපයකින් ඉන්වොයිසි සාදන්න",
     shopbook_item2: "WhatsApp/SMS හරහා ස්වයංක්‍රීය ගෙවීම් මතක් කිරීම්",
     shopbook_item3: "සම්පූර්ණ ඉන්වොයිසි ඉතිහාසය සහ සවිස්තරාත්මක වාර්තා",
-    shopbook_item4: "3x දක්වා වේගයෙන් මුදල් ලබා ගන්න",
+    shopbook_item4: "3x දක්වා වේගයෙන් මුදල් එකතු කරගන්න.",
   },
   testimonialsSection: {
-    title: "අපගේ පරිශීලකයන් පවසන දේ ",
+    title: "අපගේ usersලා පවසන දේ",
   },
   cta: {
     title: "ආරම්භ කිරීමට සූදානම්ද?",
@@ -89,18 +89,18 @@ const TRANSLATIONS = {
       "ඔව්, ඔබගේ ජංගම දුරකථනය නැති වුවහොත්/හානි වුවහොත් ඔබට නැවත ඔබගේ දත්ත වෙත ප්‍රවේශ විය හැක. ඔබට ඔබගේ විද්‍යුත් තැපෑල සහ මුරපදය සමඟ ඔබගේ ගිණුමට ලොග් විය හැකි අතර ඔබගේ දත්ත ඔබට ලබා ගත හැක.",
   },
   featuresSection: {
-    main_heading_title: "Shopbook සමඟින් ඔබේ ව්‍යාපාර ඉලක්ක කරා ළඟා වන්න",
+    main_heading_title: "ඔබේ ව්‍යාපාර ඉලක්ක Shopbook සමඟ ළඟා කරගන්න.",
     main_heading_subtitle:
-      "ඉන්වොයිසිවල සිට ගෙවීම් දක්වා - ඔබ වෙනුවෙන් සරල කර ඇත",
+      "Credit සහ Cash Invoice පහසුවෙන් සාදන්න",
     feature1_title: "ණය සහ මුදල් ඉන්වොයිසි පහසුයි",
     feature1_description:
       "ඔබගේ සියලුම ණය සහ මුදල් විකුණුම් ඉන්වොයිසි එක් තැනකින් කළමනාකරණය කරන්න.",
-    feature2_title: "ඔබගේ සම්පූර්ණ ඉන්වොයිසි ඉතිහාසය බලන්න",
+    feature2_title: "සියලුම පැරණි ඉන්වොයිසි ඕනෑම වේලාවක, එකම තැනකින් සොයා බලන්න",
     feature2_description: "ඕනෑම වේලාවක සියලුම පැරණි ඉන්වොයිසි බලා සොයන්න.",
-    feature3_title: "ස්වයංක්‍රීය මතක් කිරීම් සමඟ වේගවත් ගෙවීම්",
+    feature3_title: "Auto මතක් කිරීම් සමඟ වේගවත් ගෙවීම්",
     feature3_description:
-      "ඉක්මන් ගෙවීම් එකතු කිරීම සඳහා SMS/WhatsApp හරහා පාරිභෝගිකයින්ට ස්වයංක්‍රීයව මතක් කරන්න.",
-    feature4_title: "පහසු ගෙවීම් නිරීක්ෂණය",
+      "ඉක්මන් ගෙවීම් එකතු කිරීම සඳහා SMS/WhatsApp හරහා පාරිභෝගිකයින්ට auto මතක් කිරීම් යවන්න",
+    feature4_title: "ගෙවීම් නිරීක්ෂණය පහසුවෙන්",
     feature4_description:
       "ලැබුණු ගෙවීම් ඉක්මනින් සටහන් කර ඔබගේ ගිණුම් ක්ෂණිකව යාවත්කාලීන කරන්න.",
     feature5_title: "වාර්තා සාදන්න සහ බෙදාගන්න",
@@ -108,7 +108,7 @@ const TRANSLATIONS = {
     feature6_title: "භාෂා 3කින් ලබාගත හැක",
     feature6_description:
       "Shopbook සිංහල, දෙමළ හෝ ඉංග්‍රීසි භාෂාවලින් භාවිතා කරන්න.",
-    nested_cta_title: "ස්වයංක්‍රීය මතක් කිරීම් ක්‍රියාවට නංවන අයුරු බලන්න",
+    nested_cta_title: "ShopBook Auto ගෙවීම් මතක් කිරීම් යවා නොගෙවු ණය ඉක්මනින් එකතු කරගන්නේ  කෙසේදැයි බලන්න",
     nested_cta_description:
       "නොගෙවූ ණය අඩු කර ඉක්මනින් මුදල් එකතු කර ගැනීමට ShopBook වෘත්තීය ගෙවීම් මතක් කිරීම් පහසුවෙන් යවන්නේ කෙසේදැයි බලන්න.",
     nested_cta_button: "Demo වීඩියෝව බලන්න",
@@ -167,8 +167,8 @@ const TRANSLATIONS = {
     download_app_title: "යෙදුම බාගන්න",
     copyright_text: "© {{year}} Shopbook. සියලුම හිමිකම් ඇවිරිණි.",
     privacy_policy: "පෞද්ගලිකත්ව ප්‍රතිපත්තිය",
-    made_in_text_part1: "නිර්මාණය කරන ලද්දේ",
-    made_in_text_part2: "සමඟ ❤️",
+    made_in_text_part1: "",
+    made_in_text_part2: "නිෂ්පාදිතයි",
     social_facebook_alt: "ෆේස්බුක්",
     social_instagram_alt: "Instagram",
     social_whatsapp_alt: "WhatsApp",
@@ -210,7 +210,7 @@ const TRANSLATIONS = {
     // Security
     security_main_text: "100%",
     security_subtitle: "ආරක්ෂිතයි සහ සුරක්ෂිතයි",
-    security_title: "ඔබගේ දත්ත ආරක්ෂා කර ඇත",
+    security_title: "ඔබගේ දත්ත සුරක්ෂිතයි",
 
     // Languages
     languages_main_text: "3",

@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useTranslation } from "react-i18next"; // Import useTranslation
 
 export function Footer() {
-  const { t } = useTranslation(); // Initialize useTranslation
+  const { t,i18n } = useTranslation(); // Initialize useTranslation
 
   // Define socialMediaIcons inside the component to use `t` for alt text
   const socialMediaIcons = [
@@ -90,8 +90,8 @@ export function Footer() {
           </div>
 
           {/* Download App */}
-          <div className="space-y-4 flex flex-col items-start sm:items-end">
-            <h3 className="font-semibold text-gray-900 relative lg:right-10">
+          <div className={`space-y-4 flex flex-col items-start sm:items-end `}>
+            <h3 className={`font-semibold text-gray-900 relative ${i18n.language==="si" ? "relative lg:right-5":"lg:right-10 "}`}>
               {t('footerSection.download_app_title')} {/* Translated */}
             </h3>
             <div className="space-y-4 w-full sm:w-auto">
