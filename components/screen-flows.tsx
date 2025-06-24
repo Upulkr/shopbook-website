@@ -40,7 +40,7 @@ export function ScreenFlows({ topics, selectedTopic, setSelectedTopic }: ScreenF
                       alt={`${topic.titleKey} icon`}
                       width={30}
                       height={30}
-                      className="w-[30px] h-[30px]"
+                      className="w-[30px] h-[25px]"
                     />
                   </div>
                   <div className="w-full">
