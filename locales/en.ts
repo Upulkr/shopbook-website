@@ -102,7 +102,7 @@ const TRANSLATIONS = {
   feature6_title: "Available in 3 Languages",
   feature6_description: "Use Shopbook in Sinhala, Tamil, or English.",
   nested_cta_title: "See Automated Reminders in Action",
-  nested_cta_description: "Watch how ShopBook effortlessly sends professional payment reminders to help you collect faster and reduce unpaid credit.",
+  nested_cta_description: "Watch how shopBook effortlessly sends professional payment reminders to help you collect faster and reduce unpaid credit.",
   nested_cta_button: "Watch Demo Video",
   phone_secure_alt: "Shopbook mobile app",
   money_hand_alt: "Money in hand",
