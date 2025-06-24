@@ -235,7 +235,7 @@ export function LearnHero() {
   };
 
   return (
-    <section className="py-12 md:py-20 bg-gray-50 min-h-screen">
+    <section className="py-12 md:py-20  min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-7 lg:px-8">
         {/* Header */}
         <div className="text-center space-y-4 mb-8 md:mb-12">
@@ -243,7 +243,7 @@ export function LearnHero() {
             className={`text-gray-900  ${
               i18n.language === "si" || i18n.language === "ta"
                 ? " sm:text-2xl md:text-3xl lg:text-4xl"
-                : "sm:text-3xl md:text-4xl lg:text-5xl"
+                : "sm:text-3xl md:text-4xl lg:text-[38px]"
             } font-bold`}
             style={{
               fontFamily: "Sora",
