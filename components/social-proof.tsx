@@ -40,7 +40,7 @@ export function SocialProof() {
   ];
 
   return (
-    <section className="py-0 bg-white overflow-x-hidden">
+    <section className="py-0 bg-white overflow-x-hidden lg:mb-24">
       <div className="w-full bg-[#F2F6FE] py-8 md:py-10 lg:h-[137px] lg:absolute lg:top-[605px] lg:left-0 relative flex items-center justify-center">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 overflow-x-hidden">
           <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-6 sm:gap-8 md:gap-12 lg:gap-16 text-center">
@@ -68,13 +68,14 @@ export function SocialProof() {
                   )}
                   {item.hasStars && (
                     <div className="flex justify-center space-x-1">
-                      {[...Array(4)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className="w-4 h-7 fill-yellow-400 text-yellow-400 relative sm:top-1"
-                        />
-                      ))}
-                      <Star className="w-4 h-7 fill-yellow-400 text-yellow-400 opacity-50  relative sm:top-1" />
+                     <img
+                        src="/images/rating/Rating.svg"
+                        alt="Rating stars"
+                        width={100}
+                        height={35}
+                        className="h-7 w-auto align-baseline"
+                        style={{ verticalAlign: "baseline" }}
+                      />
                     </div>
                   )}
                 </div>
@@ -100,7 +101,7 @@ export function SocialProof() {
                 <div className="h-5 sm:h-6 flex items-center justify-center">
                   {item.subtitle && (
                     <div
-                      className={`${i18n.language==='ta'?"text-sm sm:xl:text-[18px]":" sm:xl:text-[20px] "}
+                      className={`${i18n.language==='ta'?"text-sm sm:xl:text-[15px]":" sm:xl:text-[20px] "}
                       text-base font-bold  leading-none top-2 relative  
                       ${item.id === "downloads" ? "text-[#D6336C]" : ""}
                     `}
@@ -112,7 +113,7 @@ export function SocialProof() {
 
                 {/* Fixed height container for titles - ALL ITEMS SAME HEIGHT */}
                 <div className="h-7 sm:h-8 flex items-center justify-center">
-                  <div className="text-gray-600 font-medium text-center text-sm xl:text-lg leading-tight top-2 relative  ">
+                  <div className="text-gray-600 font-medium text-center text-sm xl:text-md leading-tight top-2 relative  ">
                     {item.title}
                   </div>
                 </div>
