@@ -43,7 +43,7 @@ export function SocialProof() {
     <section className="py-0 bg-white overflow-x-hidden lg:mb-24">
       <div className="w-full bg-[#F2F6FE] py-8 md:py-10 lg:h-[137px] lg:absolute lg:top-[605px] lg:left-0 relative flex items-center justify-center">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 overflow-x-hidden">
-          <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-6 sm:gap-8 md:gap-12 lg:gap-16 text-center">
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-6 sm:gap-8 md:gap-12 lg:gap-16 text-center lg:space-x-12">
             {socialProofData.map((item) => (
               <div
                 key={item.id}
@@ -62,7 +62,7 @@ export function SocialProof() {
                       alt="User avatars"
                       width={100}
                       height={35}
-                      className="h-7 w-auto align-baseline"
+                      className="h-7 w- align-baseline"
                       style={{ verticalAlign: "baseline" }}
                     />
                   )}
@@ -73,7 +73,7 @@ export function SocialProof() {
                         alt="Rating stars"
                         width={100}
                         height={35}
-                        className="h-7 w-auto align-baseline"
+                        className="h-7 w-auto align-baseline "
                         style={{ verticalAlign: "baseline" }}
                       />
                     </div>
@@ -84,7 +84,7 @@ export function SocialProof() {
                 <div className="h-7 sm:h-8 flex items-center justify-center">
                   <div
                     className={`
-                      text-lg sm:xl:text-2xl
+                      text-lg sm:xl:text-3xl
                       ${
                         item.id === "downloads"
                           ? "relative top-3 sm:top-5 lg:top-5"
