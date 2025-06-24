@@ -7,7 +7,7 @@ const TRANSLATIONS = {
   hero_simplify: "Simplify Your",
   hero_business_invoicing: "Business Invoicing",
   hero_get_paid_on_time: "Get Paid On Time",
-  "& ": "&",
+  "&": "& ",
   features: {
     credit_cash_invoices_title: "Credit & Cash Invoices Made Easy",
     credit_cash_invoices_description:
