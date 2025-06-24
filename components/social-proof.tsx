@@ -113,7 +113,7 @@ export function SocialProof() {
 
                 {/* Fixed height container for titles - ALL ITEMS SAME HEIGHT */}
                 <div className="h-7 sm:h-8 flex items-center justify-center">
-                  <div className="text-gray-600 font-medium text-center text-sm xl:text-[16px] leading-tight top-2 relative  ">
+                  <div className="text-gray-600 font-medium text-center text-sm xl:text-[14px] leading-tight top-2 relative  ">
                     {item.title}
                   </div>
                 </div>
