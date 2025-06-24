@@ -30,7 +30,7 @@ const TRANSLATIONS = {
     simplified_tagline: "From Invoices to Payment - Simplified for You",
     see_reminders_title: "See Automated Reminders in Action",
     see_reminders_description:
-      "Watch how ShopBook effortlessly sends professional payment reminders to help you collect faster and reduce unpaid credit.",
+      "Watch how shopBook effortlessly sends professional payment reminders to help you collect faster and reduce unpaid credit.",
     watch_demo_video: "Watch Demo Video",
   },
   howItWorks: {
