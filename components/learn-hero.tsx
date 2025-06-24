@@ -6,7 +6,6 @@ import { VideoTutorials } from "./video-tutorials";
 import { ScreenFlows } from "./screen-flows";
 import { useTranslation } from "react-i18next";
 
-
 const topics = [
   {
     id: "getting-started",
@@ -190,7 +189,7 @@ export function LearnHero() {
   const [selectedTopic, setSelectedTopic] = useState("getting-started");
   const [currentVideoIndex, setCurrentVideoIndex] = useState([0, 0, 0]); // For each section
   const [isMobile, setIsMobile] = useState(false);
-const{ t , i18n} = useTranslation();
+  const { t, i18n } = useTranslation();
   // Check if screen is mobile
   useEffect(() => {
     const checkScreenSize = () => {
@@ -241,7 +240,11 @@ const{ t , i18n} = useTranslation();
         {/* Header */}
         <div className="text-center space-y-4 mb-8 md:mb-12">
           <h1
-            className={`text-gray-900  ${i18n.language === "si" || i18n.language === "ta" ? " sm:text-2xl md:text-3xl lg:text-4xl" : "sm:text-3xl md:text-4xl lg:text-5xl"} font-bold`}
+            className={`text-gray-900  ${
+              i18n.language === "si" || i18n.language === "ta"
+                ? " sm:text-2xl md:text-3xl lg:text-4xl"
+                : "sm:text-3xl md:text-4xl lg:text-5xl"
+            } font-bold`}
             style={{
               fontFamily: "Sora",
               fontWeight: 600,
@@ -252,12 +255,12 @@ const{ t , i18n} = useTranslation();
             {t("learnsection.main_title")}
           </h1>
           <p
-            className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg md:text-xl"
+            className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg md:text-xl mt-4 mb-4"
             style={{
               fontFamily: "Sora",
               fontWeight: 400,
-              lineHeight: "100%",
-              letterSpacing: "0%",
+              lineHeight: "1.6", // increased line height
+              letterSpacing: "0.5px", // optional refinement
               textAlign: "center",
             }}
           >
@@ -268,7 +271,11 @@ const{ t , i18n} = useTranslation();
         {/* Tabs */}
         <div className="flex justify-center mb-8 md:mb-12 mx-auto">
           <div
-            className={`bg-blue-50 rounded-lg p-2 shadow-sm border border-gray-200 mx-auto flex items-center justify-center w-full max-w-[484px]  ${i18n.language === "si" || i18n.language === "ta" ? "text-[12px] lg:text-md " : "text-md"} `}
+            className={`bg-blue-50 rounded-lg p-2 shadow-sm border border-gray-200 mx-auto flex items-center justify-center w-full max-w-[484px]  ${
+              i18n.language === "si" || i18n.language === "ta"
+                ? "text-[12px] lg:text-md "
+                : "text-md"
+            } `}
             style={{
               height: "50px",
             }}
