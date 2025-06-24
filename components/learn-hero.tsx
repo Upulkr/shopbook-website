@@ -240,7 +240,7 @@ export function LearnHero() {
         {/* Header */}
         <div className="text-center space-y-4 mb-8 md:mb-12">
           <h1
-            className={`text-gray-900  ${
+            className={`text-gray-900 mt-10  ${
               i18n.language === "si" || i18n.language === "ta"
                 ? " sm:text-2xl md:text-3xl lg:text-4xl"
                 : "sm:text-3xl md:text-4xl lg:text-[38px]"

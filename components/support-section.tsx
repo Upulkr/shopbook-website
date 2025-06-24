@@ -8,7 +8,7 @@ export default function SupportSection() {
   return (
 <section className="py-8 sm:py-12 md:py-16 lg:py-20 ">
       <div className="max-w-5xl mx-auto px-4 text-center mb-8 sm:mb-12 md:mb-14">
-        <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-[38px]  font-semibold mb-2 text-[#23272E]">
+        <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-[38px]  font-semibold mb-2 text-[#23272E] mt-10">
           {t('supportSection.main_title')} 
         </h2>
         <p className="text-xs sm:text-lg md:text-xl text-[#8B8B8B] max-w-xl mx-auto" style={{
