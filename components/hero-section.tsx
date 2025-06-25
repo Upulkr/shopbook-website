@@ -68,13 +68,13 @@ export function HeroSection() {
               </div>
 
               {/* Free label */}
-              <div className="inline-block">
+              <div className={`inline-block ${i18n.language==='ta'||i18n.language==='si'?"lg:-[50px] relative ":""}`}>
                 <Image
                   src="/images/ui/free-label.png"
                   alt="100% Free • No Credit Card Required"
                   width={300}
                   height={40}
-                  className="h-auto"
+                  className={`h-auto ${i18n.language==='ta'||i18n.language==='si'?"lg:-[50px] relative lg:mt-5":""}`}
                 />
               </div>
             </div>

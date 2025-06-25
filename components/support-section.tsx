@@ -26,7 +26,7 @@ export default function SupportSection() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 my-6 sm:my-8 mx-2 sm:mx-6 md:mx-10 lg:mx-14">
             <Card className="flex-1 min-w-[220px] sm:min-w-[260px] flex flex-col items-center py-4 sm:py-6 px-2 sm:px-4 bg-white border border-[#ECEAE8] shadow-sm rounded-xl">
               <span className="font-semibold text-sm sm:text-base text-[#23272E] mb-2">
-                0777 391 860
+                0782 470 168
               </span>
               <Button
                 className="bg-[#FB923C] hover:bg-[#FF9800] text-white font-medium rounded-md mt-2 flex items-center justify-center gap-2 text-xs sm:text-sm py-2 px-4"

@@ -40,10 +40,10 @@ export function SocialProof() {
   ];
 
   return (
-    <section className="py-0 bg-white overflow-x-hidden lg:mb-24">
-      <div className="w-full bg-[#F2F6FE] py-8 md:py-10 lg:h-[137px] lg:absolute lg:top-[605px] lg:left-0 relative flex items-center justify-center">
+    <section className={`py-0 bg-white overflow-x-hidden lg:mb-24 `} style={{ overflowY: "hidden" }}>
+      <div className={`  w-full bg-[#F2F6FE] py-8 md:py-10 top-20 xl:h-[137px] lg:absolute lg:top-[625px] lg:left-0 relative flex items-center justify-center ${i18n.language==='ta'?"lg:mt-[120px] ":""}` }>
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 overflow-x-hidden">
-          <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-6 sm:gap-8 md:gap-12 lg:gap-16 text-center lg:space-x-12">
+          <div className="overfollow-y-hidden flex flex-col lg:flex-row flex-wrap justify-center items-center gap-6 sm:gap-8 md:gap-12 lg:gap-16 text-center lg:space-x-12 "  >
             {socialProofData.map((item) => (
               <div
                 key={item.id}

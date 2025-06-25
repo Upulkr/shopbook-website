@@ -82,7 +82,7 @@ export function Footer() {
               {t('footerSection.get_in_touch_title')} {/* Translated */}
             </h3>
             <div className="space-y-2 text-sm text-gray-600">
-              <p>📞 +94 77 123 4567</p> {/* Phone number might be static */}
+              <p>📞 +94 78 247 0168</p> {/* Phone number might be static */}
               <p>
                 📍 {t('footerSection.address_line1')} {/* Translated */}
               </p>
