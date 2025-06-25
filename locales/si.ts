@@ -53,7 +53,7 @@ const TRANSLATIONS = {
       "ඕනෑම වේලාවක සවිස්තරාත්මක වාර්තා සහ ගෙවීම් සාරාංශ බලාගන්න",
   },
   comparison: {
-    title: "ව්‍යාපාර දහස් ගණනක් Shopbook වෙත මාරු වී ඇත්තේ මන්දැයි බලන්න",
+    title: "ව්‍යාපාර දහස් ගණනක් Shopbook වලට මාරු වීමට හේතු",
     manual_process_heading: "අතින් කරන ක්‍රියාවලිය",
     manual_process_item1: "වැඩි කාලයක් ගත කරමින් invoice සෑදීම",
     manual_process_item2: "අද ගෙවීම් නියමිත අය අමතක වීම",
@@ -120,7 +120,7 @@ const TRANSLATIONS = {
   learnsection: {
     main_title: "මිනිත්තු කිහිපයකින් Shopbook ප්‍රගුණ කරන්න",
     main_subtitle:
-      "Shopbook වෙතින් උපරිම ප්‍රයෝජන ලබා ගැනීමට සහ ඉක්මනින් ගෙවීම් ලබා ගැනීමට ඔබට උපකාර වන සම්පූර්ණ නිබන්ධන සහ තිර ප්‍රවාහයන්.",
+      " Shopbook වෙතින් උපරිම ප්‍රයෝජන ලබා ගැනීමට සහ ඉක්මනින් ගෙවීම් ලබා ගැනීමට ඔබට උපකාර වන සම්පූර්ණ videos සහ screen flows.",
     video_tutorials_tab: "Video Tutorials",
     screen_flows_tab: "Screen Flows",
   },
@@ -159,7 +159,7 @@ const TRANSLATIONS = {
     main_title: "තවත් උදව් අවශ්‍යද?",
     main_subtitle: "ඔබේ සාර්ථකත්වයට සහාය වීමට අපි මෙහි සිටිමු",
     call_us_button: "අපිට කතා කරන්න",
-    chat_with_us_button: "අප සමඟ කතා කරන්න",
+    chat_with_us_button: "අපට පණිවිඩයක් එවන්න",
     whatsapp_community_title: "WhatsApp ප්‍රජාව",
     join_now_button: "දැන්ම එකතු වන්න",
   },
