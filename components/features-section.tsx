@@ -93,7 +93,7 @@ export function FeaturesSection() {
         <div className={`relative mt-12 top-10 ${i18n.language==="si" ? "lg:mb-32":""}`}>
           {/* Background container with centered content */}
           <div
-            className={`relative border border-gray-200 rounded-2xl overflow-hidden max-w-7xl mx-auto p-6  top-5 ${i18n.language==="ta" ? "lg:h-[250px]" :i18n.language==="si"? "lg:h-[252px]" : "lg:h-[194px]"}`}
+            className={`relative border border-gray-200 rounded-2xl overflow-hidden max-w-7xl mx-auto p-6  top-5 ${i18n.language==="ta" ? "lg:h-[200px]" :i18n.language==="si"? "lg:h-[200px]" : "lg:h-[194px]"}`}
             style={{ backgroundColor: "#FB923C0A" }}
           >
             {/* Mobile phone image - Only visible on mobile, positioned above content */}
@@ -105,7 +105,7 @@ export function FeaturesSection() {
               />
             </div>
 
-            <div className="text-center space-y-4 max-w-md mx-auto">
+            <div className={`text-center  max-w-2xl mx-auto ${i18n.language==="ta" ? "space-y-1":"space-y-4"}`}>
               <h3
                 className="text-lg font-semibold text-gray-900 leading-none md:text-xl sm:text-base"
                 style={{ fontFamily: "Sora" }}
