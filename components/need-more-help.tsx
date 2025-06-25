@@ -20,7 +20,7 @@ const NeedMoreHelp = () => {
             </p>
           </div>
           {/* Responsive: 1 col on mobile, 2 on md, 3 on lg+, xl+ unchanged */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 my-6 sm:my-8 mx-2 sm:mx-6 md:mx-10 lg:mx-14">
+          <div className="grid grid-cols-1  lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 my-6 sm:my-8 mx-2 sm:mx-6 md:mx-10 lg:mx-14">
             <Card className="flex-1 min-w-[180px] sm:min-w-[220px] md:min-w-[200px] lg:min-w-[260px] flex flex-col items-center py-4 sm:py-6 px-2 sm:px-4 bg-white border border-[#ECEAE8] shadow-sm rounded-xl mb-4 md:mb-0">
               <span className="font-semibold text-sm sm:text-base text-[#23272E] mb-2">
                 0777 391 860

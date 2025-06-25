@@ -53,7 +53,7 @@ export function FeaturesSection() {
 
   return (
     <section className={`py-24 bg-white  `}>
-      <div className={`max-w-7xl mx-auto px-4 sm:px-6 md:px-7 lg:px-8 ${i18n.language==="si" ?"lg:top-32 relative":i18n.language==="ta" ? "lg:top-16 relative" : "lg:top-12 relative"}`}>
+      <div className={`max-w-7xl mx-auto px-4 sm:px-6 md:px-7 lg:px-8 ${i18n.language==="si" ?"lg:top-[270px]  xl:top-32 relative":i18n.language==="ta" ? "lg:top-[290px] xl:top-16 relative" : "lg:top-12 relative"}`}>
         <div className="text-center space-y-4 mb-16 mt-12 pt-8">
           <h2 className="sm:text-3xl md:text-4xl lg:text-[38px] font-bold text-gray-900">
             {t('featuresSection.main_heading_title')}

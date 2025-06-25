@@ -40,10 +40,10 @@ export function SocialProof() {
   ];
 
   return (
-    <section className={`py-0 bg-white overflow-x-hidden lg:mb-24 `} style={{ overflowY: "hidden" }}>
-      <div className={`  w-full bg-[#F2F6FE] py-8 md:py-10 top-20 xl:h-[137px] lg:absolute lg:top-[625px] lg:left-0 relative flex items-center justify-center ${i18n.language==='ta'?"lg:mt-[120px] ":""}` }>
+    <section className={`py-10  lg:py-0 bg-white overflow-x-hidden lg:mb-24  `} style={{ overflowY: "hidden" }}>
+      <div className={`  w-full bg-[#F2F6FE] py-8 md:space-y-10  lg:space-y-0  lg:py-10 top-20 xl:h-[137px] lg:absolute lg:top-[625px] lg:left-0 relative flex items-center justify-center ${i18n.language==='ta'?"lg:mt-[120px] xl:mt-20":""}` }>
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 overflow-x-hidden">
-          <div className="overfollow-y-hidden flex flex-col lg:flex-row flex-wrap justify-center items-center gap-6 sm:gap-8 md:gap-12 lg:gap-16 text-center lg:space-x-12 "  >
+          <div className={`mb-5 lg:mb-0 overfollow-y-hidden flex flex-col lg:flex-row flex-wrap justify-center items-center gap-6 sm:gap-8  md:gap-y-0 lg:gap-16 text-center lg:space-x-12  `}  >
             {socialProofData.map((item) => (
               <div
                 key={item.id}
@@ -101,7 +101,7 @@ export function SocialProof() {
                 <div className="h-5 sm:h-6 flex items-center justify-center">
                   {item.subtitle && (
                     <div
-                      className={`${i18n.language==='ta'?"text-sm sm:xl:text-[15px]":" sm:xl:text-[20px] "}
+                      className={`${i18n.language==='ta'?"text-sm sm:xl:text-[15px] ":" sm:xl:text-[20px] "}
                       text-base font-bold  leading-none top-2 relative  
                       ${item.id === "downloads" ? "text-[#D6336C]" : ""}
                     `}

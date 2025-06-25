@@ -4,7 +4,7 @@ import Image from "next/image"
 import { useTranslation } from "react-i18next" // Import useTranslation
 
 export function HowItWorks() {
-  const { t } = useTranslation(); // Initialize useTranslation
+  const { t,i18n } = useTranslation(); // Initialize useTranslation
   const [activeStep, setActiveStep] = useState(0)
 
   const steps = [
@@ -44,7 +44,7 @@ export function HowItWorks() {
   }, [steps.length]) // Added steps.length to dependency array
 
   return (
-    <section className="py-20 bg-white">
+    <section className={`py-20 bg-white ${i18n.language==='ta'?"lg:mt-[290px] xl:mt-[90px] relative":""}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-4 mb-16">
           <h2 className="sm:text-3xl md:text-4xl  lg:text-[38px] font-bold text-gray-900">
