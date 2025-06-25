@@ -105,7 +105,7 @@ export function FeaturesSection() {
               />
             </div>
 
-            <div className={`text-center  max-w-2xl mx-auto ${i18n.language==="ta" ? "space-y-1":"space-y-4"}`}>
+            <div className={`text-center  max-w-2xl mx-auto ${i18n.language==="ta" ? "space-y-1":i18n.language==="si"?"space-y-3": "space-y-4"}`}>
               <h3
                 className="text-lg font-semibold text-gray-900 leading-none md:text-xl sm:text-base"
                 style={{ fontFamily: "Sora" }}
