@@ -37,7 +37,7 @@ export default function SupportSection() {
             </Card>
             <Card className="flex-1 min-w-[220px] sm:min-w-[260px] flex flex-col items-center py-4 sm:py-6 px-2 sm:px-4 bg-white border border-[#ECEAE8] shadow-sm rounded-xl">
               <span className="font-semibold text-sm sm:text-base text-[#23272E] mb-2">
-                0777 391 860
+                0782 470 168
               </span>
               <Button
                 className="bg-[#FFF] border-[#FFA94D] hover:bg-[#FFFBF7] hover:text-[#FFA94D] text-[#FB923C] font-medium rounded-md mt-2 flex items-center justify-center gap-2 text-xs sm:text-sm py-2 px-4"

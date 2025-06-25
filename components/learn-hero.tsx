@@ -271,11 +271,7 @@ export function LearnHero() {
         {/* Tabs */}
         <div className="flex justify-center mb-8 md:mb-12 mx-auto">
           <div
-            className={`bg-blue-50 rounded-lg p-2 shadow-sm border border-gray-200 mx-auto flex items-center justify-center w-full max-w-[484px]  ${
-              i18n.language === "si" || i18n.language === "ta"
-                ? "text-[12px] lg:text-md "
-                : "text-md"
-            } `}
+            className={`bg-blue-50 rounded-lg p-2 shadow-sm border border-gray-200 mx-auto flex items-center justify-center w-full max-w-[484px]   text-md`}
             style={{
               height: "50px",
             }}

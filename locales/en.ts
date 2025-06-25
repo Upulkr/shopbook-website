@@ -69,7 +69,7 @@ const TRANSLATIONS = {
   cta: {
     title: "Ready to Get Started?",
     description:
-      "Download Shopbook now and start implementing what you've learned to get paid faster.",
+      "Download Shopbook now and make your business a success.",
   },
   faqSection: {
     main_title: "Frequently Asked Questions",

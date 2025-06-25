@@ -29,7 +29,8 @@ const TRANSLATIONS = {
       "Shopbook සිංහල, දෙමළ හෝ ඉංග්‍රීසි භාෂාවෙන් භාවිතා කරන්න.",
     achieve_goals_title: "ඔබේ ව්‍යාපාර ඉලක්ක Shopbook සමඟ ළඟා කරගන්න.",
     simplified_tagline: "ඉන්වොයිසි සිට ගෙවීම් දක්වා - ඔබ වෙනුවෙන් සරල කර ඇත",
-    see_reminders_title: "ShopBook Auto ගෙවීම් මතක් කිරීම් යවා නොගෙවු ණය ඉක්මනින් එකතු කරගන්නේ  කෙසේදැයි බලන්න.",
+    see_reminders_title:
+      "ShopBook Auto ගෙවීම් මතක් කිරීම් යවා නොගෙවු ණය ඉක්මනින් එකතු කරගන්නේ  කෙසේදැයි බලන්න.",
     see_reminders_description:
       "ShopBook විසින් වෘත්තීය ගෙවීම් මතක් කිරීම් පහසුවෙන් යවන්නේ කෙසේදැයි බලන්න, එමඟින් ඔබට වේගයෙන් එකතු කිරීමට සහ නොගෙවූ ණය අඩු කිරීමට උපකාරී වේ.",
     watch_demo_video: "ආදර්ශන වීඩියෝව බලන්න",
@@ -70,7 +71,7 @@ const TRANSLATIONS = {
   cta: {
     title: "ආරම්භ කිරීමට සූදානම්ද?",
     description:
-      "දැන්ම Shopbook බාගත කර, ඔබ ඉගෙන ගත් දේ ක්‍රියාත්මක කර ඉක්මනින් ගෙවීම් ලබා ගන්න.",
+      "දැන්ම Shopbook බාගත කර ඔබගේ ව්‍යාපාරය සාර්ථක කරගන්න.",
   },
   faqSection: {
     main_title: "නිතර අසන ප්‍රශ්න",
@@ -90,12 +91,12 @@ const TRANSLATIONS = {
   },
   featuresSection: {
     main_heading_title: "ඔබේ ව්‍යාපාර ඉලක්ක Shopbook සමඟ ළඟා කරගන්න.",
-    main_heading_subtitle:
-      "Credit සහ Cash Invoice පහසුවෙන් සාදන්න",
+    main_heading_subtitle: "Credit සහ Cash Invoice පහසුවෙන් සාදන්න",
     feature1_title: "ණය සහ මුදල් ඉන්වොයිසි පහසුයි",
     feature1_description:
       "ඔබගේ සියලුම ණය සහ මුදල් විකුණුම් ඉන්වොයිසි එක් තැනකින් කළමනාකරණය කරන්න.",
-    feature2_title: "සියලුම පැරණි ඉන්වොයිසි ඕනෑම වේලාවක, එකම තැනකින් සොයා බලන්න",
+    feature2_title:
+      "සියලුම පැරණි ඉන්වොයිසි ඕනෑම වේලාවක, එකම තැනකින් සොයා බලන්න",
     feature2_description: "ඕනෑම වේලාවක සියලුම පැරණි ඉන්වොයිසි බලා සොයන්න.",
     feature3_title: "Auto මතක් කිරීම් සමඟ වේගවත් ගෙවීම්",
     feature3_description:
@@ -108,7 +109,8 @@ const TRANSLATIONS = {
     feature6_title: "භාෂා 3කින් ලබාගත හැක",
     feature6_description:
       "Shopbook සිංහල, දෙමළ හෝ ඉංග්‍රීසි භාෂාවලින් භාවිතා කරන්න.",
-    nested_cta_title: "ShopBook Auto ගෙවීම් මතක් කිරීම් යවා නොගෙවු ණය ඉක්මනින් එකතු කරගන්නේ  කෙසේදැයි බලන්න",
+    nested_cta_title:
+      "ShopBook Auto ගෙවීම් මතක් කිරීම් යවා නොගෙවු ණය ඉක්මනින් එකතු කරගන්නේ  කෙසේදැයි බලන්න",
     nested_cta_description:
       "නොගෙවූ ණය අඩු කර ඉක්මනින් මුදල් එකතු කර ගැනීමට ShopBook වෘත්තීය ගෙවීම් මතක් කිරීම් පහසුවෙන් යවන්නේ කෙසේදැයි බලන්න.",
     nested_cta_button: "Demo වීඩියෝව බලන්න",
@@ -119,8 +121,8 @@ const TRANSLATIONS = {
     main_title: "මිනිත්තු කිහිපයකින් Shopbook ප්‍රගුණ කරන්න",
     main_subtitle:
       "Shopbook වෙතින් උපරිම ප්‍රයෝජන ලබා ගැනීමට සහ ඉක්මනින් ගෙවීම් ලබා ගැනීමට ඔබට උපකාර වන සම්පූර්ණ නිබන්ධන සහ තිර ප්‍රවාහයන්.",
-    video_tutorials_tab: "වීඩියෝ නිබන්ධන",
-    screen_flows_tab: "තිර ප්‍රවාහයන්",
+    video_tutorials_tab: "Video Tutorials",
+    screen_flows_tab: "Screen Flows",
   },
 
   howItWorksSection: {
@@ -160,10 +162,13 @@ const TRANSLATIONS = {
     chat_with_us_button: "අප සමඟ කතා කරන්න",
     whatsapp_community_title: "WhatsApp ප්‍රජාව",
     join_now_button: "දැන්ම එකතු වන්න",
-  },  footerSection: {
-    description: "කුඩා හා මධ්‍ය පරිමාණ ව්‍යාපාර සඳහා වන සර්ව සම්පූර්ණ ව්‍යාපාර කළමනාකරණ විසඳුම. ඉන්වොයිසි සාදන්න, ගෙවීම් නිරීක්ෂණය කරන්න, සහ ඔබේ ව්‍යාපාරය වර්ධනය කරන්න.",
+  },
+  footerSection: {
+    description:
+      "කුඩා හා මධ්‍ය පරිමාණ ව්‍යාපාර සඳහා වන සර්ව සම්පූර්ණ ව්‍යාපාර කළමනාකරණ විසඳුම. ඉන්වොයිසි සාදන්න, ගෙවීම් නිරීක්ෂණය කරන්න, සහ ඔබේ ව්‍යාපාරය වර්ධනය කරන්න.",
     get_in_touch_title: "අප අමතන්න",
-    address_line1: "මිලේනියම් ටවර් (කෙලී ෆෙල්ඩර් ගොඩනැගිල්ල), 2 වන මහල, 345 ගාලු පාර, කොළඹ 00300, ශ්‍රී ලංකාව.",
+    address_line1:
+      "මිලේනියම් ටවර් (කෙලී ෆෙල්ඩර් ගොඩනැගිල්ල), 2 වන මහල, 345 ගාලු පාර, කොළඹ 00300, ශ්‍රී ලංකාව.",
     download_app_title: "යෙදුම බාගන්න",
     copyright_text: "© {{year}} Shopbook. සියලුම හිමිකම් ඇවිරිණි.",
     privacy_policy: "පෞද්ගලිකත්ව ප්‍රතිපත්තිය",
@@ -175,20 +180,28 @@ const TRANSLATIONS = {
     social_youtube_alt: "YouTube",
     google_play_alt: "Google Play වෙතින් ලබා ගන්න",
     app_store_alt: "App Store වෙතින් බාගන්න",
-  },contactus: {
-    question1: "සහාය ඇත්තෙන්ම නොමිලේද?",
-    answer1: "ඔව්! Shopbook භාවිතා කරන්නන් සඳහා සියලුම සහාය සම්පූර්ණයෙන්ම නොමිලේ. අපගේ භාවිතා කරන්නන්ට සාර්ථක වීමට උපකාර කිරීමට අපි විශ්වාස කරමු.",
+  },
+  contactus: {
+    question1: "සහය ඇත්තෙන්ම නොමිලේද?",
+    answer1:
+      "ඔව්! Shopbook භාවිතා කරන්නන් සඳහා සියලුම සහය සම්පූර්ණයෙන්ම නොමිලේ. අපගේ භාවිතා කරන්නන්ගෙ සාර්ථකත්වයට උපකාර කිරීමට අපි බැඳී සිටිමු.",
     question2: "ඔබ කුමන භාෂා සඳහා සහාය දක්වන්නේද?",
-    answer2: "විවිධ කලාපවල භාවිතා කරන්නන්ට උපකාර කිරීම සඳහා අපි බහු භාෂා සඳහා සහාය දෙමු.",
+    answer2:
+      "අපි අපගේ සියලුම ගනුදෙනුකරුවන්ට ඔවුන්ගේම භාෂාවෙන් - සිංහල, දෙමළ හෝ ඉංග්‍රීසි භාෂාවෙන් සහාය දෙමු.",
     question3: "ඔබ දුරකථන සහාය සපයනවාද?",
-    answer3: "ඔව්, ඔබගේ ඕනෑම විමසීමක් සඳහා ඔබට සහාය වීමට අපගේ සහාය කණ්ඩායම දුරකථනයෙන් ලබා ගත හැකිය.",
+    answer3:
+      "ඔව්, Shopbook app එක සම්බන්ධ ඕනෑම විමසීමක් සඳහා ඔබට, අපගේ සහය කණ්ඩායම සමග දුරකථනයෙන් සම්බන්ධ විය හැකියි.",
     question4: "මගේ ගිණුම සැකසීමට ඔබට මට උදව් කළ හැකිද?",
-    answer4: "අනිවාර්යයෙන්ම! ඔබේ Shopbook ගිණුම සැකසීමට අපගේ කණ්ඩායමට පියවරෙන් පියවර ඔබට මග පෙන්විය හැක.",
+    answer4:
+      "අනිවාර්යයෙන්ම! ඔබේ Shopbook ගිණුම සැකසීමට අපගේ කණ්ඩායමට පියවරෙන් පියවර ඔබට මග පෙන්විය හැක.",
     image_alt: "Shopbook පාරිභෝගික සහාය කණ්ඩායම",
-  }, supportSection: {
-    main_title: "ඔබට සාර්ථක වීමට උපකාර කිරීමට අපි මෙහි සිටිමු",
-    main_subtitle: "Shopbook වෙතින් උපරිම ප්‍රයෝජන ලබා ගැනීමට ඔබට උපකාර කිරීමට අපගේ කැපවූ සහාය කණ්ඩායම කැපවී සිටී.",
-  }, headerSection: {
+  },
+  supportSection: {
+    main_title: "ඔබගේ සාර්ථකත්වය අපගේ අරමුණයි",
+    main_subtitle:
+      "Shopbook වෙතින් උපරිම ප්‍රයෝජන ලබා දීමට අපගේ පාරිභෝගික සේවා කණ්ඩායම කැපවී සිටී.",
+  },
+  headerSection: {
     logo_alt: "ෂොප්‍බුක් ලාංඡනය",
     nav_home: "මුල් පිටුව",
     nav_learn: "ඉගෙන ගන්න",
@@ -197,7 +210,8 @@ const TRANSLATIONS = {
     lang_english: "English",
     lang_sinhala: "සිංහල",
     lang_tamil: "தமிழ்",
-  },socialProofSection: {
+  },
+  socialProofSection: {
     // Downloads
     downloads_subtitle: "15K+",
     downloads_title: "බාගතකිරීම්",
