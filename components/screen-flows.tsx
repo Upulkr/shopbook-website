@@ -114,7 +114,7 @@ export function ScreenFlows({
                   className={`lg:hidden grid grid-cols-3  items-center justify-center space-x-4   w-full bg-[#F2F2F2]  ${
                     !currentTopic?.flows[activeStep]?.image
                       ? "h-[30px]"
-                      : "h-[330px] border-gray-200 rounded-[14px] bg-white border"
+                      : "h-[330px]   bg-[#F2F2F2] "
                   }     p-4 `}
                 >
                   {currentTopic?.flows[activeStep]?.image ? (
