@@ -1,4 +1,4 @@
-import { ChevronLeft, ChevronRight, ChevronUp } from "lucide-react";
+import { ChevronDown, ChevronLeft, ChevronRight, ChevronUp } from "lucide-react";
 import Image from "next/image";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -36,8 +36,8 @@ export function ScreenFlows({
     <div className="grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-start">
       {/* Left side - Topics */}
       <div className="bg-[#F2F2F2] space-y-4 md:space-y-6 border border-gray-200 rounded-[14px] p-4 md:p-6 w-full lg:w-[537px] lg:h-[600px]">
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900">
-          Choose a topic
+        <h2 className="text-xl md:text-2xl font-bold text-gray-900 relative lg:left-2">
+         Explore the guide below
         </h2>
         <div className={`space-y-7 `}>
           {topics.map((topic) => (
@@ -49,12 +49,12 @@ export function ScreenFlows({
                   setOpenViewFormobileView(!openViewFormobileView);
                 }}
                 className={` ${
-                  selectedTopic === topic.id ? "bg-[#2563EB33]" : "bg-white"
-                } p-3 md:p-4 rounded-xl border transition-all duration-200 text-left w-full lg:w-[448px] h-auto lg:h-[58px] `}
+                  selectedTopic === topic.id ? "border border-[#2563EB] " : ""
+                } p-3 md:p-4 rounded-xl border transition-all duration-200 text-left w-full lg:w-[448px] h-auto lg:h-[58px] bg-white`}
               >
                 <div className="flex items-center justify-between ">
-                  <div className="flex items-center space-x-3  relative -top-1">
-                    <div className="flex items-center justify-center">
+                  <div className="flex items-center space-x-3  relative ">
+                    <div className="flex items-center justify-center relative lg:-top-1">
                       <Image
                         src={`/images/icons/${topic.id}-icon.png`}
                         alt={`${topic.titleKey} icon`}
@@ -63,9 +63,9 @@ export function ScreenFlows({
                         className="w-[30px] h-[25px]"
                       />
                     </div>
-                    <div className="w-full">
+                    <div className="w-full relative lg:-top-1">
                       <h3
-                        className="text-gray-900 text-base leading-none text-[12px] min-w-[100px] text-wrap sm:text-[16px] "
+                        className="text-gray-900 text-[12px]  leading-none  min-w-[100px] text-wrap lg:text-[16px] "
                         style={{
                           fontFamily: "Sora",
                           fontWeight: 600,
@@ -82,29 +82,27 @@ export function ScreenFlows({
                     onClick={() =>
                       setOpenViewFormobileView(!openViewFormobileView)
                     }
-                    className=" relative -top-1 hidden lg:inline-flex items-center justify-center h-[36px] px-4 rounded-full cursor-pointer bg-blue-100/40 hover:bg-blue-200/60 transition-all duration-200 shadow-sm hover:shadow-md"
+                    className=" relative -top-1 lg:block hidden lg:inline-flex items-center justify-center h-[36px] px-4 rounded-full cursor-pointer bg-blue-100/40 hover:bg-blue-200/60 transition-all duration-200 shadow-sm hover:shadow-md"
                   >
-                    <span className="text-[15px] font-semibold  leading-none">
+                    <span className="text-[12px]  lg:text-[16px] font-semibold  leading-none">
                       View
                     </span>
                     <ChevronRight className="w-5 h-5  ml-1 -mt-[1px]" />
                   </div>
-
-                  <div
+                    <div
                     onClick={() =>
                       setOpenViewFormobileView(!openViewFormobileView)
                     }
-                    className="lg:hidden text-[14px] flex px-0.5 space-x-3 rounded-full  font-medium text-center text-nowrap w-[72px] h-[25px] items-center justify-center"
+                    className="lg:hidden flex space-x-2 rounded-full text-center text-nowrap w-[60px] h-[24px] items-center justify-center"
                     style={{ backgroundColor: "rgba(37, 99, 235, 0.2)" }} // 20% opacity
-                  >
-                    <p className="text-center relative left-2">View</p>
-
+                    >
+                    <span className="text-center text-[12px] leading-none relative left-2">View</span>
                     {openViewFormobileView && topic.id === selectedTopic ? (
-                      <ChevronUp className="w-8 h-8  lg:hidden" />
+                      <ChevronUp className="w-[16px] h-[16px] text-[12px] lg:hidden" />
                     ) : (
-                      <ChevronRight className="w-8 h-8" />
+                      <ChevronDown className="w-[16px] h-[16px] text-[12px]" />
                     )}
-                  </div>
+                    </div>
                 </div>
               </button>
 

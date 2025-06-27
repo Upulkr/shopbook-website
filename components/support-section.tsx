@@ -4,14 +4,14 @@ import { Button } from "./ui/button";
 import { useTranslation } from "react-i18next";
 
 export default function SupportSection() {
-     const { t } = useTranslation();
+     const { t,i18n } = useTranslation();
   return (
 <section className="py-8 sm:py-12 md:py-16 lg:py-20 ">
       <div className="max-w-5xl mx-auto px-4 text-center mb-8 sm:mb-12 md:mb-14">
-        <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-[38px]  font-semibold mb-2 text-[#23272E] mt-10">
+        <h2 className={` ${i18n.language==="en"?"text-2xl pt-5 sm:pt-0":"text-xl"}  sm:text-3xl md:text-4xl lg:text-[38px]  font-semibold mb-2 text-[#23272E] mt-10`}>
           {t('supportSection.main_title')} 
         </h2>
-        <p className="text-xs sm:text-lg md:text-xl text-[#8B8B8B] max-w-xl mx-auto" style={{
+        <p className={`${i18n.language==="en"?"text-md":"text-xs"}  sm:text-lg md:text-xl text-[#8B8B8B] max-w-xl mx-auto`} style={{
               fontFamily: "Sora",
               fontWeight: 400,
               lineHeight: "1.6", // increased line height

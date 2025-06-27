@@ -5,7 +5,8 @@ import { ChevronLeft, ChevronRight, Play } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import VideoModel from "./video-model";
-import { t } from "i18next";
+
+import { useTranslation } from "react-i18next";
 
 type Video = {
   name: string;
@@ -57,6 +58,7 @@ const testimonials = [
 ];
 
 export function TestimonialsSection() {
+  const { t, i18n } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [playingVideo, setPlayingVideo] = useState<{
@@ -97,7 +99,13 @@ export function TestimonialsSection() {
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-8">
         <div className="flex  sm:flex-row justify-center  mx-auto mb-6 sm:mb-8 md:mb-12 space-y-3 sm:space-y-0 items-baseline space-x-1">
-          <h2 className=" text-[18px] relative left-[10px] sm:left-0 sm:text-3xl md:text-4xl lg:text-[38px] font-bold text-gray-900 text-center sm:mr-4">
+          <h2
+            className={`${
+              i18n.language === "ta" || i18n.language === "si"
+                ? "text-xl"
+                : "text-2xl"
+            } sm:text-3xl md:text-4xl lg:text-[38px] font-bold text-gray-900 mb-10 text-center`}
+          >
             {t("testimonialsSection.title")}
           </h2>
           <div className="overflow-x-auto -mx-4 md:mx-0 relative left-[20px] md:left-[110px] lg:left-[200px] xl:left-[320px] ">

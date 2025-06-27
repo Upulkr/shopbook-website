@@ -3,7 +3,7 @@ import { X, Check } from "lucide-react"
 import { useTranslation } from "react-i18next" // Import useTranslation
 
 export function ComparisonSection() {
-  const { t } = useTranslation(); // Initialize useTranslation
+  const { t , i18n} = useTranslation(); // Initialize useTranslation
 
   const manualProcessItems = [
     "comparison.manual_process_item1", // Use keys for translation
@@ -23,7 +23,12 @@ export function ComparisonSection() {
     <section className="py-20 bg-[#F2F6FE]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-4 mb-16">
-          <h2 className="sm:text-3xl md:text-4xl lg:text-[38px] font-bold text-gray-900">
+        <h2
+  className={`${
+    i18n.language === "ta" || i18n.language === "si" ? "text-xl" : "text-2xl"
+  } sm:text-3xl md:text-4xl lg:text-[38px] font-bold text-gray-900 mb-10 text-center`}
+>
+ 
             {t('comparison.title')} {/* Translate the main title */}
           </h2>
         </div>

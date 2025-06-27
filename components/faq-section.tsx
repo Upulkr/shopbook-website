@@ -3,7 +3,6 @@ import { useState } from "react";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 
-
 export type FAQItem = {
   question: string;
   answer: string;
@@ -21,7 +20,7 @@ export function FAQSection({
   imageAlt = "FAQ Image",
 }: FAQSectionProps) {
   const [expandedIndex, setExpandedIndex] = useState(0);
-    const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const toggleExpanded = (index: number) => {
     setExpandedIndex(expandedIndex === index ? -1 : index);
   };
@@ -29,12 +28,18 @@ export function FAQSection({
   return (
     <section className="py-20 bg-white">
       <div className="max-w-5xl mx-auto px-4">
-        <h2 className="sm:text-3xl md:text-4xl lg:text-[38px] font-bold text-gray-900 mb-10 text-center">
-          {t("faqSection.main_title") }
+        <h2
+          className={`${
+            i18n.language === "ta" || i18n.language === "si"
+              ? "text-xl"
+              : "text-2xl"
+          } sm:text-3xl md:text-4xl lg:text-[38px] font-bold text-gray-900 mb-10 text-center`}
+        >
+          {t("faqSection.main_title")}
         </h2>
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-start gap-12">
-      {/* <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row items-center gap-12"> */}
+        {/* <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row items-center gap-12"> */}
         {/* Left: Image */}
         <div className="relative w-full max-w-sm flex-shrink-0">
           <Image

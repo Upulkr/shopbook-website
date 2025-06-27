@@ -55,7 +55,12 @@ export function FeaturesSection() {
     <section className={`py-24 bg-white  `}>
       <div className={`max-w-7xl mx-auto px-4 sm:px-6 md:px-7 lg:px-8 ${i18n.language==="si" ?"lg:top-[270px]  xl:top-32 relative":i18n.language==="ta" ? "lg:top-[290px] xl:top-16 relative" : "lg:top-12 relative"}`}>
         <div className="text-center space-y-4 mb-16 mt-12 pt-8">
-          <h2 className="sm:text-3xl md:text-4xl lg:text-[38px] font-bold text-gray-900">
+        <h2
+  className={`${
+    i18n.language === "ta" || i18n.language === "si" ? "text-xl" : "text-2xl"
+  } sm:text-3xl md:text-4xl lg:text-[38px] font-bold text-gray-900 mb-10 text-center`}
+>
+ 
             {t('featuresSection.main_heading_title')}
           </h2>
           <p className="sm:text-lg md:text-xl text-gray-600">
@@ -105,15 +110,15 @@ export function FeaturesSection() {
               />
             </div>
 
-            <div className={`text-center  max-w-2xl mx-auto ${i18n.language==="ta" ? "space-y-1":i18n.language==="si"?"space-y-3": "space-y-4"}`}>
+            <div className={`text-center  max-w-2xl mx-auto ${i18n.language==="ta" ? "lg:space-y-1 space-y-10":i18n.language==="si"?"lg:space-y-3 space-y-5": "space-y-4"}`}>
               <h3
-                className="text-lg font-semibold text-gray-900 leading-none md:text-xl sm:text-base"
+                className={` ${i18n.language==="ta" ||i18n.language==="si"?"text-md": "text-lg"}  font-semibold text-gray-900 leading-none md:text-xl sm:text-base`}
                 style={{ fontFamily: "Sora" }}
               >
                 {t('featuresSection.nested_cta_title')} 
               </h3>
               <p
-                className="text-base font-normal text-gray-600 leading-none text-center md:text-md sm:text-sm"
+                className={`${i18n.language==="ta" ||i18n.language==="si"?"text-sm": ""} text-base font-normal text-gray-600 leading-none text-center md:text-md sm:text-sm`}
                 style={{ fontFamily: "Sora" }}
               >
                 {t('featuresSection.nested_cta_description')}
