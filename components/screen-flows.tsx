@@ -30,12 +30,12 @@ export function ScreenFlows({
 }: ScreenFlowsProps) {
   const { t } = useTranslation();
   const [activeStep, setActiveStep] = useState(0);
-  const [openViewFormobileView, setOpenViewFormobileView] = useState(false);
+  const [openViewFormobileView, setOpenViewFormobileView] = useState(true);
   const currentTopic = topics.find((topic) => topic.id === selectedTopic);
   return (
     <div className="grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-start">
       {/* Left side - Topics */}
-      <div className="space-y-4 md:space-y-6 border border-gray-200 rounded-[14px] p-4 md:p-6 w-full lg:w-[537px] lg:h-[600px]">
+      <div className="bg-[#F2F2F2] space-y-4 md:space-y-6 border border-gray-200 rounded-[14px] p-4 md:p-6 w-full lg:w-[537px] lg:h-[600px]">
         <h2 className="text-xl md:text-2xl font-bold text-gray-900">
           Choose a topic
         </h2>
@@ -48,12 +48,12 @@ export function ScreenFlows({
                   setSelectedTopic(topic.id);
                   setOpenViewFormobileView(!openViewFormobileView);
                 }}
-                className={`${
-                  selectedTopic === topic.id ? "bg-[#d3def3]" : ""
+                className={`bg-white ${
+                  selectedTopic === topic.id ? "bg-[#2563EB33]" : ""
                 } p-3 md:p-4 rounded-xl border transition-all duration-200 text-left w-full lg:w-[448px] h-auto lg:h-[58px] `}
               >
                 <div className="flex items-center justify-between ">
-                  <div className="flex items-center space-x-3 mb-1">
+                  <div className="flex items-center space-x-3  relative -top-1">
                     <div className="flex items-center justify-center">
                       <Image
                         src={`/images/icons/${topic.id}-icon.png`}
@@ -82,12 +82,12 @@ export function ScreenFlows({
                     onClick={() =>
                       setOpenViewFormobileView(!openViewFormobileView)
                     }
-                    className="mb-1 hidden lg:inline-flex items-center justify-center h-[36px] px-4 rounded-full cursor-pointer bg-blue-100/40 hover:bg-blue-200/60 transition-all duration-200 shadow-sm hover:shadow-md"
+                    className=" relative -top-1 hidden lg:inline-flex items-center justify-center h-[36px] px-4 rounded-full cursor-pointer bg-blue-100/40 hover:bg-blue-200/60 transition-all duration-200 shadow-sm hover:shadow-md"
                   >
-                    <span className="text-[15px] font-semibold text-blue-700 leading-none">
+                    <span className="text-[15px] font-semibold  leading-none">
                       View
                     </span>
-                    <ChevronRight className="w-5 h-5 text-blue-700 ml-1 -mt-[1px]" />
+                    <ChevronRight className="w-5 h-5  ml-1 -mt-[1px]" />
                   </div>
 
                   <div
@@ -111,7 +111,7 @@ export function ScreenFlows({
               {/* Mobile View */}
               {openViewFormobileView && topic.id === selectedTopic && (
                 <div
-                  className={`lg:hidden grid grid-cols-3  items-center justify-center space-x-4   w-full  ${
+                  className={`lg:hidden grid grid-cols-3  items-center justify-center space-x-4   w-full bg-[#F2F2F2]  ${
                     !currentTopic?.flows[activeStep]?.image
                       ? "h-[30px]"
                       : "h-[330px] border-gray-200 rounded-[14px] bg-white border"
@@ -228,7 +228,7 @@ export function ScreenFlows({
       {/* Right side - Phone mockup */}
       {/* desktop version */}
       {currentTopic?.flows[activeStep]?.image ? (
-        <div className="lg:block hidden flex-row lg:flex items-center justify-center space-x-4 lg:space-x-6 w-full lg:w-[537px] h-[600px] bg-white border border-gray-200 rounded-[14px] p-4 md:p-6">
+        <div className="lg:block hidden flex-row lg:flex items-center justify-center space-x-4 lg:space-x-6 w-full lg:w-[537px] h-[600px] bg-[#F2F2F2] border border-gray-200 rounded-[14px] p-4 md:p-6">
           <button
             onClick={() => setActiveStep(activeStep - 1)}
             className={` w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center transition-colors 
