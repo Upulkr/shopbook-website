@@ -119,18 +119,17 @@ export function ScreenFlows({
                 >
                   {currentTopic?.flows[activeStep]?.image ? (
                     <>
-                      <div className="flex items-center justify-center">
+                      <div className="flex items-center justify-center  z-10">
                         <button
                           onClick={() => {
-                            setActiveStep(activeStep - 1);
-                            console.log("clicked");
+                            if (activeStep > 0) setActiveStep(activeStep - 1);
                           }}
-                          className={` w-8 h-8 rounded-full flex items-center justify-center transition-colors  
-           ${
-             activeStep === 0
-               ? "bg-orange-300 text-gray-400 cursor-not-allowed"
-               : "bg-orange-500 text-orange-600 hover:bg-orange-600"
-           }       `}
+                          className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors
+          ${
+            activeStep === 0
+              ? "bg-orange-300 text-gray-400 cursor-not-allowed"
+              : "bg-orange-500 text-white hover:bg-orange-600"
+          }`}
                           disabled={activeStep === 0}
                         >
                           <ChevronLeft className="w-4 h-4 md:w-5 md:h-5 text-white" />
@@ -138,8 +137,37 @@ export function ScreenFlows({
                       </div>
 
                       <div className="flex flex-col items-center ">
-                        <div className="relative ">
-                          <div className=" h-[290px] w-[250px]  xl:overflow-hidden overflow-x-auto">
+                        <div
+                          className="relative "
+                          onTouchStart={(e) => {
+                            const touch = e.touches[0];
+                            e.currentTarget.dataset.startX =
+                              touch.clientX.toString();
+                          }}
+                          onTouchEnd={(e) => {
+                            const startX = Number.parseFloat(
+                              e.currentTarget.dataset.startX || "0"
+                            );
+                            const endX = e.changedTouches[0].clientX;
+                            const diff = startX - endX;
+                            const threshold = 50;
+
+                            if (Math.abs(diff) > threshold) {
+                              if (
+                                diff > 0 &&
+                                activeStep < currentTopic.flows.length - 1
+                              ) {
+                                // Swipe left - go to next
+                                setActiveStep(activeStep + 1);
+                              } else if (diff < 0 && activeStep > 0) {
+                                // Swipe right - go to previous
+
+                                setActiveStep(activeStep - 1);
+                              }
+                            }
+                          }}
+                        >
+                          <div className=" h-[290px] w-[250px]  ">
                             <Image
                               src={currentTopic?.flows[activeStep]?.image || ""}
                               alt={`Step ${activeStep + 1} image`}
@@ -166,10 +194,11 @@ export function ScreenFlows({
                           ))}
                         </div>
                       </div>
-                      <div className="flex items-center justify-center">
+                      <div className="flex items-center justify-center  z-10">
                         <button
                           onClick={() => setActiveStep(activeStep + 1)}
-                          className={` w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center transition-colors 
+                          className={`
+ w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center transition-colors 
            ${
              activeStep === (currentTopic?.flows?.length ?? 0) - 1
                ? "bg-orange-300 text-gray-400 cursor-not-allowed"
@@ -212,7 +241,7 @@ export function ScreenFlows({
           >
             <ChevronLeft className="w-4 h-4 md:w-5 md:h-5 text-white" />
           </button>
-          <div className="flex flex-col items-center space-y-6">
+          <div className="flex flex-col items-center space-y-6 ">
             <div className="relative ">
               <div className=" h-[500px] w-[250px]  overflow-hidden">
                 <Image
