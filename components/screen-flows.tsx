@@ -48,8 +48,8 @@ export function ScreenFlows({
                   setSelectedTopic(topic.id);
                   setOpenViewFormobileView(!openViewFormobileView);
                 }}
-                className={`bg-white ${
-                  selectedTopic === topic.id ? "bg-[#2563EB33]" : ""
+                className={` ${
+                  selectedTopic === topic.id ? "bg-[#2563EB33]" : "bg-white"
                 } p-3 md:p-4 rounded-xl border transition-all duration-200 text-left w-full lg:w-[448px] h-auto lg:h-[58px] `}
               >
                 <div className="flex items-center justify-between ">
