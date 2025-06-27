@@ -41,7 +41,7 @@ export function ScreenFlows({
         </h2>
         <div className={`space-y-7 `}>
           {topics.map((topic) => (
-            <>
+            <div key={topic.id} className="w-full">
               <button
                 key={topic.id}
                 onClick={() => {
@@ -220,7 +220,7 @@ export function ScreenFlows({
                   )}
                 </div>
               )}
-            </>
+            </div>
           ))}
         </div>
       </div>
