@@ -1,89 +1,264 @@
-import { use } from "i18next"
-import Image from "next/image"
-import React from "react"
-import { useTranslation } from "react-i18next"
+import { ChevronLeft, ChevronRight, ChevronUp } from "lucide-react";
+import Image from "next/image";
+import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 type Topic = {
-  id: string
-  icon: string
-  titleKey: string
-  steps: number
-  color: string
-  bgColor: string
-}
+  id: string;
+  icon: string;
+  titleKey: string;
+  steps: number;
+  color: string;
+  bgColor: string;
+  flows: {
+    image: string;
+    titleKey: string;
+    descriptionKey: string;
+  }[];
+};
 
 type ScreenFlowsProps = {
-  topics: Topic[]
-  selectedTopic: string
-  setSelectedTopic: React.Dispatch<React.SetStateAction<string>>
-}
+  topics: Topic[];
+  selectedTopic: string;
+  setSelectedTopic: React.Dispatch<React.SetStateAction<string>>;
+};
 
-export function ScreenFlows({ topics, selectedTopic, setSelectedTopic }: ScreenFlowsProps) {
-  const{t}=useTranslation()
+export function ScreenFlows({
+  topics,
+  selectedTopic,
+  setSelectedTopic,
+}: ScreenFlowsProps) {
+  const { t } = useTranslation();
+  const [activeStep, setActiveStep] = useState(0);
+  const [openViewFormobileView, setOpenViewFormobileView] = useState(false);
+  const currentTopic = topics.find((topic) => topic.id === selectedTopic);
   return (
     <div className="grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-start">
       {/* Left side - Topics */}
-      <div className="space-y-4 md:space-y-6 border border-gray-200 rounded-[14px] p-4 md:p-6 w-full lg:w-[537px] lg:h-[502px]">
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900">Choose a topic</h2>
-        <div className={`space-y-3 `}>
+      <div className="space-y-4 md:space-y-6 border border-gray-200 rounded-[14px] p-4 md:p-6 w-full lg:w-[537px] lg:h-[600px]">
+        <h2 className="text-xl md:text-2xl font-bold text-gray-900">
+          Choose a topic
+        </h2>
+        <div className={`space-y-7 `}>
           {topics.map((topic) => (
-            <button
-              key={topic.id}
-              onClick={() => setSelectedTopic(topic.id)}
-              className={`${selectedTopic===topic.id?"bg-[#d3def3]":""} p-3 md:p-4 rounded-xl border transition-all duration-200 text-left w-full lg:w-[448px] h-auto lg:h-[58px] `}
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-3">
-                  <div className="flex items-center justify-center">
-                    <Image
-                      src={`/images/icons/${topic.id}-icon.png`}
-                      alt={`${topic.titleKey} icon`}
-                      width={30}
-                      height={30}
-                      className="w-[30px] h-[25px]"
-                    />
+            <>
+              <button
+                key={topic.id}
+                onClick={() => {
+                  setSelectedTopic(topic.id);
+                  setOpenViewFormobileView(!openViewFormobileView);
+                }}
+                className={`${
+                  selectedTopic === topic.id ? "bg-[#d3def3]" : ""
+                } p-3 md:p-4 rounded-xl border transition-all duration-200 text-left w-full lg:w-[448px] h-auto lg:h-[58px] `}
+              >
+                <div className="flex items-center justify-between ">
+                  <div className="flex items-center space-x-3 mb-1">
+                    <div className="flex items-center justify-center">
+                      <Image
+                        src={`/images/icons/${topic.id}-icon.png`}
+                        alt={`${topic.titleKey} icon`}
+                        width={30}
+                        height={30}
+                        className="w-[30px] h-[25px]"
+                      />
+                    </div>
+                    <div className="w-full">
+                      <h3
+                        className="text-gray-900 text-base leading-none text-[12px] min-w-[100px] text-wrap sm:text-[16px] "
+                        style={{
+                          fontFamily: "Sora",
+                          fontWeight: 600,
+
+                          lineHeight: "100%",
+                          letterSpacing: "0%",
+                        }}
+                      >
+                        {t(topic.titleKey)}
+                      </h3>
+                    </div>
                   </div>
-                  <div className="w-full">
-                    <h3
-                      className="text-gray-900 text-base leading-none text-[12px] min-w-[100px] text-wrap sm:text-[16px] "
-                      style={{
-                        fontFamily: "Sora",
-                        fontWeight: 600,
-        
-                        lineHeight: "100%",
-                        letterSpacing: "0%",
-                      }}
-                    >
-                      {t(topic.titleKey)}
-                    </h3>
+                  <div
+                    onClick={() =>
+                      setOpenViewFormobileView(!openViewFormobileView)
+                    }
+                    className="mb-1 hidden lg:inline-flex items-center justify-center h-[36px] px-4 rounded-full cursor-pointer bg-blue-100/40 hover:bg-blue-200/60 transition-all duration-200 shadow-sm hover:shadow-md"
+                  >
+                    <span className="text-[15px] font-semibold text-blue-700 leading-none">
+                      View
+                    </span>
+                    <ChevronRight className="w-5 h-5 text-blue-700 ml-1 -mt-[1px]" />
+                  </div>
+
+                  <div
+                    onClick={() =>
+                      setOpenViewFormobileView(!openViewFormobileView)
+                    }
+                    className="lg:hidden text-[14px] flex px-0.5 space-x-3 rounded-full  font-medium text-center text-nowrap w-[72px] h-[25px] items-center justify-center"
+                    style={{ backgroundColor: "rgba(37, 99, 235, 0.2)" }} // 20% opacity
+                  >
+                    <p className="text-center relative left-2">View</p>
+
+                    {openViewFormobileView && topic.id === selectedTopic ? (
+                      <ChevronUp className="w-8 h-8  lg:hidden" />
+                    ) : (
+                      <ChevronRight className="w-8 h-8" />
+                    )}
                   </div>
                 </div>
-                <div className="bg-blue-100 text-blue-600 px-2 md:px-3 py-1 rounded-full text-xs md:text-sm font-medium  text-center text-nowrap">
-                  {topic.steps} steps
+              </button>
+
+              {/* Mobile View */}
+              {openViewFormobileView && topic.id === selectedTopic && (
+                <div
+                  className={`lg:hidden grid grid-cols-3  items-center justify-center space-x-4   w-full  ${
+                    !currentTopic?.flows[activeStep]?.image
+                      ? "h-[30px]"
+                      : "h-[330px] border-gray-200 rounded-[14px] bg-white border"
+                  }     p-4 `}
+                >
+                  {currentTopic?.flows[activeStep]?.image ? (
+                    <>
+                      <div className="flex items-center justify-center">
+                        <button
+                          onClick={() => {
+                            setActiveStep(activeStep - 1);
+                            console.log("clicked");
+                          }}
+                          className={` w-8 h-8 rounded-full flex items-center justify-center transition-colors  
+           ${
+             activeStep === 0
+               ? "bg-orange-300 text-gray-400 cursor-not-allowed"
+               : "bg-orange-500 text-orange-600 hover:bg-orange-600"
+           }       `}
+                          disabled={activeStep === 0}
+                        >
+                          <ChevronLeft className="w-4 h-4 md:w-5 md:h-5 text-white" />
+                        </button>
+                      </div>
+
+                      <div className="flex flex-col items-center ">
+                        <div className="relative ">
+                          <div className=" h-[290px] w-[250px]  xl:overflow-hidden overflow-x-auto">
+                            <Image
+                              src={currentTopic?.flows[activeStep]?.image || ""}
+                              alt={`Step ${activeStep + 1} image`}
+                              width={200}
+                              height={250}
+                              className="w-[146px] h-[287px] object-cover justify-center items-center mx-auto"
+                              unoptimized
+                              priority
+                            />
+                          </div>
+                        </div>
+                        {/* Step indicators */}
+                        <div className="flex space-x-2">
+                          {currentTopic?.flows.map((_, index) => (
+                            <button
+                              key={index}
+                              className={`w-2 h-2 rounded-full transition-colors ${
+                                activeStep === index
+                                  ? "bg-[#2563EB] w-[24px]"
+                                  : "bg-gray-300"
+                              }`}
+                              onClick={() => setActiveStep(index)}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                      <div className="flex items-center justify-center">
+                        <button
+                          onClick={() => setActiveStep(activeStep + 1)}
+                          className={` w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center transition-colors 
+           ${
+             activeStep === (currentTopic?.flows?.length ?? 0) - 1
+               ? "bg-orange-300 text-gray-400 cursor-not-allowed"
+               : "bg-orange-500 text-orange-600 hover:bg-orange-600"
+           }       `}
+                          disabled={
+                            activeStep ===
+                            (currentTopic?.flows?.length ?? 0) - 1
+                          }
+                        >
+                          <ChevronRight className="w-4 h-4 md:w-5 md:h-5 text-white" />
+                        </button>
+                      </div>
+                    </>
+                  ) : (
+                    <p className="text-gray-900 text-base leading-none text-[12px] text-center justify-center items-center mx-auto text-nowrap ">
+                      No flows available for this topic
+                    </p>
+                  )}
                 </div>
-              </div>
-            </button>
+              )}
+            </>
           ))}
         </div>
       </div>
 
       {/* Right side - Phone mockup */}
-      <div className="bg-[#F6F6F6] flex justify-center lg:justify-end mt-8 lg:mt-0 border border-gray-200 rounded-[14px] p-2 sm:p-4 md:p-6 w-full lg:w-[633px] lg:h-[502px]">
-        <div className="bg-[#F6F6F6] relative flex items-center justify-center h-[300px] sm:h-[220px] md:h-[400px] lg:h-[470px] w-full">
-          <Image
-            src={
-              selectedTopic === "getting-started"
-                ? "/images/ui/getting-started-tutorial.png"
-                : `/images/learn-${selectedTopic}.png`
-            }
-            width={160}
-            height={200}
-            alt={`Shopbook ${topics.find((t) => t.id === selectedTopic)?.titleKey} tutorial interface`}
-            className="object-contain transition-all duration-300 w-[200px] md:w-[200px] lg:w-[240px] h-[200px] md:h-[190px] lg:h-[440px] h-[120px]"
-            priority
-          />
+      {/* desktop version */}
+      {currentTopic?.flows[activeStep]?.image ? (
+        <div className="lg:block hidden flex-row lg:flex items-center justify-center space-x-4 lg:space-x-6 w-full lg:w-[537px] h-[600px] bg-white border border-gray-200 rounded-[14px] p-4 md:p-6">
+          <button
+            onClick={() => setActiveStep(activeStep - 1)}
+            className={` w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center transition-colors 
+           ${
+             activeStep === 0
+               ? "bg-orange-300 text-gray-400 cursor-not-allowed"
+               : "bg-orange-500 text-orange-600 hover:bg-orange-600"
+           }       `}
+            disabled={activeStep === 0}
+          >
+            <ChevronLeft className="w-4 h-4 md:w-5 md:h-5 text-white" />
+          </button>
+          <div className="flex flex-col items-center space-y-6">
+            <div className="relative ">
+              <div className=" h-[500px] w-[250px]  overflow-hidden">
+                <Image
+                  src={currentTopic?.flows[activeStep]?.image || ""}
+                  alt={`Step ${activeStep + 1} image`}
+                  width={250}
+                  height={500}
+                  className="w-full h-full object-cover  "
+                  unoptimized
+                  priority
+                />
+              </div>
+            </div>
+
+            {/* Step indicators */}
+            <div className="flex space-x-2">
+              {currentTopic?.flows.map((_, index) => (
+                <button
+                  key={index}
+                  className={`w-2 h-2 rounded-full transition-colors ${
+                    activeStep === index
+                      ? "bg-[#2563EB] w-[24px]"
+                      : "bg-gray-300"
+                  }`}
+                  onClick={() => setActiveStep(index)}
+                />
+              ))}
+            </div>
+          </div>
+          <button
+            onClick={() => setActiveStep(activeStep + 1)}
+            className={` w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center transition-colors  ${
+              activeStep === (currentTopic?.flows?.length ?? 0) - 1
+                ? "bg-orange-300 text-gray-400 cursor-not-allowed"
+                : "bg-orange-500 text-white hover:bg-orange-600"
+            }`}
+            disabled={activeStep === (currentTopic?.flows?.length ?? 0) - 1}
+          >
+            <ChevronRight className="w-4 h-4 md:w-5 md:h-5 text-white" />
+          </button>
         </div>
-      </div>
+      ) : (
+        <p className="text-gray-900 lg:block hidden text-base leading-none text-[12px] min-w-[100px] text-wrap sm:text-[16px] text-center justify-center items-center mx-auto ">
+          No flows available for this topic
+        </p>
+      )}
     </div>
-  )
-} 
+  );
+}

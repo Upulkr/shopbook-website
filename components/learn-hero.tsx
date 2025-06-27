@@ -14,6 +14,32 @@ const topics = [
     steps: 4,
     color: "text-green-600",
     bgColor: "bg-green-50",
+    flows: [
+      {
+        number: 1,
+        titleKey: "howItWorks.step1_title", // Use a key for translation
+        descriptionKey: "howItWorks.step1_description", // Use a key for translation
+        image: "/images/how-shopbook-works/create-invoices.png",
+      },
+      {
+        number: 2,
+        titleKey: "howItWorks.step2_title",
+        descriptionKey: "howItWorks.step2_description",
+        image: "/images/how-shopbook-works/send-invoices.png",
+      },
+      {
+        number: 3,
+        titleKey: "howItWorks.step3_title",
+        descriptionKey: "howItWorks.step3_description",
+        image: "/images/how-shopbook-works/automatic-reminder.png",
+      },
+      {
+        number: 4,
+        titleKey: "howItWorks.step4_title",
+        descriptionKey: "howItWorks.step4_description",
+        image: "/images/how-shopbook-works/generate-reports.png",
+      },
+    ],
   },
   {
     id: "create-share",
@@ -22,6 +48,7 @@ const topics = [
     steps: 4,
     color: "text-blue-600",
     bgColor: "bg-blue-50",
+    flows: [],
   },
   {
     id: "collect-credits",
@@ -30,6 +57,7 @@ const topics = [
     steps: 2,
     color: "text-purple-600",
     bgColor: "bg-purple-50",
+    flows: [],
   },
   {
     id: "auto-reminders",
@@ -38,6 +66,7 @@ const topics = [
     steps: 2,
     color: "text-orange-600",
     bgColor: "bg-orange-50",
+    flows: [],
   },
   {
     id: "view-customers",
@@ -46,6 +75,7 @@ const topics = [
     steps: 2,
     color: "text-teal-600",
     bgColor: "bg-teal-50",
+    flows: [],
   },
   {
     id: "customer-reports",
@@ -54,6 +84,7 @@ const topics = [
     steps: 4,
     color: "text-yellow-600",
     bgColor: "bg-yellow-50",
+    flows: [],
   },
 ];
 
