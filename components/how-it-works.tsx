@@ -72,6 +72,7 @@ export function HowItWorks() {
               <>
                 {" "}
                 <div
+                
                   key={index}
                   className={`p-4 rounded-xl border transition-all duration-300 cursor-pointer ${
                     activeStep === index
