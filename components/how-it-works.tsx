@@ -54,7 +54,7 @@ export function HowItWorks() {
           <h2
             className={`${
               i18n.language === "ta" || i18n.language === "si"
-                ? "text-xl"
+                ? "text-xl lg:text-[32px]"
                 : "text-2xl"
             } sm:text-3xl md:text-4xl lg:text-[38px] font-bold text-gray-900 mb-10 text-center`}
           >

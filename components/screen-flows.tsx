@@ -49,7 +49,7 @@ export function ScreenFlows({
                   setOpenViewFormobileView(!openViewFormobileView);
                 }}
                 className={` ${
-                  selectedTopic === topic.id ? "border border-[#2563EB] " : ""
+                  selectedTopic === topic.id ? "border border-[#2563EB] bg-blue-500/20" : ""
                 } p-3 md:p-4 rounded-xl border transition-all duration-200 text-left w-full lg:w-[448px] h-auto lg:h-[58px] bg-white`}
               >
                 <div className="flex items-center justify-between ">
@@ -82,7 +82,7 @@ export function ScreenFlows({
                     onClick={() =>
                       setOpenViewFormobileView(!openViewFormobileView)
                     }
-                    className=" relative -top-1 lg:block hidden lg:inline-flex items-center justify-center h-[36px] px-4 rounded-full cursor-pointer bg-blue-100/40 hover:bg-blue-200/60 transition-all duration-200 shadow-sm hover:shadow-md"
+                    className="relative -top-1 lg:block hidden lg:inline-flex items-center justify-center h-[36px] px-4 rounded-full cursor-pointer bg-[#2563eb]/20 hover:bg-blue-200/60 transition-all duration-200 shadow-sm hover:shadow-md"
                   >
                     <span className="text-[12px]  lg:text-[16px] font-semibold  leading-none">
                       View

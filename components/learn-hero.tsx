@@ -273,7 +273,7 @@ export function LearnHero() {
           <h1
             className={`text-gray-900 mt-10  ${
               i18n.language === "si" || i18n.language === "ta"
-                ? "text-xl  sm:text-2xl md:text-3xl lg:text-4xl"
+                ? "text-xl  sm:text-2xl md:text-3xl lg:text-[32px]"
                 : "text-2xl sm:text-3xl md:text-4xl lg:text-[38px]"
             } font-bold `}
             style={{

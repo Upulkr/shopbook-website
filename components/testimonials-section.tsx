@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { getYouTubeVideoId, handleVideoClick } from "@/lib/youtube-utils";
 import { ChevronLeft, ChevronRight, Play } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import VideoModel from "./video-model";
 
 import { useTranslation } from "react-i18next";
@@ -95,6 +95,29 @@ export function TestimonialsSection() {
   const closeVideo = () => {
     setPlayingVideo(null);
   };
+
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    const deltaX = touchStartX.current - touchEndX.current;
+
+    if (Math.abs(deltaX) > 50) {
+      if (deltaX > 0 && currentIndex < testimonials.length - 1) {
+        setCurrentIndex(currentIndex + 1);
+      } else if (deltaX < 0 && currentIndex > 0) {
+        setCurrentIndex(currentIndex - 1);
+      }
+    }
+  };
   return (
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-8">
@@ -102,7 +125,7 @@ export function TestimonialsSection() {
           <h2
             className={`${
               i18n.language === "ta" || i18n.language === "si"
-                ? "text-xl"
+                ? "text-xl lg:text-[32px]"
                 : "text-2xl"
             } sm:text-3xl md:text-4xl lg:text-[38px] font-bold text-gray-900 mb-10 text-center`}
           >
@@ -158,6 +181,9 @@ export function TestimonialsSection() {
               <div
                 key={index}
                 className="flex-shrink-0 px-3 "
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
                 style={{ width: isMobile ? "100%" : `${100 / cardsPerView}%` }}
               >
                 <Card className="bg-white border-0 shadow-sm h-full">
