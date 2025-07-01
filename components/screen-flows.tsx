@@ -91,7 +91,7 @@ export function ScreenFlows({
                     }
                     className=" relative -top-1 lg:block hidden lg:inline-flex items-center justify-center h-[36px] px-4 rounded-full cursor-pointer bg-[#2563eb]/20 hover:bg-blue-200/60 transition-all duration-200 shadow-sm hover:shadow-md"
                   >
-                    <span className="text-[12px]  lg:text-[16px] font-semibold  leading-none ">
+                    <span className="text-[12px]  lg:text-[16px] font-semibold  leading-none relative left-1  ">
                       View
                     </span>
                     <ChevronRight className="w-5 h-5  ml-1 -mt-[1px]" />
