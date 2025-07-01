@@ -46,7 +46,7 @@ export function Footer() {
                 className="h-8 w-auto"
               />
             </div>
-            <p className="text-gray-600 text-sm">
+            <p className="text-gray-600 text-sm leading-[1.6] lg:leading-none">
               {t('footerSection.description')} {/* Translated */}
             </p>
             <div className="flex space-x-4">
@@ -83,7 +83,7 @@ export function Footer() {
             </h3>
             <div className="space-y-2 text-sm text-gray-600">
               <p>📞 +94 78 247 0168</p> {/* Phone number might be static */}
-              <p>
+              <p className="leading-[1.6] lg:leading-none">
                 📍 {t('footerSection.address_line1')} {/* Translated */}
               </p>
             </div>
@@ -138,7 +138,7 @@ export function Footer() {
         {/* Bottom section */}
         <div className="border-t border-gray-200 mt-8 sm:mt-10 md:mt-12 pt-6 sm:pt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0">
           <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-6">
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-gray-600 ">
               {t('footerSection.copyright_text', { year: new Date().getFullYear() })} {/* Translated with year */}
             </p>
             <Link href="/privacy" className="text-sm text-gray-600 hover:text-blue-600">

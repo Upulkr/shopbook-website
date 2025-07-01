@@ -60,7 +60,7 @@ export function HowItWorks() {
           >
             {t("howItWorks.title")}
           </h2>
-          <p className="sm:text-lg md:text-xl text-gray-600">
+          <p className="sm:text-lg md:text-xl text-gray-600 relative top-[-20px] sm:top-0 leading-[1.6] lg:leading-none lg:top-[-20px]">
             {t("howItWorks.subtitle")}
           </p>
         </div>

@@ -275,7 +275,7 @@ export function LearnHero() {
               i18n.language === "si" || i18n.language === "ta"
                 ? "text-xl  sm:text-2xl md:text-3xl lg:text-[32px]"
                 : "text-2xl sm:text-3xl md:text-4xl lg:text-[38px]"
-            } font-bold `}
+            } font-bold leading-[1.6] lg:leading-none`}
             style={{
               fontFamily: "Sora",
               fontWeight: 600,
@@ -286,7 +286,7 @@ export function LearnHero() {
             {t("learnsection.main_title")}
           </h1>
           <p
-            className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg md:text-xl mt-4 mb-4"
+            className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg md:text-xl mt-4 mb-4 leading-[2] lg:leading-none"
             style={{
               fontFamily: "Sora",
               fontWeight: 400,

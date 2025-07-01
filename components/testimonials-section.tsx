@@ -109,13 +109,16 @@ export function TestimonialsSection() {
 
   const handleTouchEnd = () => {
     const deltaX = touchStartX.current - touchEndX.current;
-
+    let newIndex = currentIndex;
     if (Math.abs(deltaX) > 50) {
-      if (deltaX > 0 && currentIndex < testimonials.length - 1) {
-        setCurrentIndex(currentIndex + 1);
-      } else if (deltaX < 0 && currentIndex > 0) {
-        setCurrentIndex(currentIndex - 1);
+      if (deltaX > 0) {
+        newIndex = currentIndex + 1;
+      } else if (deltaX < 0) {
+        newIndex = currentIndex - 1;
       }
+      // Clamp newIndex to [0, maxIndex]
+      newIndex = Math.max(0, Math.min(maxIndex, newIndex));
+      setCurrentIndex(newIndex);
     }
   };
   return (
@@ -165,7 +168,7 @@ export function TestimonialsSection() {
 
         {/* Swiper Container */}
         <div
-          className="overflow-x-auto hide-scrollbar"
+          className={`hide-scrollbar ${isMobile ? "overflow-hidden" : "overflow-x-auto"}`}
           style={{
             scrollbarWidth: "none", // Firefox
             msOverflowStyle: "none", // IE/Edge
@@ -174,19 +177,22 @@ export function TestimonialsSection() {
           <div
             className="flex transition-transform duration-300 ease-in-out"
             style={{
-              transform: `translateX(-${(currentIndex * 100) / cardsPerView}%)`,
+              width: isMobile ? `${testimonials.length * 100}vw` : "100%",
+              transform: isMobile
+                ? `translateX(-${currentIndex * 100}vw)`
+                : `translateX(-${(currentIndex * 100) / cardsPerView}%)`,
             }}
           >
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 px-3 "
+                className={`flex-shrink-0 ${isMobile ? "" : "px-3"}  mb-5`}
                 onTouchStart={handleTouchStart}
                 onTouchMove={handleTouchMove}
                 onTouchEnd={handleTouchEnd}
-                style={{ width: isMobile ? "100%" : `${100 / cardsPerView}%` }}
+                style={{ width: isMobile ? "100vw" : `${100 / cardsPerView}%` }}
               >
-                <Card className="bg-white border-0 shadow-sm h-full">
+                <Card className="bg-white border-0 shadow-sm h-full mx-auto justify-center relative right-3 lg:right-0 ">
                   <CardContent className="p-6 text-left space-y-4">
                     <div className="relative">
                       <Image

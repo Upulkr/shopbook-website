@@ -17,8 +17,8 @@ export function CTASection() {
           {/* Left content */}
           <div className="space-y-6">
             <div className="space-y-3 mb-8">
-              <h2 className="text-3xl lg:text-3xl font-bold">{t('cta.title')}</h2>
-              <p className="text-lg text-[#94A7CF]">
+              <h2 className="text-3xl lg:text-3xl font-bold leading-[1.6] lg:leading-none">{t('cta.title')}</h2>
+              <p className="text-lg text-[#94A7CF] leading-[1.7] lg:leading-none">
                 {t('cta.description')}
               </p>
             </div>
