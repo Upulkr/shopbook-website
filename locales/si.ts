@@ -6,7 +6,10 @@ const TRANSLATIONS = {
     "Professional ඉන්වොයිසි පහසුවෙන් හදන්න. ගෙවීම් manage කරලා ණය මතක් කිරීම් යවා 3 ගුණයක් වේගයෙන් ණය එකතු කරගන්න.",
   hero_simplify: "ඔබේ ව්‍යාපාර invoice ",
   hero_business_invoicing: "පහසුවෙන් සාදා නියමිත වේලාවට ",
+  hero_business_invoicing_si: "පහසුවෙන් සාදා",
+  hero_business_invoicing_last_si: "නියමිත වේලාවට මුදල් ලබා ගන්න.",
   hero_get_paid_on_time: "මුදල් ලබා ගන්න. ",
+
   "&": "",
   features: {
     credit_cash_invoices_title: "ණය සහ මුදල් ඉන්වොයිසි පහසුයි",
@@ -120,7 +123,7 @@ const TRANSLATIONS = {
   learnsection: {
     main_title: "මිනිත්තු කිහිපයකින් Shopbook ප්‍රගුණ කරන්න",
     main_subtitle:
-      " Shopbook වෙතින් උපරිම ප්‍රයෝජන ලබා ගැනීමට සහ ඉක්මනින් ගෙවීම් ලබා ගැනීමට ඔබට උපකාර වන සම්පූර්ණ videos සහ screen flows.",
+      "මෙම Tutorials සහ Screen Flows මගින් Shopbook app එකෙන් උපරිම ප්‍රයෝජන ලබාගන්න අයුරු දැනගන්න.",
     video_tutorials_tab: "Video Tutorials",
     screen_flows_tab: "Screen Flows",
   },

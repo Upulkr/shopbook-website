@@ -12,27 +12,41 @@ export function HeroSection() {
           <div className="space-y-8">
             <div className="space-y-6">
               <h1
-                className={` font-bold text-gray-900 leading-relaxed ${
+                className={` font-bold  leading-relaxed ${
                   i18n.language === "si" || i18n.language === "ta"
-                    ? "text-2xl sm:text-3xl"
-                    : "text-4xl lg:text-5xl"
-                } tracking-tight`}
+                    ? "text-2xl sm:text-3xl text-blue-600"
+                    : "text-4xl lg:text-5xl text-gray-900"
+                } tracking-tight `}
                 style={{
                   lineHeight: "1.3",
                 }}
               >
                 {t("hero_simplify")}
                 <br />
-                <span className="text-blue-600">
+                {i18n.language === "si" && (
+                  <span className="text-black ">
+                    {t("hero_business_invoicing_si")}
+                  </span>
+                )}
+          
+                <span className={`text-blue-600  ${i18n.language === "si"?"hidden":""}`}>
                   {t("hero_business_invoicing")}
                 </span>
                 <br />
+                {i18n.language === "si" && (
+                  <span className="text-blue-600 lg:top-1 relative">
+                    {t("hero_business_invoicing_last_si")}
+                  </span>
+                )}
                 {t("&")}
-                <span className="text-blue-600">
+                <span className={`text-blue-600 ${i18n.language === "si"?"hidden":""}`}>
                   {t("hero_get_paid_on_time")}
                 </span>
               </h1>
-              <p className="text-lg text-gray-600 max-w-lg leading-relaxed">
+              {/* {i18n.language === "si"&&  <p className={`text-lg text-gray-600 max-w-lg leading-relaxed `}>
+                {t("invoice_feature")}
+              </p>} */}
+              <p className={"text-lg text-gray-600 max-w-lg leading-relaxed"}>
                 {t("invoice_feature")}
               </p>
             </div>
@@ -68,13 +82,23 @@ export function HeroSection() {
               </div>
 
               {/* Free label */}
-              <div className={`inline-block ${i18n.language==='ta'||i18n.language==='si'?"lg:-[50px] relative ":""}`}>
+              <div
+                className={`inline-block ${
+                  i18n.language === "ta" || i18n.language === "si"
+                    ? "lg:-[50px] relative "
+                    : ""
+                }`}
+              >
                 <Image
                   src="/images/ui/free-label.png"
                   alt="100% Free • No Credit Card Required"
                   width={300}
                   height={40}
-                  className={`h-auto ${i18n.language==='ta'||i18n.language==='si'?"lg:-[50px] relative lg:mt-5":""}`}
+                  className={`h-auto ${
+                    i18n.language === "ta" || i18n.language === "si"
+                      ? "lg:-[50px] relative lg:mt-5"
+                      : ""
+                  }`}
                 />
               </div>
             </div>

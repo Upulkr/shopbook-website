@@ -1,4 +1,9 @@
-import { ChevronDown, ChevronLeft, ChevronRight, ChevronUp } from "lucide-react";
+import {
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  ChevronUp,
+} from "lucide-react";
 import Image from "next/image";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -37,7 +42,7 @@ export function ScreenFlows({
       {/* Left side - Topics */}
       <div className="bg-[#F2F2F2] space-y-4 md:space-y-6 border border-gray-200 rounded-[14px] p-4 md:p-6 w-full lg:w-[537px] lg:h-[600px]">
         <h2 className="text-xl md:text-2xl font-bold text-gray-900 relative lg:left-2">
-         Explore the guide below
+          Explore the guide below
         </h2>
         <div className={`space-y-7 `}>
           {topics.map((topic) => (
@@ -49,7 +54,9 @@ export function ScreenFlows({
                   setOpenViewFormobileView(!openViewFormobileView);
                 }}
                 className={` ${
-                  selectedTopic === topic.id ? "border border-[#2563EB] bg-blue-500/20" : ""
+                  selectedTopic === topic.id
+                    ? "border border-[#2563EB] bg-blue-500/20"
+                    : ""
                 } p-3 md:p-4 rounded-xl border transition-all duration-200 text-left w-full lg:w-[448px] h-auto lg:h-[58px] bg-white`}
               >
                 <div className="flex items-center justify-between ">
@@ -82,27 +89,32 @@ export function ScreenFlows({
                     onClick={() =>
                       setOpenViewFormobileView(!openViewFormobileView)
                     }
-                    className="relative -top-1 lg:block hidden lg:inline-flex items-center justify-center h-[36px] px-4 rounded-full cursor-pointer bg-[#2563eb]/20 hover:bg-blue-200/60 transition-all duration-200 shadow-sm hover:shadow-md"
+                    className=" relative -top-1 lg:block hidden lg:inline-flex items-center justify-center h-[36px] px-4 rounded-full cursor-pointer bg-[#2563eb]/20 hover:bg-blue-200/60 transition-all duration-200 shadow-sm hover:shadow-md"
                   >
-                    <span className="text-[12px]  lg:text-[16px] font-semibold  leading-none">
+                    <span className="text-[12px]  lg:text-[16px] font-semibold  leading-none ">
                       View
                     </span>
                     <ChevronRight className="w-5 h-5  ml-1 -mt-[1px]" />
                   </div>
-                    <div
+                  <div
                     onClick={() =>
                       setOpenViewFormobileView(!openViewFormobileView)
                     }
-                    className="lg:hidden flex space-x-2 rounded-full text-center text-nowrap w-[60px] h-[24px] items-center justify-center"
+                    className="lg:hidden flex space-x-2 rounded-full text-center text-nowrap w-[62px] h-[24px] items-center justify-center relative "
                     style={{ backgroundColor: "rgba(37, 99, 235, 0.2)" }} // 20% opacity
-                    >
-                    <span className="text-center text-[12px] leading-none relative left-2">View</span>
-                    {openViewFormobileView && topic.id === selectedTopic ? (
-                      <ChevronUp className="w-[16px] h-[16px] text-[12px] lg:hidden" />
-                    ) : (
-                      <ChevronDown className="w-[16px] h-[16px] text-[12px]" />
-                    )}
+                  >
+                    <div className="flex items-center justify-center left-[1.5px]  relative">
+                
+                      <span className="text-center text-[12px] leading-none relative ">
+                        View
+                      </span>
+                      {openViewFormobileView && topic.id === selectedTopic ? (
+                        <ChevronUp className="w-[16px] h-[16px] text-[12px] lg:hidden" />
+                      ) : (
+                        <ChevronDown className="w-[16px] h-[16px] text-[12px]" />
+                      )}
                     </div>
+                  </div>
                 </div>
               </button>
 

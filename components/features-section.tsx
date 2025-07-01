@@ -139,9 +139,9 @@ export function FeaturesSection() {
               <h3
                 className={` ${
                   i18n.language === "ta" || i18n.language === "si"
-                    ? "text-md"
-                    : "text-lg"
-                }  font-semibold text-gray-900 lg:leading-none md:text-xl sm:text-base leading-[1.5]`}
+                    ? "text-md lg:-mt-1"
+                    : "text-lg mt-1"
+                }  font-semibold text-gray-900  md:text-xl sm:text-base leading-[1.5] `}
                 style={{ fontFamily: "Sora" }}
               >
                 {t("featuresSection.nested_cta_title")}
@@ -151,7 +151,7 @@ export function FeaturesSection() {
                   i18n.language === "ta" || i18n.language === "si"
                     ? "text-sm"
                     : ""
-                } text-base font-normal text-gray-600 lg:leading-none text-center md:text-md sm:text-sm leading-[1.5]`}
+                } text-base font-normal text-gray-600 lg:leading-[1.5] text-center md:text-md sm:text-sm leading-[1.5]`}
                 style={{ fontFamily: "Sora" }}
               >
                 {t("featuresSection.nested_cta_description")}

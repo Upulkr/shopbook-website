@@ -46,7 +46,7 @@ export function Footer() {
                 className="h-8 w-auto"
               />
             </div>
-            <p className="text-gray-600 text-sm leading-[1.6] lg:leading-none">
+            <p className="text-gray-600 text-sm leading-[1.6] ">
               {t('footerSection.description')} {/* Translated */}
             </p>
             <div className="flex space-x-4">
@@ -77,13 +77,13 @@ export function Footer() {
           </div>
 
           {/* Get in Touch */}
-          <div className="space-y-4 relative lg:left-20">
-            <h3 className="font-semibold text-gray-900">
+          <div className="space-y-4 relative lg:left-20 ">
+            <h3 className="font-semibold text-gray-900 ">
               {t('footerSection.get_in_touch_title')} {/* Translated */}
             </h3>
             <div className="space-y-2 text-sm text-gray-600">
               <p>📞 +94 78 247 0168</p> {/* Phone number might be static */}
-              <p className="leading-[1.6] lg:leading-none">
+              <p className="leading-[1.6] ">
                 📍 {t('footerSection.address_line1')} {/* Translated */}
               </p>
             </div>
