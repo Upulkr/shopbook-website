@@ -104,7 +104,6 @@ export function ScreenFlows({
                     style={{ backgroundColor: "rgba(37, 99, 235, 0.2)" }} // 20% opacity
                   >
                     <div className="flex items-center justify-center left-[1.5px]  relative">
-                
                       <span className="text-center text-[12px] leading-none relative ">
                         View
                       </span>

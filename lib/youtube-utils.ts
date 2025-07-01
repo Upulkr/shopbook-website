@@ -14,12 +14,12 @@ export const getYouTubeVideoId = (youtubeUrl: string) => {
 }
 
 export const handleVideoClick = (
-  videoIndex: number, 
+  // videoIndex: number, 
   video: { youtubeUrl?: string }, 
   setPlayingVideo: React.Dispatch<React.SetStateAction<any>>
 ) => {
   if (video.youtubeUrl) {
-    setPlayingVideo({ videoIndex, video })
+    setPlayingVideo({  video })
   }
 }
 

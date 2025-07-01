@@ -168,7 +168,9 @@ export function TestimonialsSection() {
 
         {/* Swiper Container */}
         <div
-          className={`hide-scrollbar ${isMobile ? "overflow-hidden" : "overflow-x-auto"}`}
+          className={`hide-scrollbar ${
+            isMobile ? "overflow-hidden" : "overflow-x-auto"
+          }`}
           style={{
             scrollbarWidth: "none", // Firefox
             msOverflowStyle: "none", // IE/Edge
@@ -218,7 +220,7 @@ export function TestimonialsSection() {
                           className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors cursor-pointer"
                           onClick={() =>
                             handleVideoClick(
-                              index,
+                              // index,
                               testimonial,
                               setPlayingVideo
                             )

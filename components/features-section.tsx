@@ -1,5 +1,6 @@
 "use client"; // Ensure this is at the top of the file
 import { Card, CardContent } from "@/components/ui/card";
+import { handleVideoClick } from "@/lib/youtube-utils";
 import {
   FileText,
   TrendingUp,
@@ -8,7 +9,9 @@ import {
   RefreshCw,
   Globe,
 } from "lucide-react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next"; // Import useTranslation
+import VideoModel from "./video-model";
 
 const features = [
   {
@@ -54,10 +57,24 @@ const features = [
     bgColor: "bg-blue-50",
   },
 ];
-
+type Video = {
+  id: string;
+  titleKey: string;
+  descriptionKey: string;
+  thumbnail: string;
+  duration: string;
+  youtubeUrl?: string;
+};
 export function FeaturesSection() {
   const { t, i18n } = useTranslation(); // Initialize useTranslation
-
+  const [playingVideo, setPlayingVideo] = useState<{
+    sectionIndex: number;
+    videoIndex: number;
+    video: Video;
+  } | null>(null);
+  const closeVideo = () => {
+    setPlayingVideo(null);
+  };
   return (
     <section className={`py-24 bg-white  `}>
       <div
@@ -70,15 +87,15 @@ export function FeaturesSection() {
         }`}
       >
         <div className="text-center space-y-4 mb-16 mt-12 pt-8 ">
-            <h2
+          <h2
             className={`${
               i18n.language === "ta" || i18n.language === "si"
-              ? "text-xl lg:text-[32px]"
-              : "text-2xl"
+                ? "text-xl lg:text-[32px]"
+                : "text-2xl"
             } sm:text-3xl md:text-4xl lg:text-[38px] font-bold text-gray-900 mb-10 text-center leading-[1.6] lg:leading-none`}
-            >
+          >
             {t("featuresSection.main_heading_title")}
-            </h2>
+          </h2>
           <p className="sm:text-lg md:text-xl text-gray-600  relative top-[-20px] sm:top-0 lg:top-[-20px]">
             {t("featuresSection.main_heading_subtitle")}
           </p>
@@ -165,6 +182,15 @@ export function FeaturesSection() {
                 style={{
                   borderRadius: "8px",
                 }}
+                onClick={() =>
+                  handleVideoClick(
+                  
+                    {
+                      youtubeUrl: "http://www.youtube.com/watch?v=G_oyr4NuSfQ",
+                    },
+                    setPlayingVideo
+                  )
+                }
               >
                 {t("featuresSection.nested_cta_button")}
               </button>
@@ -213,6 +239,9 @@ export function FeaturesSection() {
           </div>
         </div>
       </div>
+      {playingVideo && (
+        <VideoModel closeVideo={closeVideo} playingVideo={playingVideo} />
+      )}
     </section>
   );
 }
