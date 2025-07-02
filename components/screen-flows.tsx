@@ -72,7 +72,7 @@ export function ScreenFlows({ topics }: ScreenFlowsProps) {
                 key={topic.id}
                 className={` ${
                   selectedTopicid === topic.id
-                    ? "border border-[#2563EB] bg-blue-600/20"
+                    ? "border border-[#2563EB] bg-[rgba(37,99,235,0.2)]"
                     : ""
                 } p-3 md:p-4 rounded-xl border transition-all duration-200 text-left w-full lg:w-[448px] h-auto  bg-white ${
                   i18n.language === "si"
