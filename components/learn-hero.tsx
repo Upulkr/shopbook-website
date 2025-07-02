@@ -217,7 +217,7 @@ const videoSections = [
 ];
 export function LearnHero() {
   const [activeTab, setActiveTab] = useState("video-tutorials");
-  const [selectedTopic, setSelectedTopic] = useState("getting-started");
+
   const [currentVideoIndex, setCurrentVideoIndex] = useState([0, 0, 0]); // For each section
   const [isMobile, setIsMobile] = useState(false);
   const { t, i18n } = useTranslation();
@@ -341,8 +341,7 @@ export function LearnHero() {
         ) : (
           <ScreenFlows
             topics={topics}
-            selectedTopic={selectedTopic}
-            setSelectedTopic={setSelectedTopic}
+           
           />
         )}
       </div>

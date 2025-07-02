@@ -28,18 +28,32 @@ export function HeroSection() {
                     {t("hero_business_invoicing_si")}
                   </span>
                 )}
-          
-                <span className={`text-blue-600  ${i18n.language === "si"?"hidden":""}`}>
+
+                <span
+                  className={`text-blue-600  ${
+                    i18n.language === "si" ? "hidden" : ""
+                  }`}
+                >
                   {t("hero_business_invoicing")}
                 </span>
                 <br />
                 {i18n.language === "si" && (
-                  <span className="text-blue-600 lg:top-1 relative">
-                    {t("hero_business_invoicing_last_si")}
-                  </span>
+                  <div>
+                    {" "}
+                    <span className="text-blue-600 lg:top-1 relative">
+                      {t("hero_business_invoicing_last_si")}
+                    </span>
+                    <span className="text-black lg:top-1 relative">
+                      {t( "hero_business_invoicing_last_text_si")}
+                    </span>
+                  </div>
                 )}
                 {t("&")}
-                <span className={`text-blue-600 ${i18n.language === "si"?"hidden":""}`}>
+                <span
+                  className={`text-blue-600 ${
+                    i18n.language === "si" ? "hidden" : ""
+                  }`}
+                >
                   {t("hero_get_paid_on_time")}
                 </span>
               </h1>

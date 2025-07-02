@@ -7,37 +7,38 @@ const TRANSLATIONS = {
   hero_simplify: "ඔබේ ව්‍යාපාර invoice ",
   hero_business_invoicing: "පහසුවෙන් සාදා නියමිත වේලාවට ",
   hero_business_invoicing_si: "පහසුවෙන් සාදා",
-  hero_business_invoicing_last_si: "නියමිත වේලාවට මුදල් ලබා ගන්න.",
+  hero_business_invoicing_last_si: "නියමිත වේලාවට මුදල්",
+  hero_business_invoicing_last_text_si: "  ලබා ගන්න.",
   hero_get_paid_on_time: "මුදල් ලබා ගන්න. ",
 
   "&": "",
-  features: {
-    credit_cash_invoices_title: "ණය සහ මුදල් ඉන්වොයිසි පහසුයි",
-    credit_cash_invoices_description:
-      "ඔබගේ සියලුම ණය සහ මුදල් විකුණුම් ඉන්වොයිසි එක තැනකින් කළමනාකරණය කරන්න.",
-    invoice_history_title: "ඔබගේ සම්පූර්ණ ඉන්වොයිසි ඉතිහාසය වෙත ප්‍රවේශ වන්න",
-    invoice_history_description:
-      "ඕනෑම වේලාවක සියලුම පැරණි ඉන්වොයිසි බලන්න සහ සොයන්න.",
-    faster_payments_title: "ස්වයංක්‍රීය මතක් කිරීම් සමඟ වේගවත් ගෙවීම්",
-    faster_payments_description:
-      "වේගවත් ගෙවීම් එකතු කිරීම සඳහා SMS/WhatsApp හරහා පාරිභෝගිකයින්ට ස්වයංක්‍රීයව මතක් කරන්න.",
-    payment_tracking_title: "පහසු ගෙවීම් ලුහුබැඳීම",
-    payment_tracking_description:
-      "ලැබුණු ගෙවීම් ඉක්මනින් සටහන් කර ඔබගේ ගිණුම් ක්ෂණිකව යාවත්කාලීන කරන්න.",
-    generate_reports_title: "වාර්තා සාදා සහ බෙදාගන්න",
-    generate_reports_description:
-      "වෘත්තීය විකුණුම් සහ ගෙවීම් වාර්තා පහසුවෙන් සාදන්න.",
-    available_languages_title: "භාෂා 3කින් ලබා ගත හැක",
-    available_languages_description:
-      "Shopbook සිංහල, දෙමළ හෝ ඉංග්‍රීසි භාෂාවෙන් භාවිතා කරන්න.",
-    achieve_goals_title: "ඔබේ ව්‍යාපාර ඉලක්ක Shopbook සමඟ ළඟා කරගන්න.",
-    simplified_tagline: "ඉන්වොයිසි සිට ගෙවීම් දක්වා - ඔබ වෙනුවෙන් සරල කර ඇත",
-    see_reminders_title:
-      "ShopBook Auto ගෙවීම් මතක් කිරීම් යවා නොගෙවු ණය ඉක්මනින් එකතු කරගන්නේ  කෙසේදැයි බලන්න.",
-    see_reminders_description:
-      "ShopBook විසින් වෘත්තීය ගෙවීම් මතක් කිරීම් පහසුවෙන් යවන්නේ කෙසේදැයි බලන්න, එමඟින් ඔබට වේගයෙන් එකතු කිරීමට සහ නොගෙවූ ණය අඩු කිරීමට උපකාරී වේ.",
-    watch_demo_video: "ආදර්ශන වීඩියෝව බලන්න",
-  },
+  // features: {
+  //   credit_cash_invoices_title: "ණය සහ මුදල් ඉන්වොයිසි පහසුයි",
+  //   credit_cash_invoices_description:
+  //     "ඔබගේ සියලුම ණය සහ මුදල් විකුණුම් ඉන්වොයිසි එක තැනකින් කළමනාකරණය කරන්න.",
+  //   invoice_history_title: "ඔබගේ සම්පූර්ණ ඉන්වොයිසි ඉතිහාසය වෙත ප්‍රවේශ වන්න",
+  //   invoice_history_description:
+  //     "ඕනෑම වේලාවක සියලුම පැරණි ඉන්වොයිසි බලන්න සහ සොයන්න.",
+  //   faster_payments_title: "ස්වයංක්‍රීය මතක් කිරීම් සමඟ වේගවත් ගෙවීම්",
+  //   faster_payments_description:
+  //     "වේගවත් ගෙවීම් එකතු කිරීම සඳහා SMS/WhatsApp හරහා පාරිභෝගිකයින්ට ස්වයංක්‍රීයව මතක් කරන්න.",
+  //   payment_tracking_title: "පහසු ගෙවීම් ලුහුබැඳීම",
+  //   payment_tracking_description:
+  //     "ලැබුණු ගෙවීම් ඉක්මනින් සටහන් කර ඔබගේ ගිණුම් ක්ෂණිකව යාවත්කාලීන කරන්න.",
+  //   generate_reports_title: "වාර්තා සාදා සහ බෙදාගන්න",
+  //   generate_reports_description:
+  //     "වෘත්තීය විකුණුම් සහ ගෙවීම් වාර්තා පහසුවෙන් සාදන්න.",
+  //   available_languages_title: "භාෂා 3කින් ලබා ගත හැක",
+  //   available_languages_description:
+  //     "Shopbook සිංහල, දෙමළ හෝ ඉංග්‍රීසි භාෂාවෙන් භාවිතා කරන්න.",
+  //   achieve_goals_title: "ඔබේ ව්‍යාපාර ඉලක්ක Shopbook සමඟ ළඟා කරගන්න.",
+  //   simplified_tagline: "ඉන්වොයිසි සිට ගෙවීම් දක්වා - ඔබ වෙනුවෙන් සරල කර ඇත",
+  //   see_reminders_title:
+  //     "Shopbook Auto ගෙවීම් මතක් කිරීම් යවා නොගෙවු ණය ඉක්මනින් එකතු කරගන්නේ  කෙසේදැයි බලන්න.",
+  //   see_reminders_description:
+  //     "ShopBook විසින් වෘත්තීය ගෙවීම් මතක් කිරීම් පහසුවෙන් යවන්නේ කෙසේදැයි බලන්න, එමඟින් ඔබට වේගයෙන් එකතු කිරීමට සහ නොගෙවූ ණය අඩු කිරීමට උපකාරී වේ.",
+  //   watch_demo_video: "ආදර්ශන වීඩියෝව බලන්න",
+  // },
 
   howItWorks: {
     title: "Shopbook ක්‍රියා කරන ආකාරය",
@@ -113,7 +114,7 @@ const TRANSLATIONS = {
     feature6_description:
       "Shopbook සිංහල, දෙමළ හෝ ඉංග්‍රීසි භාෂාවලින් භාවිතා කරන්න.",
     nested_cta_title:
-      "ShopBook Auto ගෙවීම් මතක් කිරීම් යවා නොගෙවු ණය ඉක්මනින් එකතු කරගන්නේ  කෙසේදැයි බලන්න",
+      "Shopbook Auto ගෙවීම් මතක් කිරීම් යවා නොගෙවු ණය ඉක්මනින් එකතු කරගන්නේ  කෙසේදැයි බලන්න",
     nested_cta_description:
       "නොගෙවූ ණය අඩු කර ඉක්මනින් මුදල් එකතු කර ගැනීමට ShopBook වෘත්තීය ගෙවීම් මතක් කිරීම් පහසුවෙන් යවන්නේ කෙසේදැයි බලන්න.",
     nested_cta_button: "Demo වීඩියෝව බලන්න",

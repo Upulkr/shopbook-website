@@ -8,31 +8,31 @@ const TRANSLATIONS = {
   hero_business_invoicing: "Business Invoicing",
   hero_get_paid_on_time: "Get Paid On Time",
   "&": "& ",
-  features: {
-    credit_cash_invoices_title: "Credit & Cash Invoices Made Easy",
-    credit_cash_invoices_description:
-      "Manage all your credit and cash sales invoices in one place.",
-    invoice_history_title: "Access Your Full Invoice History",
-    invoice_history_description: "View and search all past invoices anytime.",
-    faster_payments_title: "Faster Payments with Automated Reminders",
-    faster_payments_description:
-      "Automatically remind customers via SMS/WhatsApp for quicker payment collection.",
-    payment_tracking_title: "Effortless Payment Tracking",
-    payment_tracking_description:
-      "Quickly record received payments and update your accounts instantly.",
-    generate_reports_title: "Generate & Share Reports",
-    generate_reports_description:
-      "Create professional sales and payment reports with ease.",
-    available_languages_title: "Available in 3 Languages",
-    available_languages_description:
-      "Use Shopbook in Sinhala, Tamil, or English.",
-    achieve_goals_title: "Achieve Your Business Goals With Shopbook",
-    simplified_tagline: "From Invoices to Payment - Simplified for You",
-    see_reminders_title: "See Automated Reminders in Action",
-    see_reminders_description:
-      "Watch how shopBook effortlessly sends professional payment reminders to help you collect faster and reduce unpaid credit.",
-    watch_demo_video: "Watch Demo Video",
-  },
+  // features: {
+  //   credit_cash_invoices_title: "Credit & Cash Invoices Made Easy",
+  //   credit_cash_invoices_description:
+  //     "Manage all your credit and cash sales invoices in one place.",
+  //   invoice_history_title: "Access Your Full Invoice History",
+  //   invoice_history_description: "View and search all past invoices anytime.",
+  //   faster_payments_title: "Faster Payments with Automated Reminders",
+  //   faster_payments_description:
+  //     "Automatically remind customers via SMS/WhatsApp for quicker payment collection.",
+  //   payment_tracking_title: "Effortless Payment Tracking",
+  //   payment_tracking_description:
+  //     "Quickly record received payments and update your accounts instantly.",
+  //   generate_reports_title: "Generate & Share Reports",
+  //   generate_reports_description:
+  //     "Create professional sales and payment reports with ease.",
+  //   available_languages_title: "Available in 3 Languages",
+  //   available_languages_description:
+  //     "Use Shopbook in Sinhala, Tamil, or English.",
+  //   achieve_goals_title: "Achieve Your Business Goals With Shopbook",
+  //   simplified_tagline: "From Invoices to Payment - Simplified for You",
+  //   see_reminders_title: "See Automated Reminders in Action",
+  //   see_reminders_description:
+  //     "Watch how Shopbook effortlessly sends professional payment reminders to help you collect faster and reduce unpaid credit.",
+  //   watch_demo_video: "Watch Demo Video",
+  // },
   howItWorks: {
     title: "How Shopbook Works",
     subtitle: "Start managing your invoices in just 4 simple steps",
@@ -102,7 +102,7 @@ const TRANSLATIONS = {
   feature6_title: "Available in 3 Languages",
   feature6_description: "Use Shopbook in Sinhala, Tamil, or English.",
   nested_cta_title: "See Automated Reminders in Action",
-  nested_cta_description: "Watch how shopBook effortlessly sends professional payment reminders to help you collect faster and reduce unpaid credit.",
+  nested_cta_description: "Watch how Shopbook effortlessly sends professional payment reminders to help you collect faster and reduce unpaid credit.",
   nested_cta_button: "Watch Demo Video",
   phone_secure_alt: "Shopbook mobile app",
   money_hand_alt: "Money in hand",

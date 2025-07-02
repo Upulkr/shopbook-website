@@ -5,7 +5,7 @@ import {
   ChevronUp,
 } from "lucide-react";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 type Topic = {
@@ -24,40 +24,63 @@ type Topic = {
 
 type ScreenFlowsProps = {
   topics: Topic[];
-  selectedTopic: string;
-  setSelectedTopic: React.Dispatch<React.SetStateAction<string>>;
 };
 
-export function ScreenFlows({
-  topics,
-  selectedTopic,
-  setSelectedTopic,
-}: ScreenFlowsProps) {
-  const { t } = useTranslation();
-  const [activeStep, setActiveStep] = useState(0);
+export function ScreenFlows({ topics }: ScreenFlowsProps) {
+  const { t, i18n } = useTranslation();
+  const [activeStep, setActiveStep] = useState(0); // Initialize with the first step
   const [openViewFormobileView, setOpenViewFormobileView] = useState(true);
-  const currentTopic = topics.find((topic) => topic.id === selectedTopic);
+  const [selectedTopicid, setSelectedTopicId] = useState("getting-started");
+  const currentTopic = topics.find((topic) => topic.id === selectedTopicid);
+  console.log("currentTopic", currentTopic?.id);
   return (
     <div className="grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-start">
       {/* Left side - Topics */}
-      <div className="bg-[#F2F2F2] space-y-4 md:space-y-6 border border-gray-200 rounded-[14px] p-4 md:p-6 w-full lg:w-[537px] lg:h-[600px]">
+      <div
+        className={`bg-[#F2F2F2] space-y-4 md:space-y-6 border border-gray-200 rounded-[14px] p-4 md:p-6 w-full lg:w-[537px]  ${
+          i18n.language === "si"
+            ? "lg:h-[680px]"
+            : i18n.language === "ta"
+            ? "lg:h-[770px]"
+            : "lg:h-[600px]"
+        }`}
+      >
         <h2 className="text-xl md:text-2xl font-bold text-gray-900 relative lg:left-2">
           Explore the guide below
         </h2>
         <div className={`space-y-7 `}>
           {topics.map((topic) => (
-            <div key={topic.id} className="w-full">
+            <div
+              key={topic.id}
+              className="w-full"
+              onClick={() => {
+                setSelectedTopicId(topic.id);
+                console.log("topicid", topic.id);
+                console.log("selectedTopicid", selectedTopicid);
+                if (selectedTopicid === currentTopic?.id) {
+                  console.log("Same topic clicked, toggling mobile view");
+                  setOpenViewFormobileView(true);
+                } else {
+                  console.log(
+                    "Different topic clicked, not toggling mobile view"
+                  );
+                  setOpenViewFormobileView(false);
+                }
+              }}
+            >
               <button
                 key={topic.id}
-                onClick={() => {
-                  setSelectedTopic(topic.id);
-                  setOpenViewFormobileView(!openViewFormobileView);
-                }}
                 className={` ${
-                  selectedTopic === topic.id
-                    ? "border border-[#2563EB] bg-blue-500/20"
+                  selectedTopicid === topic.id
+                    ? "border border-[#2563EB] bg-blue-600/20"
                     : ""
-                } p-3 md:p-4 rounded-xl border transition-all duration-200 text-left w-full lg:w-[448px] h-auto lg:h-[58px] bg-white`}
+                } p-3 md:p-4 rounded-xl border transition-all duration-200 text-left w-full lg:w-[448px] h-auto  bg-white ${
+                  i18n.language === "si"
+                    ? "lg:h-[70px]"
+                    : i18n.language === "ta"
+                    ? "lg:h-[85px]"
+                    : "lg:h-[58px]"
+                }  `}
               >
                 <div className="flex items-center justify-between ">
                   <div className="flex items-center space-x-3  relative ">
@@ -70,14 +93,17 @@ export function ScreenFlows({
                         className="w-[30px] h-[25px]"
                       />
                     </div>
-                    <div className="w-full relative lg:-top-1">
+                    <div className="w-full relative lg:-top-1 ">
                       <h3
-                        className="text-gray-900 text-[12px]  leading-none  min-w-[100px] text-wrap lg:text-[16px] "
+                        className={`text-gray-900 text-[12px] min-w-[100px] text-wrap   ${
+                          i18n.language === "si" || i18n.language === "ta"
+                            ? "lg:text-[15px] w-sm px-1 "
+                            : "lg:text-[16px]"
+                        }`}
                         style={{
                           fontFamily: "Sora",
                           fontWeight: 600,
-
-                          lineHeight: "100%",
+                          lineHeight: "1.6", // Increased line height for better vertical spacing
                           letterSpacing: "0%",
                         }}
                       >
@@ -86,9 +112,9 @@ export function ScreenFlows({
                     </div>
                   </div>
                   <div
-                    onClick={() =>
-                      setOpenViewFormobileView(!openViewFormobileView)
-                    }
+                    // onClick={() =>
+                    //   setOpenViewFormobileView(!openViewFormobileView)
+                    // }
                     className=" relative -top-1 lg:block hidden lg:inline-flex items-center justify-center h-[36px] px-4 rounded-full cursor-pointer bg-[#2563eb]/20 hover:bg-blue-200/60 transition-all duration-200 shadow-sm hover:shadow-md"
                   >
                     <span className="text-[12px]  lg:text-[16px] font-semibold  leading-none relative left-1  ">
@@ -97,17 +123,23 @@ export function ScreenFlows({
                     <ChevronRight className="w-5 h-5  ml-1 -mt-[1px]" />
                   </div>
                   <div
-                    onClick={() =>
-                      setOpenViewFormobileView(!openViewFormobileView)
-                    }
+                    // onClick={() => {
+                    //   setSelectedTopicId(topic.id);
+                    //   if (selectedTopicid === topic.id) {
+                    //     console.log("Same topic clicked, toggling mobile view");
+                    //     setOpenViewFormobileView(true);
+                    //   } else {
+                    //     setOpenViewFormobileView(false);
+                    //   }
+                    // }}
                     className="lg:hidden flex space-x-2 rounded-full text-center text-nowrap w-[62px] h-[24px] items-center justify-center relative "
                     style={{ backgroundColor: "rgba(37, 99, 235, 0.2)" }} // 20% opacity
                   >
-                    <div className="flex items-center justify-center left-[1.5px]  relative">
+                    <div className="flex items-center justify-center left-[1.5px]  relative w-[62px]">
                       <span className="text-center text-[12px] leading-none relative ">
                         View
                       </span>
-                      {openViewFormobileView && topic.id === selectedTopic ? (
+                      {openViewFormobileView && topic.id === selectedTopicid ? (
                         <ChevronUp className="w-[16px] h-[16px] text-[12px] lg:hidden" />
                       ) : (
                         <ChevronDown className="w-[16px] h-[16px] text-[12px]" />
@@ -118,7 +150,7 @@ export function ScreenFlows({
               </button>
 
               {/* Mobile View */}
-              {openViewFormobileView && topic.id === selectedTopic && (
+              {openViewFormobileView && topic.id === selectedTopicid && (
                 <div
                   className={`lg:hidden grid grid-cols-3  items-center justify-center space-x-4   w-full bg-[#F2F2F2]  ${
                     !currentTopic?.flows[activeStep]?.image
@@ -237,7 +269,15 @@ export function ScreenFlows({
       {/* Right side - Phone mockup */}
       {/* desktop version */}
       {currentTopic?.flows[activeStep]?.image ? (
-        <div className="lg:block hidden flex-row lg:flex items-center justify-center space-x-4 lg:space-x-6 w-full lg:w-[537px] h-[600px] bg-[#F2F2F2] border border-gray-200 rounded-[14px] p-4 md:p-6">
+        <div
+          className={`lg:block hidden flex-row lg:flex items-center justify-center space-x-4 lg:space-x-6 w-full lg:w-[537px] h-[600px] bg-[#F2F2F2] border border-gray-200 rounded-[14px] p-4 md:p-6  ${
+            i18n.language === "si"
+              ? "lg:h-[680px]"
+              : i18n.language === "ta"
+              ? "lg:h-[770px]"
+              : "lg:h-[600px]"
+          }`}
+        >
           <button
             onClick={() => setActiveStep(activeStep - 1)}
             className={` w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center transition-colors 
