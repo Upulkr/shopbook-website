@@ -71,9 +71,7 @@ export function ScreenFlows({ topics }: ScreenFlowsProps) {
               <button
                 key={topic.id}
                 className={` ${
-                  selectedTopicid === topic.id
-                    ? "border border-[#2563EB]"
-                    : ""
+                  selectedTopicid === topic.id ? "border border-[#2563EB]" : ""
                 } p-3 md:p-4 rounded-xl border transition-all duration-200 text-left w-full lg:w-[448px] h-auto  bg-white ${
                   i18n.language === "si"
                     ? "lg:h-[70px]"
@@ -81,47 +79,54 @@ export function ScreenFlows({ topics }: ScreenFlowsProps) {
                     ? "lg:h-[85px]"
                     : "lg:h-[58px]"
                 }  `}
-                style={{
-                  backgroundColor:
-                    selectedTopicid === topic.id
-                      ? "rgba(37,99,235,0.2)"
-                      : "",
-                }}
               >
-                <div className="flex items-center justify-between ">
-                  <div className="flex items-center space-x-3  relative ">
+                <div className="flex items-center justify-between  space-x-4">
+                  <div className="flex items-center  relative ">
                     <div className="flex items-center justify-center relative lg:-top-1">
                       <Image
                         src={`/images/icons/${topic.id}-icon.png`}
                         alt={`${topic.titleKey} icon`}
                         width={30}
                         height={30}
-                        className="w-[30px] h-[25px]"
+                        className="w-[45px] h-[25px] object-cover justify-center items-center]"
                       />
                     </div>
-                    <div className="w-full relative lg:-top-1 ">
-                      <h3
-                        className={`text-gray-900 text-[12px] min-w-[100px] text-wrap   ${
-                          i18n.language === "si" || i18n.language === "ta"
-                            ? "lg:text-[15px] w-sm px-1 "
-                            : "lg:text-[16px]"
-                        }`}
-                        style={{
-                          fontFamily: "Sora",
-                          fontWeight: 600,
-                          lineHeight: "1.6", // Increased line height for better vertical spacing
-                          letterSpacing: "0%",
-                        }}
-                      >
-                        {t(topic.titleKey)}
-                      </h3>
-                    </div>
                   </div>
+                  <div className="w-full relative text-center justify-center items-center mx-auto">
+                    <h3
+                      className={` text-gray-900 text-[13px] lg:min-w-[100px]  lg:text-[15px] ${
+                        i18n.language === "si" || i18n.language === "ta"
+                          ? " text-left"
+                          : "text-justify relative lg:top-[-5.5px] "
+                      }`}
+                      style={{
+                        fontFamily:
+                          i18n.language === "si"
+                            ? "Noto Sans Sinhala"
+                            : i18n.language === "ta"
+                            ? "Noto Sans Tamil"
+                            : "Sora",
+                        fontWeight: 600,
+                        lineHeight: "1.6",
+                        ...(i18n.language === "en" && {
+                          wordSpacing: "0.05em", // Slight increase
+                          letterSpacing: "0.01em", // Optional
+                        }),
+                      }}
+                    >
+                      {t(topic.titleKey)}
+                    </h3>
+                  </div>
+
                   <div
                     // onClick={() =>
                     //   setOpenViewFormobileView(!openViewFormobileView)
                     // }
-                    className=" relative -top-1 lg:block hidden lg:inline-flex items-center justify-center h-[36px] px-4 rounded-full cursor-pointer bg-[#2563eb]/20 hover:bg-blue-200/60 transition-all duration-200 shadow-sm hover:shadow-md"
+                    className={`relative  lg:block hidden lg:inline-flex items-center justify-center h-[36px] px-4 rounded-full cursor-pointer bg-[#2563eb]/20 hover:bg-blue-200/60 transition-all duration-200 shadow-sm hover:shadow-md${
+                        i18n.language === "si" || i18n.language === "ta"
+                          ? " text-left"
+                          : "text-justify relative top-[-5.5px] "
+                      }`}
                   >
                     <span className="text-[12px]  lg:text-[16px] font-semibold  leading-none relative left-1  ">
                       View
@@ -142,7 +147,7 @@ export function ScreenFlows({ topics }: ScreenFlowsProps) {
                     style={{ backgroundColor: "rgba(37, 99, 235, 0.2)" }} // 20% opacity
                   >
                     <div className="flex items-center justify-center left-[1.5px]  relative w-[62px]">
-                      <span className="text-center text-[12px] leading-none relative ">
+                      <span className="text-center text-[13px] leading-none relative ">
                         View
                       </span>
                       {openViewFormobileView && topic.id === selectedTopicid ? (
