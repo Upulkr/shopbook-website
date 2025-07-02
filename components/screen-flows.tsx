@@ -72,7 +72,7 @@ export function ScreenFlows({ topics }: ScreenFlowsProps) {
                 key={topic.id}
                 className={` ${
                   selectedTopicid === topic.id
-                    ? "border border-[#2563EB] bg-[rgba(37,99,235,0.2)]"
+                    ? "border border-[#2563EB]"
                     : ""
                 } p-3 md:p-4 rounded-xl border transition-all duration-200 text-left w-full lg:w-[448px] h-auto  bg-white ${
                   i18n.language === "si"
@@ -81,6 +81,12 @@ export function ScreenFlows({ topics }: ScreenFlowsProps) {
                     ? "lg:h-[85px]"
                     : "lg:h-[58px]"
                 }  `}
+                style={{
+                  backgroundColor:
+                    selectedTopicid === topic.id
+                      ? "rgba(37,99,235,0.2)"
+                      : "",
+                }}
               >
                 <div className="flex items-center justify-between ">
                   <div className="flex items-center space-x-3  relative ">
