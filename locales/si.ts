@@ -58,7 +58,7 @@ const TRANSLATIONS = {
   },
   comparison: {
     title: "ව්‍යාපාර දහස් ගණනක් Shopbook වලට මාරු වීමට හේතු",
-    manual_process_heading: "අතින් කරන ක්‍රියාවලිය",
+    manual_process_heading: "Manual ක්‍රියාවලිය",
     manual_process_item1: "වැඩි කාලයක් ගත කරමින් invoice සෑදීම",
     manual_process_item2: "අද ගෙවීම් නියමිත අය අමතක වීම",
     manual_process_item3: "ඉන්වොයිසි නැති වීම් සහ අක්‍රමික වාර්තා තබා ගැනීම්",
@@ -74,8 +74,7 @@ const TRANSLATIONS = {
   },
   cta: {
     title: "ආරම්භ කිරීමට සූදානම්ද?",
-    description:
-      "දැන්ම Shopbook බාගත කර ඔබගේ ව්‍යාපාරය සාර්ථක කරගන්න.",
+    description: "දැන්ම Shopbook බාගත කර ඔබගේ ව්‍යාපාරය සාර්ථක කරගන්න.",
   },
   faqSection: {
     main_title: "නිතර අසන ප්‍රශ්න",
