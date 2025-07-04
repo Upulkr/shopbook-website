@@ -36,8 +36,8 @@ export function ScreenFlows({ topics }: ScreenFlowsProps) {
   return (
     <div className="grid lg:grid-cols-2 lg:px-8 overflow-x-hidden  lg:space-y-0 space-y-3 ">
       <div
-        className={`p-4 lg:p-0 lg:w-[537px] lg:h-[502px] bg-[#F6F6F6] min-w-[340px] h-auto  rounded-[14px] border-[1px] realtive ${
-          i18n.language === "ta" && "lg:h-[780px]"
+        className={`p-4 lg:p-0 lg:w-[537px]  bg-[#F6F6F6] min-w-[340px] h-auto  rounded-[14px] border-[1px] realtive ${
+          i18n.language === "ta" ? "lg:h-[780px]":"lg:h-[502px]"
         }`}
       >
         <h2 className="lg:text-[20px] text-sm font-semibold font-family-sora relative mt-5    lg:left-12 ">
@@ -48,25 +48,25 @@ export function ScreenFlows({ topics }: ScreenFlowsProps) {
             // Compose className for the topic container
             const topicContainerClass = [
               selectedTopicid === topic.id ? " border border-[#2563EB]" : "",
-              "cursor-pointer mx-auto flex items-center justify-between bg-[#FFFFFF] lg:w-[448px]  lg:h-[58px]   w-[336px] h-[54px] rounded-[14px] border-[2px] juistify-center",
-              i18n.language === "ta" ? "lg:h-[105px]" : "",
+              "cursor-pointer mx-auto flex items-center justify-between bg-[#FFFFFF] lg:w-[448px]    w-[336px] h-[54px] rounded-[14px] border-[2px] juistify-center",
+              i18n.language === "ta" ? "lg:h-[105px]" : " lg:h-[58px]",
             ].join(" ");
 
             // Compose className for the topic icon
             const topicIconClass = [
-              "lg:w-[35px] lg:height-[35px] w-[30px] h-[20px] object-cover",
-              i18n.language === "ta" ? "lg:w-[40px] lg:h-[30px]" : "",
+              "lg:w-[35px]  w-[30px]  object-cover",
+              i18n.language === "ta" ? "lg:w-[40px] lg:h-[30px] h-[25px]" : "lg:h-[35px] h-[20px]",
               "relative",
             ].join(" ");
 
             // Compose className for the topic title
             const topicTitleClass = [
-              "lg:text-[14px] text-[11px] font-semibold  relative  text-left font-family-sora  text-wrap w-[176px] lg:w-[256px] ",
-              i18n.language === "ta" ? "lg:text-[15px] lg:w-[270px]" : "",
+              "lg:text-[14px] text-[11px] font-semibold  relative  text-left font-family-sora  text-wrap lg:w-[256px] ",
+              i18n.language === "ta" ? "lg:text-[15px] lg:w-[270px] w-[180px]" : " w-[176px]",
               i18n.language === "si"
-                ? "text-[11px]"
+                ? "text-[11.5px]"
                 : i18n.language === "ta"
-                ? "text-[9px]"
+                ? "text-[10px]"
                 : "",
             ].join(" ");
 

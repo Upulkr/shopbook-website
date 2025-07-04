@@ -1,6 +1,6 @@
 import {
   getYouTubeVideoId,
-  handleVideoClickWithSection
+  handleVideoClickWithSection,
 } from "@/lib/youtube-utils";
 import { ChevronLeft, ChevronRight, Play } from "lucide-react";
 import React, { useState } from "react";
@@ -41,7 +41,7 @@ export function VideoTutorials({
     videoIndex: number;
     video: Video;
   } | null>(null);
-const{t}=useTranslation()
+  const { t } = useTranslation();
   const goToPreviousVideo = (sectionIndex: number) => {
     setCurrentVideoIndex((prev) => {
       const newIndex = [...prev];
@@ -82,7 +82,6 @@ const{t}=useTranslation()
         <div key={section.titleKey} className="space-y-4 md:space-y-6">
           <div className="flex items-center justify-between">
             <h2 className="text-md md:text-2xl font-bold text-gray-900 relative lg:left-5">
-         
               {t(section.titleKey)}
             </h2>
             <div
@@ -127,24 +126,48 @@ const{t}=useTranslation()
                 transform: `translateX(-${
                   (currentVideoIndex[sectionIndex] * 100) / videosPerView
                 }%)`,
+                touchAction: "pan-y pinch-zoom",
               }}
               onTouchStart={(e) => {
                 const touch = e.touches[0];
                 e.currentTarget.dataset.startX = touch.clientX.toString();
+                e.currentTarget.dataset.startY = touch.clientY.toString();
+                e.currentTarget.dataset.startTime = Date.now().toString();
               }}
               onTouchEnd={(e) => {
                 const startX = Number.parseFloat(
                   e.currentTarget.dataset.startX || "0"
                 );
+                const startY = Number.parseFloat(
+                  e.currentTarget.dataset.startY || "0"
+                );
+                const startTime = Number.parseFloat(
+                  e.currentTarget.dataset.startTime || "0"
+                );
                 const endX = e.changedTouches[0].clientX;
-                const diff = startX - endX;
+                const endY = e.changedTouches[0].clientY;
+                const endTime = Date.now();
+
+                const deltaX = startX - endX;
+                const deltaY = Math.abs(startY - endY);
+                const deltaTime = endTime - startTime;
                 const threshold = 50;
 
-                if (Math.abs(diff) > threshold) {
-                  if (diff > 0 && !isAtEnd(sectionIndex)) {
+                // Only handle as swipe if:
+                // 1. Horizontal movement is significant
+                // 2. Horizontal movement is much greater than vertical
+                // 3. It was a quick gesture (not a slow drag)
+                // 4. Vertical movement is minimal
+                if (
+                  Math.abs(deltaX) > threshold &&
+                  Math.abs(deltaX) > deltaY * 3 &&
+                  deltaTime < 500 &&
+                  deltaY < 30
+                ) {
+                  if (deltaX > 0 && !isAtEnd(sectionIndex)) {
                     // Swipe left - go to next
                     goToNextVideo(sectionIndex);
-                  } else if (diff < 0 && !isAtStart(sectionIndex)) {
+                  } else if (deltaX < 0 && !isAtStart(sectionIndex)) {
                     // Swipe right - go to previous
                     goToPreviousVideo(sectionIndex);
                   }
@@ -197,8 +220,8 @@ const{t}=useTranslation()
                           {video.duration}
                         </div>
                       </div>
-                      <div className="p-3 md:p-4 space-y-2 h-24">
-                        <h3 className="font-semibold text-gray-900  lg:text-sm leading-tight text-[13px]">
+                      <div className="p-3 md:p-4 space-y-2 h-16 lg:h-24">
+                        <h3 className="font-semibold text-gray-900  lg:text-md  text-[13px] text-left">
                           {t(video.titleKey)}
                         </h3>
                         {/* <p className="text-gray-600 text-xs leading-relaxed">{video.description}</p> */}
