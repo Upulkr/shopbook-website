@@ -27,7 +27,7 @@ export function Footer() {
     {
       src: "/images/social/youtube-icon.png",
       altKey: "footerSection.social_youtube_alt", // Use altKey for translation
-      href: "https://www.youtube.com/@ShopbookApp", // Corrected YouTube link if it was `googleusercontent.com/youtube.com/10`
+      href: "https://www.youtube.com/@shopbooklk", // Corrected YouTube link if it was `googleusercontent.com/youtube.com/10`
     },
   ];
 

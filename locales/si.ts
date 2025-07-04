@@ -143,7 +143,7 @@ const TRANSLATIONS = {
       "තත්පර කිහිපයකින් ඉන්වොයිසියක් සාදා ගන්නේ කෙසේද?",
     how_to_create_invoice_description:
       "තත්පර කිහිපයකින් ඉන්වොයිසියක් සාදා ගන්නේ කෙසේදැයි ඉගෙන ගන්න",
-    login_process: "පිවිසුම් ක්‍රියාවලිය",
+    login_process: "Login ක්‍රියාවලිය",
     how_to_login_title: "Shopbook යෙදුමට පිවිසෙන්නේ කෙසේද",
     how_to_login_description: "Shopbook යෙදුමට පිවිසෙන්නේ කෙසේද",
     how_to_login_existing_user_title:
