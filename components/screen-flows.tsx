@@ -47,8 +47,8 @@ export function ScreenFlows({ topics }: ScreenFlowsProps) {
           {topics.map((topic) => {
             // Compose className for the topic container
             const topicContainerClass = [
-              selectedTopicid === topic.id ? "border border-[#2563EB]" : "",
-              " mx-auto flex items-center justify-between bg-[#FFFFFF] lg:w-[448px]  lg:h-[58px]   w-[336px] h-[54px] rounded-[14px] border-[2px] juistify-center",
+              selectedTopicid === topic.id ? " border border-[#2563EB]" : "",
+              "cursor-pointer mx-auto flex items-center justify-between bg-[#FFFFFF] lg:w-[448px]  lg:h-[58px]   w-[336px] h-[54px] rounded-[14px] border-[2px] juistify-center",
               i18n.language === "ta" ? "lg:h-[105px]" : "",
             ].join(" ");
 
