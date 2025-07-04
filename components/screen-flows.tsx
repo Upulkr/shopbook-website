@@ -40,7 +40,7 @@ export function ScreenFlows({ topics }: ScreenFlowsProps) {
           i18n.language === "ta" && "lg:h-[780px]"
         }`}
       >
-        <h2 className="lg:text-[20px] text-sm font-semibold font-family-sora relative mt-5   left-6 lg:left-12 ">
+        <h2 className="lg:text-[20px] text-sm font-semibold font-family-sora relative mt-5    lg:left-12 ">
           Explore the guide below
         </h2>
         <div className="justify-center mx-auto  grid  relative mt-5 space-y-3">
@@ -48,7 +48,7 @@ export function ScreenFlows({ topics }: ScreenFlowsProps) {
             // Compose className for the topic container
             const topicContainerClass = [
               selectedTopicid === topic.id ? "border border-[#2563EB]" : "",
-              " mx-auto flex items-center justify-between bg-[#FFFFFF] lg:w-[448px]  lg:h-[58px]  min-w-[330px] w-[356px] h-[54px] rounded-[14px] border-[2px] juistify-center",
+              " mx-auto flex items-center justify-between bg-[#FFFFFF] lg:w-[448px]  lg:h-[58px]   w-[336px] h-[54px] rounded-[14px] border-[2px] juistify-center",
               i18n.language === "ta" ? "lg:h-[105px]" : "",
             ].join(" ");
 
@@ -61,7 +61,7 @@ export function ScreenFlows({ topics }: ScreenFlowsProps) {
 
             // Compose className for the topic title
             const topicTitleClass = [
-              "lg:text-[14px] text-[10px] font-semibold  relative  text-left font-family-sora  text-wrap w-[176px] lg:w-[256px]",
+              "lg:text-[14px] text-[11px] font-semibold  relative  text-left font-family-sora  text-wrap w-[176px] lg:w-[256px] ",
               i18n.language === "ta" ? "lg:text-[15px] lg:w-[270px]" : "",
               i18n.language === "si"
                 ? "text-[11px]"
