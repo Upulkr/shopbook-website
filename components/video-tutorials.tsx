@@ -7,6 +7,7 @@ import React, { useState } from "react";
 import VideoModel from "./video-model";
 import { use } from "i18next";
 import { useTranslation } from "react-i18next";
+import i18n from "@/app/i18n";
 
 type Video = {
   id: string;
@@ -220,8 +221,8 @@ export function VideoTutorials({
                           {video.duration}
                         </div>
                       </div>
-                      <div className="p-3 md:p-4 space-y-2 h-16 lg:h-24">
-                        <h3 className="font-semibold text-gray-900  lg:text-md  text-[13px] text-left">
+                      <div className={`p-3 md:p-4 space-y-2 h-16  ${i18n.language==="en"?"lg:h-20":"lg:h-24"}`}>
+                        <h3 className={` font-semibold text-gray-900  lg:text-md  text-[13px] text-left`}>
                           {t(video.titleKey)}
                         </h3>
                         {/* <p className="text-gray-600 text-xs leading-relaxed">{video.description}</p> */}
